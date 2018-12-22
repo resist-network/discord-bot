@@ -144,7 +144,7 @@ return snekfetch.get(searchUrl).then((result) => {
 		// Now that we have our data from Google, we can send it to the channel.
 		googleData = querystring.parse(googleData.replace('/url?', ''));
 		//searchMessage.edit(`Result found!\n${googleData.q}`);
-		searchMessage.edit("`Answer found, see attached.`\nhttps://www.Resist.Network/files/everlast.mp4");
+		searchMessage.edit("`Answer found, see attached.`\nhttps://Resist.Network/files/everlast.mp4");
 		
 // If no results are found, we catch it and return 'No results are found!'
 	}).catch((err) => {
@@ -704,7 +704,7 @@ const commands = {
 			    author: {
 					name: bot_nickname+" - About",
 					icon_url: bot_logo_square,
-					url: "https://www.Resist.Network"
+					url: "https://Resist.Network"
 			    },
 			    //title: bot_nickname,
 			    //url: info_website,
@@ -720,7 +720,7 @@ const commands = {
 			    }
 			  }
 			}); */
-			msg.channel.send(":grey_question: `Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\nCustom Open Source Discord Bot built with [Node] and [Discord.js] for our Minecraft community and server.\n\nFor more information including current and planned features visit the link above.\n\nBig Brother is Watching You!\n\n{ www.Resist.Network | All Rights Reserved }```");
+			msg.channel.send(":grey_question: `Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\nCustom Open Source Discord Bot built with [Node] and [Discord.js] for our Minecraft community and server.\n\nFor more information including current and planned features visit the link above.\n\nBig Brother is Watching You!\n\n{ Resist.Network | All Rights Reserved }```");
 	},'auth-login': (msg) => {
 		let player = msg.content.split(' ')[1];
 		msg.delete(1000);
@@ -731,7 +731,7 @@ const commands = {
 			    author: {
 					name: bot_nickname+" - About",
 					icon_url: bot_logo_square,
-					url: "https://www.Resist.Network"
+					url: "https://Resist.Network"
 			    },
 			    //title: bot_nickname,
 			    //url: info_website,
@@ -758,7 +758,7 @@ const commands = {
 			    author: {
 					name: bot_nickname+" - About",
 					icon_url: bot_logo_square,
-					url: "https://www.Resist.Network"
+					url: "https://Resist.Network"
 			    },
 			    //title: bot_nickname,
 			    //url: info_website,
@@ -785,7 +785,7 @@ const commands = {
 			    author: {
 					name: bot_nickname+" - About",
 					icon_url: bot_logo_square,
-					url: "https://www.Resist.Network"
+					url: "https://Resist.Network"
 			    },
 			    //title: bot_nickname,
 			    //url: info_website,
@@ -845,7 +845,7 @@ const commands = {
 			    author: {
 					name: bot_nickname+" - About",
 					icon_url: bot_logo_square,
-					url: "https://www.Resist.Network"
+					url: "https://Resist.Network"
 			    },
 			    //title: bot_nickname,
 			    //url: info_website,
@@ -881,7 +881,7 @@ const commands = {
 			    author: {
 					name: bot_nickname+" - About",
 					icon_url: bot_logo_square,
-					url: "https://www.Resist.Network"
+					url: "https://Resist.Network"
 			    },
 			    //title: bot_nickname,
 			    //url: info_website,
@@ -908,7 +908,7 @@ const commands = {
 			    author: {
 					name: bot_nickname+" - About",
 					icon_url: bot_logo_square,
-					url: "https://www.Resist.Network"
+					url: "https://Resist.Network"
 			    },
 			    //title: bot_nickname,
 			    //url: info_website,
@@ -924,9 +924,9 @@ const commands = {
 			    }
 			  }
 			}); */
-			msg.channel.send("`Initializing Resist.Network rules database provided by Derakel :P ...`\n\n<:wa:502866072152571924>__**Resist.Network RULES**__ <:wa:324446350211284992>\n\n**Member Rules\n===========================**\n```css\n#1 Respect the Decisions of the Staff. Do not undermine their authority.\n\n#2 We are an English speaking Community mostly. Support cannot be guaranteed, but we will try.\n\n#3 DO NOT disrespect anyone. Racism, Sexism or any other -ism is not tolerated.\n\n#4 DO NOT act in a Childish Behavior, CAUSE DRAMA or TROLL other Members.\n\n#5 DO NOT Spam/Harass Channels with either Text, Microphone or Bots.\n\n#6 DO NOT excessively use capslock. (LOL or ROFL is fine)\n\n#7 DO NOT Advertise other Discords, Servers and/or Communities. Streamers are an exception if they are promoting our Community.\n\n#8 DO NOT bring conversations into the wrong Channels.\n\n#9 Everyone swears... BUT overuse of profanity is very much frowned upon.\n\n#10 Do not speak about illegal activities, substances or anything of the sort.\n\n#11 If you have a Complaint, Question or Issue; please go to https://www.Resist.Network and submit a topic.```\n**Staff Rules\n===========================**\n```css\n#1 Do not change Discord Settings without Administrative Authorization.\n\n#2 Do not assume that you are above anyone or any Rules that Members must follow.\n#3 Just because you 'can' do something, doesn't mean you should.```", {
+			msg.channel.send("`Initializing Resist.Network rules database provided by Derakel :P ...`\n\n<:wa:502866072152571924>__**Resist.Network RULES**__ <:wa:324446350211284992>\n\n**Member Rules\n===========================**\n```css\n#1 Respect the Decisions of the Staff. Do not undermine their authority.\n\n#2 We are an English speaking Community mostly. Support cannot be guaranteed, but we will try.\n\n#3 DO NOT disrespect anyone. Racism, Sexism or any other -ism is not tolerated.\n\n#4 DO NOT act in a Childish Behavior, CAUSE DRAMA or TROLL other Members.\n\n#5 DO NOT Spam/Harass Channels with either Text, Microphone or Bots.\n\n#6 DO NOT excessively use capslock. (LOL or ROFL is fine)\n\n#7 DO NOT Advertise other Discords, Servers and/or Communities. Streamers are an exception if they are promoting our Community.\n\n#8 DO NOT bring conversations into the wrong Channels.\n\n#9 Everyone swears... BUT overuse of profanity is very much frowned upon.\n\n#10 Do not speak about illegal activities, substances or anything of the sort.\n\n#11 If you have a Complaint, Question or Issue; please go to https://Resist.Network and submit a topic.```\n**Staff Rules\n===========================**\n```css\n#1 Do not change Discord Settings without Administrative Authorization.\n\n#2 Do not assume that you are above anyone or any Rules that Members must follow.\n#3 Just because you 'can' do something, doesn't mean you should.```", {
 				files: [
-				"https://www.Resist.Network/images/home_logo.png"
+				"https://Resist.Network/images/home_logo.png"
 			]
 			});
 	},'motd': (msg) => {
@@ -938,7 +938,7 @@ const commands = {
 			    author: {
 					name: bot_nickname+" - About",
 					icon_url: bot_logo_square,
-					url: "https://www.Resist.Network"
+					url: "https://Resist.Network"
 			    },
 			    //title: bot_nickname,
 			    //url: info_website,
@@ -954,9 +954,9 @@ const commands = {
 			    }
 			  }
 			}); */
-			msg.channel.send(":information_source:  `Initializing Resist.Network...` ```prolog\nWelcome to the Resist.Network Minecraft Community! We host our own custom Minecraft modpack and server. Actively developed and in use for over 4 years, we have every mod and plugin you could possibly need/want! \n\nPlease check our chat channels, or visit our website at the link below for the mod list, launcher information,\nconnect information and much much more. Good luck!```\n<:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684>\n\nGet it Now!  [ https://www.Resist.Network/download ]\n\nJoin <#234843566248034305> for regular chat and to meet the community!\n\n<:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684>\n\n**SERVER INFORMATION**```css\nMinecraft (Modded) Version { 1.7.10 }\nServer Address { Resist.Network }\nServer Port { 25565 }\n```\n**OPEN A SUPPORT TICKET** - **!open**\n```ldif\nCreates a private channel and staff will assist you when they are available.\n\nFor immediate help, check the FTB Wiki for general progression, or check out site for various custom tweaks and recipes.```\n**DOWNLOAD GAME** - **!download**\n```ldif\nProvides the downloads for Windows, Linux and OSX players.```", {
+			msg.channel.send(":information_source:  `Initializing Resist.Network...` ```prolog\nWelcome to the Resist.Network Minecraft Community! We host our own custom Minecraft modpack and server. Actively developed and in use for over 4 years, we have every mod and plugin you could possibly need/want! \n\nPlease check our chat channels, or visit our website at the link below for the mod list, launcher information,\nconnect information and much much more. Good luck!```\n<:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684>\n\nGet it Now!  [ https://Resist.Network/download ]\n\nJoin <#234843566248034305> for regular chat and to meet the community!\n\n<:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684>\n\n**SERVER INFORMATION**```css\nMinecraft (Modded) Version { 1.7.10 }\nServer Address { Resist.Network }\nServer Port { 25565 }\n```\n**OPEN A SUPPORT TICKET** - **!open**\n```ldif\nCreates a private channel and staff will assist you when they are available.\n\nFor immediate help, check the FTB Wiki for general progression, or check out site for various custom tweaks and recipes.```\n**DOWNLOAD GAME** - **!download**\n```ldif\nProvides the downloads for Windows, Linux and OSX players.```", {
 				files: [
-				"https://www.Resist.Network/images/home_logo.png"
+				"https://Resist.Network/images/home_logo.png"
 			]
 			});
 	},'status' : (msg) => {
@@ -1067,7 +1067,7 @@ const commands = {
 			files: [
 				"./downloads/WA-Installer.exe",
 				"./downloads/WorldAutomation.jar",
-				"https://www.Resist.Network/images/home_logo.png"
+				"https://Resist.Network/images/home_logo.png"
 			]
 		});
 	},'webpage': (msg) => {
@@ -1318,7 +1318,7 @@ const commands = {
 								  } else {
 									exec("rm /storage/listen.m3u");
 									exec("find /storage/WA-Bot/music | grep .mp3 > /storage/listen.m3u");
-									msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" ` to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://www.Resist.Network/listen.mp3");	
+									msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" ` to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
 									//console.log(response.statusCode, body)
 								  }
 								})
@@ -1420,7 +1420,7 @@ const commands = {
 								  } else {
 									exec("rm /storage/listen.m3u");
 									exec("find /storage/WA-Bot/music | grep .mp3 > /storage/listen.m3u");
-									msg.channel.send(":white_check_mark:  `Added request from in game player "+mentionCommandAuthor+" to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://www.Resist.Network/listen.mp3");	
+									msg.channel.send(":white_check_mark:  `Added request from in game player "+mentionCommandAuthor+" to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
 									//console.log(response.statusCode, body)
 								  }
 								})
