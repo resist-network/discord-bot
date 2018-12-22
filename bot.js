@@ -26,7 +26,7 @@ var cluster = require('cluster');
 var systemOS = os.platform();
 var prettySize = require('prettysize');
 var prettyMs = require('pretty-ms');
-var ffmpeg = require('fluent-ffmpeg');
+var ffmpeg = require('@ffmpeg-installer/ffmpeg');
 	
 bot_prefix = config.bot_prefix;
 bot_passes = config.bot_passes;
@@ -70,7 +70,7 @@ var mm = require('musicmetadata');
 var aliasesFile = "./aliases.yml";
 //Current Date/Time
 var currentdate = new Date(); 
-var logTimestamp = "WorldAutomation.Net | " + currentdate.getDate() + "/"
+var logTimestamp = "Resist.Network | " + currentdate.getDate() + "/"
                 + (currentdate.getMonth()+1)  + "/" 
                 + currentdate.getFullYear() + " @ "  
                 + currentdate.getHours() + ":"  
@@ -100,7 +100,7 @@ async function googleCommand(msg, args) {
 
 // These are our two variables. One of them creates a message while we preform a search,
 // the other generates a URL for our crawler.
-let searchMessage = await msg.reply("<:wa:502866072152571924> `Querying the matrix for answers...`");
+let searchMessage = await msg.reply("`Querying the matrix for answers...`");
 let searchUrl = `https://www.google.com/search?q=${encodeURIComponent(msg.content)}`;
 
 // We will now use snekfetch to crawl Google.com. Snekfetch uses promises so we will
@@ -116,11 +116,11 @@ return snekfetch.get(searchUrl).then((result) => {
 		// Now that we have our data from Google, we can send it to the channel.
 		googleData = querystring.parse(googleData.replace('/url?', ''));
 		//searchMessage.edit(`Result found!\n${googleData.q}`);
-		searchMessage.edit("<:wa:502866072152571924> `Answer found, see attached.`\n "+googleData.q);
+		searchMessage.edit("`Answer found, see attached.`\n "+googleData.q);
 		
 // If no results are found, we catch it and return 'No results are found!'
 	}).catch((err) => {
-		searchMessage.edit("<:wa:502866072152571924> `No results found!`");
+		searchMessage.edit("`No results found!`");
 	});
 }
 //movies
@@ -128,7 +128,7 @@ async function movieCommand(msg, args) {
 
 // These are our two variables. One of them creates a message while we preform a search,
 // the other generates a URL for our crawler.
-let searchMessage = await msg.reply("<:wa:502866072152571924> `Querying the matrix for answers...`");
+let searchMessage = await msg.reply("`Querying the matrix for answers...`");
 let searchUrl = `https://www.google.com/search?q=${encodeURIComponent(msg.content)}`;
 
 // We will now use snekfetch to crawl Google.com. Snekfetch uses promises so we will
@@ -144,11 +144,11 @@ return snekfetch.get(searchUrl).then((result) => {
 		// Now that we have our data from Google, we can send it to the channel.
 		googleData = querystring.parse(googleData.replace('/url?', ''));
 		//searchMessage.edit(`Result found!\n${googleData.q}`);
-		searchMessage.edit("<:wa:502866072152571924> `Answer found, see attached.`\nhttps://www.worldautomation.net/files/everlast.mp4");
+		searchMessage.edit("`Answer found, see attached.`\nhttps://www.Resist.Network/files/everlast.mp4");
 		
 // If no results are found, we catch it and return 'No results are found!'
 	}).catch((err) => {
-		searchMessage.edit("<:wa:502866072152571924> `No results found!`");
+		searchMessage.edit("`No results found!`");
 	});
 }
 //Some Logging Stuff
@@ -396,23 +396,24 @@ function searchPb(query, callback) {
 // radio now playing
 
 function radioNowPlaying(channel){
-	http.get("http://radio.worldautomation.net/status-json.xsl", function(res){
-		var data = '';
+	//http.get("http://radio.Resist.Network/status-json.xsl", function(res){
+	//	var data = '';
+//
+	//	res.on('data', function (chunk){
+	//		data += chunk;
+	//	});
 
-		res.on('data', function (chunk){
-			data += chunk;
-		});
-
-		res.on('end',function(){
-			var obj = JSON.parse(data);
-		client.channels.get(channel).send("<:wa:502866072152571924> :arrow_forward:  `Displaying current track and stream information...`\n```css\nCurrent Track { "+obj.icestats.source.title.replace(/_/g, ' ').replace(/-/g,' ')+" }\nNext Track { Not Yet Implemented }\nPrevious Track { Not Yet Implemented }\nPeak Listeners { "+obj.icestats.source.listener_peak+" }\nCurrent Listeners { "+obj.icestats.source.listeners+" }\nCurrent Bit Rate { "+obj.icestats.source.bitrate+" }```");
-		});
-	});
+	//	res.on('end',function(){
+	//		var obj = JSON.parse(data);
+	//	client.channels.get(channel).send(":arrow_forward:  `Displaying current track and stream information...`\n```css\nCurrent Track { "+obj.icestats.source.title.replace(/_/g, ' ').replace(/-/g,' ')+" }\nNext Track { Not Yet Implemented }\nPrevious Track { Not Yet Implemented }\nPeak Listeners { "+obj.icestats.source.listener_peak+" }\nCurrent Listeners { "+obj.icestats.source.listeners+" }\nCurrent Bit Rate { "+obj.icestats.source.bitrate+" }```");
+	//	});
+	//});
+	return true;
 }
 
 function radioQueue(channel){
 	console.log("Testing radio queue...");
-	http.get("http://radio.worldautomation.net/status-json.xsl", function(res){
+	http.get("http://radio.Resist.Network/status-json.xsl", function(res){
 		var data = '';
 
 		res.on('data', function (chunk){
@@ -430,7 +431,7 @@ function radioQueue(channel){
 				var playList = stdout.replace(/.mp3/g, "").replace(/\/storage\/WA-Bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
 				var finalPlayList = playList.replace(title,"{ "+title.replace(/_/g, '')+" }");
 				//console.log(finalPlayList);
-				client.channels.get(channel).send("<:wa:502866072152571924> :arrow_forward:  `Displaying current radio queue...`\n```css\n"+finalPlayList+"```");
+				client.channels.get(channel).send(":arrow_forward:  `Displaying current radio queue...`\n```css\n"+finalPlayList+"```");
 				return true;
 			}
 			exec("cat /storage/listen.m3u", puts);
@@ -440,7 +441,7 @@ function radioQueue(channel){
 }
 function radioRemove(channel){
 	console.log("Starting radio remove...");
-	http.get("http://radio.worldautomation.net/status-json.xsl", function(res){
+	http.get("http://radio.Resist.Network/status-json.xsl", function(res){
 		var data = '';
 
 		res.on('data', function (chunk){
@@ -455,7 +456,7 @@ function radioRemove(channel){
 			var sys = require('util');
 			var exec = require('child_process').exec;
 			function puts(error, stdout, stderr) { 
-				client.channels.get(channel).send("<:wa:502866072152571924> :wastebasket:  `Removed "+titlePretty+" `from the radio queue`!");
+				client.channels.get(channel).send(":wastebasket:  `Removed "+titlePretty+" `from the radio queue`!");
 				return true;
 			}
 			exec("rm -rf /storage/WA-Bot/assets/public/music/"+title, puts);
@@ -469,7 +470,7 @@ function radioRemove(channel){
 }
 function radioRemoveBackend(channel,player){
 	console.log("Starting radio remove...");
-	http.get("http://radio.worldautomation.net/status-json.xsl", function(res){
+	http.get("http://radio.Resist.Network/status-json.xsl", function(res){
 		var data = '';
 
 		res.on('data', function (chunk){
@@ -484,8 +485,8 @@ function radioRemoveBackend(channel,player){
 			var sys = require('util');
 			var exec = require('child_process').exec;
 			function puts(error, stdout, stderr) { 
-				client.channels.get(channel).send("<:wa:502866072152571924> :wastebasket:  `Player "+player+" removed "+titlePretty+" `from the radio queue`!");
-				//client.channels.get("419425539884056587").send("<:wa:502866072152571924> :wastebasket:  `Player "+player+" removed "+titlePretty+" `from the radio queue`!");
+				client.channels.get(channel).send(":wastebasket:  `Player "+player+" removed "+titlePretty+" `from the radio queue`!");
+				//client.channels.get("419425539884056587").send(":wastebasket:  `Player "+player+" removed "+titlePretty+" `from the radio queue`!");
 				return true;
 			}
 			exec("rm -rf /storage/WA-Bot/assets/public/music/"+title, puts);
@@ -530,7 +531,7 @@ var readyLog = function(msg,d,u,uid) {
 		var gitHash = data.toString().substr(null,8);
 		console.log("Repository Hash: "+gitHash);
 		console.log("---------------------------\n");
-		client.channels.get(discord_channel_id_log).send("<:wa:502866072152571924> `Systems initialized, starting node daemon and bot...`\n```css\nBot Started Successfully!\n\nBot PID { "+process.pid+" }\n\nRepository Version Hash { "+gitHash+" }```");
+		client.channels.get(discord_channel_id_log).send("`Systems initialized, starting node daemon and bot...`\n```css\nBot Started Successfully!\n\nBot PID { "+process.pid+" }\n\nRepository Version Hash { "+gitHash+" }```");
 	});
 };
 
@@ -703,7 +704,7 @@ const commands = {
 			    author: {
 					name: bot_nickname+" - About",
 					icon_url: bot_logo_square,
-					url: "https://www.worldautomation.net"
+					url: "https://www.Resist.Network"
 			    },
 			    //title: bot_nickname,
 			    //url: info_website,
@@ -719,7 +720,7 @@ const commands = {
 			    }
 			  }
 			}); */
-			msg.channel.send("<:wa:502866072152571924> :grey_question: `Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\nCustom Open Source Discord Bot built with [Node] and [Discord.js] for our Minecraft community and server.\n\nFor more information including current and planned features visit the link above.\n\nBig Brother is Watching You!\n\n{ www.worldautomation.net | All Rights Reserved }```");
+			msg.channel.send(":grey_question: `Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\nCustom Open Source Discord Bot built with [Node] and [Discord.js] for our Minecraft community and server.\n\nFor more information including current and planned features visit the link above.\n\nBig Brother is Watching You!\n\n{ www.Resist.Network | All Rights Reserved }```");
 	},'auth-login': (msg) => {
 		let player = msg.content.split(' ')[1];
 		msg.delete(1000);
@@ -730,7 +731,7 @@ const commands = {
 			    author: {
 					name: bot_nickname+" - About",
 					icon_url: bot_logo_square,
-					url: "https://www.worldautomation.net"
+					url: "https://www.Resist.Network"
 			    },
 			    //title: bot_nickname,
 			    //url: info_website,
@@ -757,7 +758,7 @@ const commands = {
 			    author: {
 					name: bot_nickname+" - About",
 					icon_url: bot_logo_square,
-					url: "https://www.worldautomation.net"
+					url: "https://www.Resist.Network"
 			    },
 			    //title: bot_nickname,
 			    //url: info_website,
@@ -784,7 +785,7 @@ const commands = {
 			    author: {
 					name: bot_nickname+" - About",
 					icon_url: bot_logo_square,
-					url: "https://www.worldautomation.net"
+					url: "https://www.Resist.Network"
 			    },
 			    //title: bot_nickname,
 			    //url: info_website,
@@ -800,7 +801,7 @@ const commands = {
 			    }
 			  }
 			}); */
-			msg.channel.send("<:thumbprint:420873257370124290>  `Created a new authentication bit for "+player+" successfully, updating protocols and assigning system access...` ```css\nSystem Username: { username }\nSystem Password: { ********** }\nUser Home: { /home/username }\nSecure Shell Access: { ssh.worldautomation.net }\n\nSystem user provisioned successfully in matrix!\n\nMay the odds ever be in your favor!```");
+			msg.channel.send("<:thumbprint:420873257370124290>  `Created a new authentication bit for "+player+" successfully, updating protocols and assigning system access...` ```css\nSystem Username: { username }\nSystem Password: { ********** }\nUser Home: { /home/username }\nSecure Shell Access: { ssh.Resist.Network }\n\nSystem user provisioned successfully in matrix!\n\nMay the odds ever be in your favor!```");
 	},'clear': (msg) => {
 		msg.delete(1000);
 		var authToken = bot_token;
@@ -833,7 +834,7 @@ const commands = {
 			})
 		}
 		deleteLoop()		
-		msg.channel.send("<:wa:502866072152571924> `Wiping all channel hard drives and cache buffers for channel...`");
+		msg.channel.send("`Wiping all channel hard drives and cache buffers for channel...`");
 	},'announcement': (msg) => {
 		let announcement = msg.content.split(/\s(.+)/)[1];
 		msg.delete(1000);
@@ -844,7 +845,7 @@ const commands = {
 			    author: {
 					name: bot_nickname+" - About",
 					icon_url: bot_logo_square,
-					url: "https://www.worldautomation.net"
+					url: "https://www.Resist.Network"
 			    },
 			    //title: bot_nickname,
 			    //url: info_website,
@@ -880,7 +881,7 @@ const commands = {
 			    author: {
 					name: bot_nickname+" - About",
 					icon_url: bot_logo_square,
-					url: "https://www.worldautomation.net"
+					url: "https://www.Resist.Network"
 			    },
 			    //title: bot_nickname,
 			    //url: info_website,
@@ -907,7 +908,7 @@ const commands = {
 			    author: {
 					name: bot_nickname+" - About",
 					icon_url: bot_logo_square,
-					url: "https://www.worldautomation.net"
+					url: "https://www.Resist.Network"
 			    },
 			    //title: bot_nickname,
 			    //url: info_website,
@@ -923,9 +924,9 @@ const commands = {
 			    }
 			  }
 			}); */
-			msg.channel.send("<:wa:502866072152571924> `Initializing WorldAutomation.Net rules database provided by Derakel :P ...`\n\n<:wa:502866072152571924>__**WORLDAUTOMATION.NET RULES**__ <:wa:324446350211284992>\n\n**Member Rules\n===========================**\n```css\n#1 Respect the Decisions of the Staff. Do not undermine their authority.\n\n#2 We are an English speaking Community mostly. Support cannot be guaranteed, but we will try.\n\n#3 DO NOT disrespect anyone. Racism, Sexism or any other -ism is not tolerated.\n\n#4 DO NOT act in a Childish Behavior, CAUSE DRAMA or TROLL other Members.\n\n#5 DO NOT Spam/Harass Channels with either Text, Microphone or Bots.\n\n#6 DO NOT excessively use capslock. (LOL or ROFL is fine)\n\n#7 DO NOT Advertise other Discords, Servers and/or Communities. Streamers are an exception if they are promoting our Community.\n\n#8 DO NOT bring conversations into the wrong Channels.\n\n#9 Everyone swears... BUT overuse of profanity is very much frowned upon.\n\n#10 Do not speak about illegal activities, substances or anything of the sort.\n\n#11 If you have a Complaint, Question or Issue; please go to https://www.worldautomation.net and submit a topic.```\n**Staff Rules\n===========================**\n```css\n#1 Do not change Discord Settings without Administrative Authorization.\n\n#2 Do not assume that you are above anyone or any Rules that Members must follow.\n#3 Just because you 'can' do something, doesn't mean you should.```", {
+			msg.channel.send("`Initializing Resist.Network rules database provided by Derakel :P ...`\n\n<:wa:502866072152571924>__**Resist.Network RULES**__ <:wa:324446350211284992>\n\n**Member Rules\n===========================**\n```css\n#1 Respect the Decisions of the Staff. Do not undermine their authority.\n\n#2 We are an English speaking Community mostly. Support cannot be guaranteed, but we will try.\n\n#3 DO NOT disrespect anyone. Racism, Sexism or any other -ism is not tolerated.\n\n#4 DO NOT act in a Childish Behavior, CAUSE DRAMA or TROLL other Members.\n\n#5 DO NOT Spam/Harass Channels with either Text, Microphone or Bots.\n\n#6 DO NOT excessively use capslock. (LOL or ROFL is fine)\n\n#7 DO NOT Advertise other Discords, Servers and/or Communities. Streamers are an exception if they are promoting our Community.\n\n#8 DO NOT bring conversations into the wrong Channels.\n\n#9 Everyone swears... BUT overuse of profanity is very much frowned upon.\n\n#10 Do not speak about illegal activities, substances or anything of the sort.\n\n#11 If you have a Complaint, Question or Issue; please go to https://www.Resist.Network and submit a topic.```\n**Staff Rules\n===========================**\n```css\n#1 Do not change Discord Settings without Administrative Authorization.\n\n#2 Do not assume that you are above anyone or any Rules that Members must follow.\n#3 Just because you 'can' do something, doesn't mean you should.```", {
 				files: [
-				"https://www.worldautomation.net/images/home_logo.png"
+				"https://www.Resist.Network/images/home_logo.png"
 			]
 			});
 	},'motd': (msg) => {
@@ -937,7 +938,7 @@ const commands = {
 			    author: {
 					name: bot_nickname+" - About",
 					icon_url: bot_logo_square,
-					url: "https://www.worldautomation.net"
+					url: "https://www.Resist.Network"
 			    },
 			    //title: bot_nickname,
 			    //url: info_website,
@@ -953,9 +954,9 @@ const commands = {
 			    }
 			  }
 			}); */
-			msg.channel.send(":information_source:  `Initializing WorldAutomation.Net...` ```prolog\nWelcome to the WorldAutomation.Net Minecraft Community! We host our own custom Minecraft modpack and server. Actively developed and in use for over 4 years, we have every mod and plugin you could possibly need/want! \n\nPlease check our chat channels, or visit our website at the link below for the mod list, launcher information,\nconnect information and much much more. Good luck!```\n<:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684>\n\nGet it Now!  [ https://www.worldautomation.net/download ]\n\nJoin <#234843566248034305> for regular chat and to meet the community!\n\n<:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684>\n\n**SERVER INFORMATION**```css\nMinecraft (Modded) Version { 1.7.10 }\nServer Address { worldautomation.net }\nServer Port { 25565 }\n```\n**OPEN A SUPPORT TICKET** - **!open**\n```ldif\nCreates a private channel and staff will assist you when they are available.\n\nFor immediate help, check the FTB Wiki for general progression, or check out site for various custom tweaks and recipes.```\n**DOWNLOAD GAME** - **!download**\n```ldif\nProvides the downloads for Windows, Linux and OSX players.```", {
+			msg.channel.send(":information_source:  `Initializing Resist.Network...` ```prolog\nWelcome to the Resist.Network Minecraft Community! We host our own custom Minecraft modpack and server. Actively developed and in use for over 4 years, we have every mod and plugin you could possibly need/want! \n\nPlease check our chat channels, or visit our website at the link below for the mod list, launcher information,\nconnect information and much much more. Good luck!```\n<:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684>\n\nGet it Now!  [ https://www.Resist.Network/download ]\n\nJoin <#234843566248034305> for regular chat and to meet the community!\n\n<:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684> <:sword:411768397869875220> <:steve:411768157083009024> <:sword:411768397869875220> <:dirt:411768156512583684>\n\n**SERVER INFORMATION**```css\nMinecraft (Modded) Version { 1.7.10 }\nServer Address { Resist.Network }\nServer Port { 25565 }\n```\n**OPEN A SUPPORT TICKET** - **!open**\n```ldif\nCreates a private channel and staff will assist you when they are available.\n\nFor immediate help, check the FTB Wiki for general progression, or check out site for various custom tweaks and recipes.```\n**DOWNLOAD GAME** - **!download**\n```ldif\nProvides the downloads for Windows, Linux and OSX players.```", {
 				files: [
-				"https://www.worldautomation.net/images/home_logo.png"
+				"https://www.Resist.Network/images/home_logo.png"
 			]
 			});
 	},'status' : (msg) => {
@@ -964,14 +965,14 @@ const commands = {
 		var totalMem = prettySize(os.totalmem());
 		var milliSecUp = os.uptime() * 1000;
 		var upTime = prettyMs(milliSecUp, {verbose: true});
-		msg.channel.send("<:wa:502866072152571924> `Querying bot node statistics...`\n```Memory Usage: "+freeMem+" Free / "+totalMem+" Total \n\nBot OS/Arch: "+os.type()+" ("+os.arch()+")\n\nBot Node FQDN: "+os.hostname()+"\n\nBot Node Update: "+upTime+"```");
+		msg.channel.send("`Querying bot node statistics...`\n```Memory Usage: "+freeMem+" Free / "+totalMem+" Total \n\nBot OS/Arch: "+os.type()+" ("+os.arch()+")\n\nBot Node FQDN: "+os.hostname()+"\n\nBot Node Update: "+upTime+"```");
 	},'help': (msg) => {
 		if(msg.member.roles.find("name", "Admin") || msg.member.roles.find("name", "GM") || msg.member.roles.find("name", "Mod")) {
-			msg.author.send("<:wa:502866072152571924> `Since you are staff, here are some extras...` ```css\n.MINECRAFT_PLAYER_FIXES\n!unstuck [playerName] { Teleports the player to spawn. }\n!reset [playerName] {Resets players account password. The will get a new pin on join. }\n\n.BOT\n!status { Get Main Computer's (BOT) node statistics. }\n\n```");
+			msg.author.send("`Since you are staff, here are some extras...` ```css\n.MINECRAFT_PLAYER_FIXES\n!unstuck [playerName] { Teleports the player to spawn. }\n!reset [playerName] {Resets players account password. The will get a new pin on join. }\n\n.BOT\n!status { Get Main Computer's (BOT) node statistics. }\n\n```");
 
 		//Rest of your code
 		}
-		msg.channel.send("<:wa:502866072152571924> `Here are my Discord commands...` ```css\n.MINECRAFT\n/register [newPassword] { Register your player name in game, and reserves your website account for that name. }\n/login [yourPassword] { Only needed once per server restart. Verifies your identity. }\n\/changepass [oldPassword] [newPassword] { Changes your in game and website password. }\n\n.MINECRAFT_RADIO \n/add [searchTerm] { Get and grab first result as a new radio track. }\n/skip { Skip to the next track in the queue. }\n/remove { Removes currently playing track from the queue. }\n\n.BOT_PLAYER\n!player [playerName] { Get the information card for a player. }\n!achievements top { Get current top achievement owners server wide. }\n\!achievements [playerName] { Get a players achievement list. }\n!time top { Get top playtimes for the server. }\n!time [playerName] { Get a players time statistics. }\n!tps { Get current WA.Net server TPS. }\n!open { Opens a support ticket with staff. }\n\n.BOT_RADIO \n!radio add [searchTerm] { Get and grab first result as a new radio track. }\n!radio skip { Skip to the next track in the queue. }\n!radio remove { Removes currently playing track from the queue. }\n!radio nowplaying { Shows currently playing live track information. }\n!radio queue { Shows the current live radio queue and lineup. }\n\n.BOT_GOOGLE\n!google [searchTerm] { Search Google and return first result. }\n\n.BOT_YOUTUBE\n!ytdl [searchTerm] { Download, encode and serve up the video off our servers as MP4 for later or mobile. }\n\n.BOT_NETWORK_UTILITY\n!speedtest { Run a network speed test on Main Computer's (BOT) node. }\n!nmap [hostName] { Perform a port scan on host/IP. }\n!ping [hostName] { Ping a host/IP. }\n!nslookup [hostName] { Get domain name server information on a host/IP. }\n!dig [hostName] { Get network dig information from a host/IP. }\n!traceroute [hostName] { Expose the network route of a host/IP. }\n\n.BOT_MISCELLANEOUS\n!about { About this bot. }```");		
+		msg.channel.send("`Here are my Discord commands...` ```css\n.MINECRAFT\n/register [newPassword] { Register your player name in game, and reserves your website account for that name. }\n/login [yourPassword] { Only needed once per server restart. Verifies your identity. }\n\/changepass [oldPassword] [newPassword] { Changes your in game and website password. }\n\n.MINECRAFT_RADIO \n/add [searchTerm] { Get and grab first result as a new radio track. }\n/skip { Skip to the next track in the queue. }\n/remove { Removes currently playing track from the queue. }\n\n.BOT_PLAYER\n!player [playerName] { Get the information card for a player. }\n!achievements top { Get current top achievement owners server wide. }\n\!achievements [playerName] { Get a players achievement list. }\n!time top { Get top playtimes for the server. }\n!time [playerName] { Get a players time statistics. }\n!tps { Get current WA.Net server TPS. }\n!open { Opens a support ticket with staff. }\n\n.BOT_RADIO \n!radio add [searchTerm] { Get and grab first result as a new radio track. }\n!radio skip { Skip to the next track in the queue. }\n!radio remove { Removes currently playing track from the queue. }\n!radio nowplaying { Shows currently playing live track information. }\n!radio queue { Shows the current live radio queue and lineup. }\n\n.BOT_GOOGLE\n!google [searchTerm] { Search Google and return first result. }\n\n.BOT_YOUTUBE\n!ytdl [searchTerm] { Download, encode and serve up the video off our servers as MP4 for later or mobile. }\n\n.BOT_NETWORK_UTILITY\n!speedtest { Run a network speed test on Main Computer's (BOT) node. }\n!nmap [hostName] { Perform a port scan on host/IP. }\n!ping [hostName] { Ping a host/IP. }\n!nslookup [hostName] { Get domain name server information on a host/IP. }\n!dig [hostName] { Get network dig information from a host/IP. }\n!traceroute [hostName] { Expose the network route of a host/IP. }\n\n.BOT_MISCELLANEOUS\n!about { About this bot. }```");		
 		//msg.delete(1000);
 	},'ping': (msg) => {
 		//msg.delete(1000);		
@@ -980,7 +981,7 @@ const commands = {
 		var sys = require('util');
 		var exec = require('child_process').exec;
 		function puts(error, stdout, stderr) { 
-			msg.channel.send("<:wa:502866072152571924> "+mentionCommandAuthor+" `I pinged "+host+" with a few packets, see attached...`\n```ldif\n"+stdout+"```"); 
+			msg.channel.send(""+mentionCommandAuthor+" `I pinged "+host+" with a few packets, see attached...`\n```ldif\n"+stdout+"```"); 
 		}
 		if (systemOS === "win32") {
 			exec("ping -n 5 "+host, puts);
@@ -1034,7 +1035,7 @@ const commands = {
 			function puts(error, stdout, stderr) { 
 				stdout = stdout.replace(/WA.Net#  /g, "");
 				stdout = stdout.replace(/WA.Net# /g, "");
-				stdout = stdout.replace(/-- WorldAutomation.Net   OnTime    LeaderBoard--/g, "");
+				stdout = stdout.replace(/-- Resist.Network   OnTime    LeaderBoard--/g, "");
 				if (user == "top") {
 					msg.channel.send(":stopwatch:  `Querying time statistics for all players...` ```css\n"+stdout+"```");
 				} else {
@@ -1049,7 +1050,7 @@ const commands = {
 		}
 	},'download': (msg) => {
 		//msg.delete(1000);
-		msg.channel.send("<:wa:502866072152571924> `Compiling and preparing recent game download links...` ```css\nWINDOWS OS { WA-Installer.exe }\n\nUNIVERSAL OS { WorldAutomation.jar }\n\n\n\nBest for our game and mod pack. \n\nImproves textures, usability, UI, and overall player experience.\n\n\n\nREQUIREMENTS { Java 8 x64 Required }\n\nAUTHORS { Th3Fanbus, MrJoseph }\n\nSOURCE { github.com/worldautomation/WA-Bot }```**Also Available on the popular Technic Launcher:** **https://www.technicpack.net/modpack/worldautomation**\n\n", {
+		msg.channel.send("`Compiling and preparing recent game download links...` ```css\nWINDOWS OS { WA-Installer.exe }\n\nUNIVERSAL OS { WorldAutomation.jar }\n\n\n\nBest for our game and mod pack. \n\nImproves textures, usability, UI, and overall player experience.\n\n\n\nREQUIREMENTS { Java 8 x64 Required }\n\nAUTHORS { Th3Fanbus, MrJoseph }\n\nSOURCE { github.com/worldautomation/WA-Bot }```**Also Available on the popular Technic Launcher:** **https://www.technicpack.net/modpack/worldautomation**\n\n", {
 /* 			embed: {
 				color: 0xff8000,
 				author: {
@@ -1066,7 +1067,7 @@ const commands = {
 			files: [
 				"./downloads/WA-Installer.exe",
 				"./downloads/WorldAutomation.jar",
-				"https://www.worldautomation.net/images/home_logo.png"
+				"https://www.Resist.Network/images/home_logo.png"
 			]
 		});
 	},'webpage': (msg) => {
@@ -1099,15 +1100,15 @@ const commands = {
 	},'speedtest': (msg) => {
 		//msg.delete(1000);		
 		var mentionCommandAuthor = "<@"+msg.author.id+">";
-		msg.channel.send("<:wa:502866072152571924> `Running speed test from bot host node, please wait...`");
+		msg.channel.send("`Running speed test from bot host node, please wait...`");
 		var sys = require('util');
 		var exec = require('child_process').exec;
 		function puts(error, stdout, stderr) { 
-			msg.channel.send("<:wa:502866072152571924> "+mentionCommandAuthor+" `Speed test result is complete, see attached.`\n```css\n"+stdout+"```"); 
+			msg.channel.send(""+mentionCommandAuthor+" `Speed test result is complete, see attached.`\n```css\n"+stdout+"```"); 
 		}
 		exec("speedtest-cli", puts);
 	},'update': (msg) => {
-		msg.channel.send("<:wa:502866072152571924> `Starting update, please wait...`"); 
+		msg.channel.send("`Starting update, please wait...`"); 
 		//msg.delete(1000);
 		let host = msg.content.split(' ')[1];
 		var sys = require('util');
@@ -1136,7 +1137,7 @@ const commands = {
 		var sys = require('util');
 		var exec = require('child_process').exec;
 		function puts(error, stdout, stderr) { 
-			msg.channel.send("<:wa:502866072152571924> "+mentionCommandAuthor+" `Pinging name server lookup on "+host+"...`\n```css\n"+stdout+"```"); 
+			msg.channel.send(""+mentionCommandAuthor+" `Pinging name server lookup on "+host+"...`\n```css\n"+stdout+"```"); 
 		}
 		exec("nslookup "+host, puts);
  },'dig': (msg) => {
@@ -1146,7 +1147,7 @@ const commands = {
 		var sys = require('util');
 		var exec = require('child_process').exec;
 		function puts(error, stdout, stderr) { 
-			msg.channel.send("<:wa:502866072152571924> "+mentionCommandAuthor+" `Digging network registry information for "+host+"...`\n```css\n"+stdout+"```"); 
+			msg.channel.send(""+mentionCommandAuthor+" `Digging network registry information for "+host+"...`\n```css\n"+stdout+"```"); 
 		}
 		exec("dig "+host, puts);
  },'gitdiff': (msg) => {
@@ -1160,7 +1161,7 @@ const commands = {
 		const warning = client.emojis.find("name", "warning");
 		function puts(error, stdout, stderr) {
 			var output = stdout.replace(/`/g, "");
-			msg.channel.send("<:wa:502866072152571924> `Displaying recent cybernetic differences against revision #"+which+" of my code...` ```css\n"+output+"```");
+			msg.channel.send("`Displaying recent cybernetic differences against revision #"+which+" of my code...` ```css\n"+output+"```");
 		}
 		//exec("git log --graph --abbrev-commit -n 5", puts);
 		if (!which || which == 0) {
@@ -1210,7 +1211,7 @@ const commands = {
 	switch(cmd) {
 		case "skip":
 			exec("pkill -10 ices && pkill -1 ices");
-			msg.channel.send("<:wa:502866072152571924> :fast_forward:  `Skipping to the next radio track!`");		
+			msg.channel.send(":fast_forward:  `Skipping to the next radio track!`");		
 			
 			setTimeout(function () {
 				radioNowPlaying("422898611106480139");
@@ -1235,9 +1236,9 @@ const commands = {
 			exec("rm -rf /storage/WA-Bot/assets/public/music/*.mp3");
 			exec("cp -rf /storage/WA-Bot/assets/public/music-orig/*.mp3 /storage/WA-Bot/assets/public/music/.");
 			exec("mv /storage/listen.m3u.orig /storage/listen.m3u");
- 			msg.channel.send("<:wa:502866072152571924> :wastebasket:  `Wiping radio queue...`");
+ 			msg.channel.send(":wastebasket:  `Wiping radio queue...`");
 			radioQueue("422898611106480139");
- 			msg.channel.send("<:wa:502866072152571924> :white_check_mark:  `Radio queue wipe completed!`");
+ 			msg.channel.send(":white_check_mark:  `Radio queue wipe completed!`");
 			exec("pkill -10 ices && pkill -1 ices");			
 			break;			
 		case "play":
@@ -1245,16 +1246,16 @@ const commands = {
 			const streamOptions = { seek: 0, volume: 1 };
 			var voiceChannel = client.channels.get(discord_channel_id_radio);
 			voiceChannel.join().then(connection => {
-				console.log("Starting WorldAutomation.Net Radio Streamer....");
-				client.channels.get(discord_channel_id_log).send("<:wa:502866072152571924> `Initializing the WorldAutomation.Net Media encoders and Playing Test Track...`");
+				console.log("Starting Resist.Network Radio Streamer....");
+				client.channels.get(discord_channel_id_log).send("`Initializing the Resist.Network Media encoders and Playing Test Track...`");
 				//radioNowPlaying("422898611106480139");
 				//const stream = ytdl('http://listen.radionomy.com/hotmixradio-lounge-128.m3u', { filter : 'audioonly' });
-				//const stream = ffmpeg('https://radio.worldautomation.net/music/Mad_World_-_Gary_Jules.mp3');
+				//const stream = ffmpeg('https://radio.Resist.Network/music/Mad_World_-_Gary_Jules.mp3');
 
 				const dispatcher = connection.playStream("https://ia801905.us.archive.org/6/items/DSOTM/06%20-%20Money.mp3", streamOptions);
 				dispatcher.on("end", end => {
-					console.log("Main WorldAutomation.Net ICECAST Server has quit broadcasting!");
-					msg.channel.send("<:wa:502866072152571924> <:restart:420839450914979841>  `Main Radio feed has quit broadcasting, check the servers!`");
+					console.log("Main Resist.Network ICECAST Server has quit broadcasting!");
+					msg.channel.send("<:restart:420839450914979841>  `Main Radio feed has quit broadcasting, check the servers!`");
 					voiceChannel.leave();
 				});
 			}).catch(err => console.log(err));
@@ -1262,10 +1263,10 @@ const commands = {
 		case "add":
 			let searchRaw = msg.content.replace(msg.content.split(' ')[0], "").replace(msg.content.split(' ')[1],"");
 			if(searchRaw == "" || !searchRaw) {
-				msg.channel.send("<:wa:502866072152571924> :exclamation: `You need to supply a search term with !radio add [searchTerm]...`");	
+				msg.channel.send(":exclamation: `You need to supply a search term with !radio add [searchTerm]...`");	
 				return true;
 			}
-			msg.channel.send("<:wa:502866072152571924> :mag_right: `Searching YouTube for `"+searchRaw.substr(1)+" `...`");	
+			msg.channel.send(":mag_right: `Searching YouTube for `"+searchRaw.substr(1)+" `...`");	
 			console.log(searchRaw);
 			var YouTube = require('youtube-node');
 			var mentionCommandAuthor = "<@"+msg.author.id+">";
@@ -1283,7 +1284,7 @@ const commands = {
 						var videoNamePretty = video.snippet.title;				
 						video.snippet.title = video.snippet.title.replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
 						var videoDownload = video.snippet.title;
-						var playerQueryIntro = "<:wa:502866072152571924> :small_red_triangle_down: `Starting download and encoding for "+videoNamePretty+"...`";
+						var playerQueryIntro = ":small_red_triangle_down: `Starting download and encoding for "+videoNamePretty+"...`";
 						var playerEmbed = {embed: {
 							color: 0x000000,
 							title: videoNamePretty,					
@@ -1309,7 +1310,7 @@ const commands = {
 								//
 								request.post('https://www.googleapis.com/urlshortener/v1/url?key='+api_google_shortener, {
 								  json: {
-									'longUrl': 'https://radio.worldautomation.net/music/'+video.snippet.title+'.mp3'
+									'longUrl': 'https://radio.Resist.Network/music/'+video.snippet.title+'.mp3'
 								  }
 								}, function (error, response, body) {
 								  if(error) {
@@ -1317,7 +1318,7 @@ const commands = {
 								  } else {
 									exec("rm /storage/listen.m3u");
 									exec("find /storage/WA-Bot/music | grep .mp3 > /storage/listen.m3u");
-									msg.channel.send("<:wa:502866072152571924> :white_check_mark:  `Added request from ` "+mentionCommandAuthor+" ` to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to WorldAutomation.Net Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://www.worldautomation.net/listen.mp3");	
+									msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" ` to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://www.Resist.Network/listen.mp3");	
 									//console.log(response.statusCode, body)
 								  }
 								})
@@ -1362,11 +1363,11 @@ const commands = {
 		case "add":
 			let searchRaw = msg.content.replace(msg.content.split(' ')[0], "").replace(msg.content.split(' ')[1],"").replace(msg.content.split(' ')[2],"");
 			if(searchRaw == "" || !searchRaw) {
-				msg.channel.send("<:wa:502866072152571924> :exclamation: `You need to supply a search term with !radio add [searchTerm]...`");	
+				msg.channel.send(":exclamation: `You need to supply a search term with !radio add [searchTerm]...`");	
 				return true;
 			}
-			msg.channel.send("<:wa:502866072152571924> :mag_right: `Player "+msg.content.split(' ')[2]+" sent in game request for`"+searchRaw.substring(2)+" `...`");	
-			//client.channels.get("419425539884056587").send("<:wa:502866072152571924> :mag_right: `Player "+msg.content.split(' ')[2]+" sent in game request for`"+searchRaw.substring(2)+" `...`");	
+			msg.channel.send(":mag_right: `Player "+msg.content.split(' ')[2]+" sent in game request for`"+searchRaw.substring(2)+" `...`");	
+			//client.channels.get("419425539884056587").send(":mag_right: `Player "+msg.content.split(' ')[2]+" sent in game request for`"+searchRaw.substring(2)+" `...`");	
 			var YouTube = require('youtube-node');
 			var mentionCommandAuthor = msg.content.split(' ')[2];
 			var youTube = new YouTube();
@@ -1385,7 +1386,7 @@ const commands = {
 						var videoNamePretty = video.snippet.title;				
 						video.snippet.title = video.snippet.title.replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
 						var videoDownload = video.snippet.title;
-						var playerQueryIntro = "<:wa:502866072152571924> :small_red_triangle_down: `Starting download and encoding for "+videoNamePretty+"...`";
+						var playerQueryIntro = ":small_red_triangle_down: `Starting download and encoding for "+videoNamePretty+"...`";
 						var playerEmbed = {embed: {
 							color: 0x000000,
 							title: videoNamePretty,					
@@ -1411,7 +1412,7 @@ const commands = {
 								//
 								request.post('https://www.googleapis.com/urlshortener/v1/url?key='+api_google_shortener, {
 								  json: {
-									'longUrl': 'https://radio.worldautomation.net/music/'+video.snippet.title+'.mp3'
+									'longUrl': 'https://radio.Resist.Network/music/'+video.snippet.title+'.mp3'
 								  }
 								}, function (error, response, body) {
 								  if(error) {
@@ -1419,7 +1420,7 @@ const commands = {
 								  } else {
 									exec("rm /storage/listen.m3u");
 									exec("find /storage/WA-Bot/music | grep .mp3 > /storage/listen.m3u");
-									msg.channel.send("<:wa:502866072152571924> :white_check_mark:  `Added request from in game player "+mentionCommandAuthor+" to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to WorldAutomation.Net Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://www.worldautomation.net/listen.mp3");	
+									msg.channel.send(":white_check_mark:  `Added request from in game player "+mentionCommandAuthor+" to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://www.Resist.Network/listen.mp3");	
 									//console.log(response.statusCode, body)
 								  }
 								})
@@ -1506,7 +1507,7 @@ const commands = {
 						//
 						request.post('https://www.googleapis.com/urlshortener/v1/url?key='+api_google_shortener, {
 						  json: {
-							'longUrl': 'https://radio.worldautomation.net/youtube/'+video.snippet.title+'.mp4'
+							'longUrl': 'https://radio.Resist.Network/youtube/'+video.snippet.title+'.mp4'
 						  }
 						}, function (error, response, body) {
 						  if(error) {
@@ -1543,7 +1544,7 @@ const commands = {
 		function puts(error, stdout, stderr) {
 			//stdout.substring(0, stdout.indexOf(" ", 2000));
 			//stdout.substring(stdout.indexOf(" ", 2000));
-			msg.channel.send("<:wa:502866072152571924> "+mentionCommandAuthor+" `Displaying port scan of "+host+"...` ```css\n"+stdout+"```");
+			msg.channel.send(""+mentionCommandAuthor+" `Displaying port scan of "+host+"...` ```css\n"+stdout+"```");
 			//msg.channel.send(main_computer+" "+main_minecraft+" `[Main Computer] Bot is displaying recent Discord cybernetics...` ```http\n"+stdout.substring(stdout.indexOf(" ", 2000));
 		}
 		//exec("git log --graph --abbrev-commit -n 5", puts);
@@ -1559,7 +1560,7 @@ const commands = {
 			var output = stdout.replace(/`/g, "");
 			//stdout.substring(0, stdout.indexOf(" ", 2000));
 			//stdout.substring(stdout.indexOf(" ", 2000));
-			msg.channel.send("<:wa:502866072152571924> `Displaying current main terminal session...` ```"+output+"```");
+			msg.channel.send("`Displaying current main terminal session...` ```"+output+"```");
 			//msg.channel.send(main_computer+" "+main_minecraft+" `[Main Computer] Bot is displaying recent Discord cybernetics...` ```"+stdout.substring(stdout.indexOf(" ", 2000));
 		}
 		//exec("git log --graph --abbrev-commit -n 5", puts);
@@ -1568,11 +1569,11 @@ const commands = {
 		//msg.delete(1000);		
 		let host = msg.content.split(' ')[1];
 		var mentionCommandAuthor = "<@"+msg.author.id+">";
-		msg.channel.send("<:wa:502866072152571924> `Tracing "+host+" through origin network... please wait...`");
+		msg.channel.send("`Tracing "+host+" through origin network... please wait...`");
 		var sys = require('util');
 		var exec = require('child_process').exec;
 		function puts(error, stdout, stderr) { 
-			msg.channel.send("<:wa:502866072152571924> "+mentionCommandAuthor+" `Trace route result for "+host+" is complete, see attached.`\n```css\n"+stdout+"```"); 
+			msg.channel.send(""+mentionCommandAuthor+" `Trace route result for "+host+" is complete, see attached.`\n```css\n"+stdout+"```"); 
 		}
      exec("traceroute "+host, puts);
  },'open': (msg) => {
@@ -2207,16 +2208,16 @@ client.on('ready', () => {
 	const streamOptions = { seek: 0, volume: 1 };
 	var voiceChannel = client.channels.get(discord_channel_id_radio);
 	voiceChannel.join().then(connection => {
-		console.log("Starting WorldAutomation.Net Radio Streamer....");
-		client.channels.get(discord_channel_id_log).send("<:wa:502866072152571924> `Initializing the WorldAutomation.Net Media encoders and Playing Test Track...`");
+		console.log("Starting Resist.Network Radio Streamer....");
+		client.channels.get(discord_channel_id_log).send("`Initializing the Resist.Network Media encoders and Playing Test Track...`");
 		//radioNowPlaying("422898611106480139");
 		//const stream = ytdl('http://listen.radionomy.com/hotmixradio-lounge-128.m3u', { filter : 'audioonly' });
-		//const stream = ffmpeg('https://radio.worldautomation.net/music/Mad_World_-_Gary_Jules.mp3');
+		//const stream = ffmpeg('https://radio.Resist.Network/music/Mad_World_-_Gary_Jules.mp3');
 
 		const dispatcher = connection.playStream("https://ia801905.us.archive.org/6/items/DSOTM/06%20-%20Money.mp3", streamOptions);
 		dispatcher.on("end", end => {
-			console.log("Main WorldAutomation.Net ICECAST Server has quit broadcasting!");
-			client.channels.get(discord_channel_id_log).send("<:wa:502866072152571924> <:restart:420839450914979841>  `Main Radio feed has quit broadcasting, check the servers!`");
+			console.log("Main Resist.Network ICECAST Server has quit broadcasting!");
+			client.channels.get(discord_channel_id_log).send("<:restart:420839450914979841>  `Main Radio feed has quit broadcasting, check the servers!`");
 			voiceChannel.leave();
 		});
 	}).catch(err => console.log(err));
@@ -2237,7 +2238,7 @@ client.on('message', msg => {
 });
 
 client.on('guildMemberAdd', member => {
-	client.channels.get("226249731112828928").send("<:wa:502866072152571924> `Detected new player/human named "+member.user+"/"+member.id+"...`");
+	client.channels.get("226249731112828928").send("`Detected new player/human named "+member.user+"/"+member.id+"...`");
 	//discordLog("",'User '+member.user+' / '+member.id+' has joined the server!',member.user,member.id);
 	//console.log(client.server.roles.get("name", "Citizen"));
 });
