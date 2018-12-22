@@ -1255,7 +1255,7 @@ const commands = {
 				const dispatcher = connection.playStream("https://ia801905.us.archive.org/6/items/DSOTM/06%20-%20Money.mp3", streamOptions);
 				dispatcher.on("end", end => {
 					console.log("Main Resist.Network ICECAST Server has quit broadcasting!");
-					msg.channel.send("<:restart:420839450914979841>  `Main Radio feed has quit broadcasting, check the servers!`");
+					msg.channel.send("<:restart:526045216839303168> `Main Radio feed has quit broadcasting, check the servers!`");
 					voiceChannel.leave();
 				});
 			}).catch(err => console.log(err));
@@ -1475,7 +1475,7 @@ const commands = {
 				var videoNamePretty = video.snippet.title;								
 				video.snippet.title = video.snippet.title.replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
 				var videoDownload = video.snippet.title;
-				var playerQueryIntro = "<:ytdl:423017037393166336>  `[Main Computer] YouTube Download @ WA.Net# Starting download for "+videoNamePretty+"...`";
+				var playerQueryIntro = "<:ytdl:526045628304719891> `[Main Computer] YouTube Download @ WA.Net# Starting download for "+videoNamePretty+"...`";
 				//console.log(video.snippet.thumbnails.medium.url);
 				var playerEmbed = {embed: {
 					color: 0x000000,
@@ -2217,7 +2217,7 @@ client.on('ready', () => {
 		const dispatcher = connection.playStream("https://ia801905.us.archive.org/6/items/DSOTM/06%20-%20Money.mp3", streamOptions);
 		dispatcher.on("end", end => {
 			console.log("Main Resist.Network ICECAST Server has quit broadcasting!");
-			client.channels.get(discord_channel_id_log).send("<:restart:420839450914979841>  `Main Radio feed has quit broadcasting, check the servers!`");
+			client.channels.get(discord_channel_id_log).send("<:restart:526045216839303168> `Main Radio feed has quit broadcasting, check the servers!`");
 			voiceChannel.leave();
 		});
 	}).catch(err => console.log(err));
