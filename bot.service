@@ -1,0 +1,23 @@
+[Unit]
+Description=Discord Bot Service
+After=system.slice multi-user.target
+
+[Service]
+User=root
+Group=root
+
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=discord-bot
+
+Environment=NODE_ENV=production
+WorkingDirectory=/storage/bot
+ReadWriteDirectories=/storage/bot
+ExecStartPre=/usr/bin/git stash
+ExecStartPre=/usr/bin/git pull
+ExecStart=/usr/bin/node bot.js --no-daemon --no-silent
+Restart=always
+
+[Install]
+Alias=discord-bot
+WantedBy=multi-user.target
