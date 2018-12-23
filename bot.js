@@ -1062,7 +1062,5 @@ express()
   })).listen(bot_web_port, () => console.log());
 
 // END WEB MODULE
-
-}
   
 
