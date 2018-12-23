@@ -569,32 +569,6 @@ const commands = {
 			  }
 			});
 		}
-	},'about': (msg) => {
-		//msg.delete(1000);
-		if (msg.author.id == bot_admin_id) {
-			var descriptionAbout = "```Custom Open Source Discord Bot built with Discord.js for our custom Minecraft community and server.\n\nFor more information including current and planned features visit the link above.\n\nBig Brother is Watching You!```";
-			msg.channel.send({embed: {
-			    color: 0xff8000,
-			    author: {
-					name: bot_nickname+" - About",
-					icon_url: bot_logo_square,
-					url: url_website
-			    },
-			    title: bot_nickname,
-			    url: info_website,
-			    description: descriptionAbout,
- 				thumbnail: {
-					"url": bot_logo_square,
-					"width": 5,
-					"height": 5
-            }, 
-			    timestamp: new Date(),
-			    footer: {
-					text: info_copyright
-			    }
-			  }
-			}); 
-	    }
 	},'auth-login': (msg) => {
 		let player = msg.content.split(' ')[1];
 		msg.delete(1000);
@@ -1063,4 +1037,3 @@ express()
 
 // END WEB MODULE
   
-
