@@ -145,7 +145,7 @@ return snekfetch.get(searchUrl).then((result) => {
 		// Now that we have our data from Google, we can send it to the channel.
 		googleData = querystring.parse(googleData.replace('/url?', ''));
 		//searchMessage.edit(`Result found!\n${googleData.q}`);
-		searchMessage.edit("`Answer found, see attached.`\n"+url_website"+/files/everlast.mp4");
+		searchMessage.edit("`Answer found, see attached.`\n"+url_website+"/files/everlast.mp4");
 		
 // If no results are found, we catch it and return 'No results are found!'
 	}).catch((err) => {
