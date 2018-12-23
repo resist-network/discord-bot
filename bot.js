@@ -82,14 +82,7 @@ var msgTimestamp = currentdate.getDate() + "/"
                 + currentdate.getHours() + ":"  
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds();
-if (cluster.isMaster) {
-	cluster.fork();
-	cluster.on('exit', function(worker, code, signal) {
-		cluster.fork();
-	});
-}
-if (cluster.isWorker) {
-
+				
 //Need to be a json file so we can keep it after restart... *Cough* fanbus
 let queue = {};
 
