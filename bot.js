@@ -594,6 +594,7 @@ const commands = {
 			    }
 			  }
 			}); 
+	    }
 	},'auth-login': (msg) => {
 		let player = msg.content.split(' ')[1];
 		msg.delete(1000);
