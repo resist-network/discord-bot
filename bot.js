@@ -973,7 +973,7 @@ const commands = {
 };
 
 client.on('ready', () => {
-	readyLog(bot_nickname+" PID #"+process.pid+" is Ready!");
+	readyLog("PID #"+process.pid+" is Ready!");
 	console.log("\n\n\n");
 	console.log(bot_nickname+" is ready for you!");
 	console.log("---------------------------");
