@@ -1,4 +1,4 @@
-<p align="center"><img src="https://resist.network/images/128x128.png"></p>
+<p align="center"><img src="https://github.com/resist-network/extras-pack/blob/master/images/128x128.png?raw=true"></p>
 <h1 align="center">discord-bot</h1>
 <p align="center">Resist.Network Discord Bot</p>
 
