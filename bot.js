@@ -17,9 +17,8 @@ path = require('path'),
 request = require("request"),
 http = require("http");
 //db = require('mongodb'),
-
-
 client = new Client();
+
 var sys = require('util');
 var exec = require('child_process').exec;
 var cluster = require('cluster');
@@ -2258,6 +2257,4 @@ express()
 
 // END WEB MODULE
 
-}
-  
 
