@@ -2230,10 +2230,12 @@ client.on('message', msg => {
 });
 
 client.on('guildMemberAdd', member => {
-	client.channels.get("226249731112828928").send("`Detected new player/human named "+member.user+"/"+member.id+"...`");
+	client.channels.get(discord_channel_id_discord_log).send("`Detected new player/human named "+member.user+"/"+member.id+"/"+member.user.tag+"...`");
 	//member.addRole('Independent');
 	//discordLog("",'User '+member.user+' / '+member.id+' has joined the server!',member.user,member.id);
 	//console.log(client.server.roles.get("name", "Citizen"));
+    var role = member.guild.roles.find('name', 'Independent');
+    member.addRole(role);
 });
 
 client.login(bot_token);
