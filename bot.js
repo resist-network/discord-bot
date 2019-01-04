@@ -2232,7 +2232,7 @@ client.on('message', msg => {
 });
 
 client.on('guildMemberAdd', member => {
-	client.channels.get(discord_channel_id_discord_log).send("`Detected new player/human named "+member.user+"/"+member.id+"/"+member.user.tag+"...`");
+	client.channels.get(discord_channel_id_discord_log).send("`Detected new player/human named "+member.user.tag+", ID#"+member.id+"...`");
 	//member.addRole('Independent');
 	//discordLog("",'User '+member.user+' / '+member.id+' has joined the server!',member.user,member.id);
 	//console.log(client.server.roles.get("name", "Citizen"));
