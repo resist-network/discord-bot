@@ -18,6 +18,7 @@
 	"discord_server_id" : "221905801474867205",
 	"discord_category_id_support" : "519176184886722560",
 	"discord_channel_id_log" : "226249731112828928",
+    "discord_channel_id_discord_log" : "525839564301008897",	
 	"discord_channel_id_welcome" : "221905801474867205",
 	"discord_auto_role_name": "Stranger",
 	"discord_server_support_role_id_one" : "424623754245570570",
