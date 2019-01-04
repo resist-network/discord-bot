@@ -25,6 +25,7 @@
 	"discord_server_support_role_id_two" : "413460388072652810",
 	"discord_bot_name" : "WorldAutomation.Net",
 	"discord_channel_id_radio" : "423894517213691906",
+	"discord_newuser_default_role_name" : "Independent",
 	"mysql_host" : "worldautomation.net",
 	"mysql_user" : "worldauto",
 	"mysql_pass" : "w0rld@ut09999",

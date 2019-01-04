@@ -52,6 +52,7 @@ var discord_channel_id_discord_log = config.discord_channel_id_discord_log;
 var discord_channel_id_welcome = config.discord_channel_id_welcome;
 var discord_channel_id_radio = config.discord_channel_id_radio;
 var discord_auto_role_name = config.discord_auto_role_name;
+var discord_newuser_default_role_name = config.discord_newuser_default_role_name;
 var discord_server_support_role_id_one = config.discord_server_support_role_id_one;
 var discord_server_support_role_id_two = config.discord_server_support_role_id_two;
 var discord_invite_link = config.discord_invite_link;
