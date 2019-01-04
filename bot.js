@@ -48,6 +48,7 @@ var discord_server_invite_link = config.discord_server_invite_link;
 discord_server_id = config.discord_server_id;
 var discord_category_id_support = config.discord_category_id_support;
 var discord_channel_id_log = config.discord_channel_id_log;
+var discord_channel_id_discord_log = config.discord_channel_id_discord_log;
 var discord_channel_id_welcome = config.discord_channel_id_welcome;
 var discord_channel_id_radio = config.discord_channel_id_radio;
 var discord_auto_role_name = config.discord_auto_role_name;
