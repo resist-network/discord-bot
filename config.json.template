@@ -3,7 +3,7 @@
     "bot_passes" : 1,
     "bot_nickname" : "Resist.Network",
         "bot_admin_id" : "196825309692035072",
-        "bot_token" : "",
+        "bot_token" : "DISCORD_TOKEN",
         "bot_web_port" : 5000,
         "bot_web_title" : "Resist.Network",
         "bot_web_favicon" : "",
@@ -31,6 +31,7 @@
         "mysql_database" : "mainSite",
         "info_website" : "Resist.Network",
         "url_website" : "https://Resist.Network",
+	"modlist_link" : "https://resist.network/mod-list",
         "info_copyright" : "©2018 All Rights Reserved",
         "api_youtube_data" : "",
         "discord_newuser_default_role_name" : "Independent"
