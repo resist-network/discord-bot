@@ -978,7 +978,7 @@ const commands = {
 			    }
 			  }
 			}); */
-			msg.channel.send("`Oh right, get it here...`\n"+modlist_link)
+			msg.channel.send("`Oh right, get it here...` "+modlist_link)
 	},'status' : (msg) => {
 		//msg.delete(1000);
 		var freeMem = prettySize(os.freemem());
