@@ -20660,3 +20660,49 @@ Error: Cannot find module 'discord.js'
     at Module.load (internal/modules/cjs/loader.js:598:32)
     at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
     at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+
+
+
+
+
+Resist.Network is ready for you!
+---------------------------
+Bot is Ready!
+---------------------------
+Error: FFMPEG not found
+    at Function.selectFfmpegCommand (/storage/resist-discord-bot/node_modules/prism-media/src/transcoders/ffmpeg/Ffmpeg.js:46:13)
+    at new FfmpegTranscoder (/storage/resist-discord-bot/node_modules/prism-media/src/transcoders/ffmpeg/Ffmpeg.js:7:37)
+    at new MediaTranscoder (/storage/resist-discord-bot/node_modules/prism-media/src/transcoders/MediaTranscoder.js:10:19)
+    at new Prism (/storage/resist-discord-bot/node_modules/prism-media/src/Prism.js:5:23)
+    at new VoiceConnection (/storage/resist-discord-bot/node_modules/discord.js/src/client/voice/VoiceConnection.js:46:18)
+    at Promise (/storage/resist-discord-bot/node_modules/discord.js/src/client/voice/ClientVoiceManager.js:63:22)
+    at new Promise (<anonymous>)
+    at ClientVoiceManager.joinChannel (/storage/resist-discord-bot/node_modules/discord.js/src/client/voice/ClientVoiceManager.js:45:12)
+    at VoiceChannel.join (/storage/resist-discord-bot/node_modules/discord.js/src/structures/VoiceChannel.js:120:30)
+    at Client.client.on (/storage/resist-discord-bot/bot.js:2230:15)
+Repository Hash: 39bedcca
+---------------------------
+
+^C
+
+
+
+
+Resist.Network is ready for you!
+---------------------------
+Bot is Ready!
+---------------------------
+Error: FFMPEG not found
+    at Function.selectFfmpegCommand (/storage/resist-discord-bot/node_modules/prism-media/src/transcoders/ffmpeg/Ffmpeg.js:46:13)
+    at new FfmpegTranscoder (/storage/resist-discord-bot/node_modules/prism-media/src/transcoders/ffmpeg/Ffmpeg.js:7:37)
+    at new MediaTranscoder (/storage/resist-discord-bot/node_modules/prism-media/src/transcoders/MediaTranscoder.js:10:19)
+    at new Prism (/storage/resist-discord-bot/node_modules/prism-media/src/Prism.js:5:23)
+    at new VoiceConnection (/storage/resist-discord-bot/node_modules/discord.js/src/client/voice/VoiceConnection.js:46:18)
+    at Promise (/storage/resist-discord-bot/node_modules/discord.js/src/client/voice/ClientVoiceManager.js:63:22)
+    at new Promise (<anonymous>)
+    at ClientVoiceManager.joinChannel (/storage/resist-discord-bot/node_modules/discord.js/src/client/voice/ClientVoiceManager.js:45:12)
+    at VoiceChannel.join (/storage/resist-discord-bot/node_modules/discord.js/src/structures/VoiceChannel.js:120:30)
+    at Client.client.on (/storage/resist-discord-bot/bot.js:2230:15)
+Repository Hash: 39bedcca
+---------------------------
+
