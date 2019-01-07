@@ -56,6 +56,7 @@ var discord_newuser_default_role_name = config.discord_newuser_default_role_name
 var discord_server_support_role_id_one = config.discord_server_support_role_id_one;
 var discord_server_support_role_id_two = config.discord_server_support_role_id_two;
 var discord_invite_link = config.discord_invite_link;
+var modlist_link = config.modlist_link;
 var mysql_host = config.mysql_host;
 var mysql_user = config.mysql_user;
 var mysql_pass = config.mysql_pass;
@@ -953,6 +954,32 @@ const commands = {
 				"https://resist.network/wp-content/uploads/2019/01/64x64.png"
 			]
 			});
+	},'modlist': (msg) => {
+		//if (msg.author.id == bot_admin_id) {
+/* 			var descriptionAbout = "```Custom Open Source Discord Bot built with Discord.js for our custom Minecraft community and server.\n\nFor more information including current and planned features visit the link above.\n\nBig Brother is Watching You!```";
+			msg.channel.send({embed: {
+			    color: 0xff8000,
+			    author: {
+					name: bot_nickname+" - About",
+					icon_url: bot_logo_square,
+					url: "https://Resist.Network"
+			    },
+			    //title: bot_nickname,
+			    //url: info_website,
+			    description: descriptionAbout,
+ 				thumbnail: {
+					"url": bot_logo_square,
+					"width": 5,
+					"height": 5
+            }, 
+			    timestamp: new Date(),
+			    footer: {
+					text: info_copyright
+			    }
+			  }
+			}); */
+			msg.channel.send("`Oh right, get it here...`\n"+modlist_link
+			});			
 	},'status' : (msg) => {
 		//msg.delete(1000);
 		var freeMem = prettySize(os.freemem());
