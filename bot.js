@@ -1613,7 +1613,7 @@ const commands = {
 		}]).then(channel => { 
 			channel.setParent(discord_category_id_support); 
 			channel.send(":question:  `Created secure support ticket #"+ticketID+", for `"+mentionCommandAuthor+" `...` ```css\nTICKET { #"+ticketID+" }\nPLAYER { "+msg.author.username+" }\n\nPlease type a description of the issue, and someone will assist you shortly.\n\nUse [!close] to close the ticket once you are satisified!```")}).catch(error => console.log(error));
-		msg.channel.send(":question:  `Opened Ticket #"+ticketID+" for "+msg.author.username+", an `<@&"+discord_server_support_role_id_one+">` or `<@&"+discord_server_support_role_id_two+">` will assist you there!`");
+		msg.channel.send(":question:  `Opened Ticket #"+ticketID+" for "+msg.author.username+", an ` <@&"+discord_server_support_role_id_one+"> ` or ` <@&"+discord_server_support_role_id_two+"> ` will assist you there!`");
 		fs.writeFile('ticketID', ticketID, function(err){ if(err) return console.log(err); 
 	});
  },'close': (msg) => {
