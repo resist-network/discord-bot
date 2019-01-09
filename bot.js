@@ -1792,7 +1792,7 @@ const commands = {
 				var now = moment();
 				var formattedNow = now.format('YYYY-MM-DD HH:mm:ss Z');
 				console.log("["+formattedNow+"]["+msg.author.username+"/"+msg.author.id+"] Queried "+player+"...\n");
-				conJoinMC.query("SELECT * FROM `site_users` WHERE user_login = '"+player+"';", function(err,rows) { 
+				conJoinMC.query("SELECT * FROM `site_users`, `accounts` WHERE site_users.user_login = '"+player+"';", function(err,rows) { 
 					if(err) { console.log("MySQL Error: "+err); } 
 					if (!rows[0]) {
 						msg.channel.send({embed: {
@@ -1819,7 +1819,9 @@ const commands = {
 					var xp_exp_lvl = rows[0].exp_lvl;
 					/*
 					var total_votes = rows[0].votes;
-					var bal = rows[0].money;
+					*/
+					var bal = rows[0].credit_balance;
+					/*
 					var uuid = rows[0].player_uuid;
 					var uuidSecure = uuid.substr(uuid.length - 6);
 					var rank = rows[0].parent;
@@ -1881,7 +1883,7 @@ const commands = {
 							"thumbnail": {
 								"url": "https://minotar.net/body/"+mcUser+"/200.png",
 							},
-							description: "`Player Name` "+mcUser+"\n`Rank` PLACEHOLDER\n`Identification Number` 0000-0000-0000-0000\n\n<:health:422012053092564992> `Current Health` NA\n<:xp:422013876847116289> `Current Level` "+xp_exp_lvl+"\n<:xp:422013876847116289> `XP to next Level` "+xp_exp_to_level+"\n<:xp:422013876847116289> `Current XP Level` "+xp_total_exp+"\n<:credit:422009800256258058> `Credit Balance` PLACEHOLDER\n\n`Fleet` N/A\n`Towns` PLACEHOLDER\n\n"+cleanOut,				
+							description: "`Player Name` "+mcUser+"\n`Rank` PLACEHOLDER\n`Identification Number` 0000-0000-0000-0000\n\n<:health:422012053092564992> `Current Health` NA\n<:xp:422013876847116289> `Current Level` "+xp_exp_lvl+"\n<:xp:422013876847116289> `XP to next Level` "+xp_exp_to_level+"\n<:xp:422013876847116289> `Current XP Level` "+xp_total_exp+"\n<:credit:422009800256258058> `Credit Balance` "+bal+"\n\n`Fleet` N/A\n`Towns` PLACEHOLDER\n\n"+cleanOut,				
 							//timestamp: new Date(),
 							//footer: {
 							//	text: info_copyright
