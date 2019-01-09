@@ -1873,7 +1873,7 @@ const commands = {
 					var exec = require('child_process').exec;
 					function puts(error, stdout, stderr) { 
 						var cleanOut = stdout.replace(/Resist.Network#  /g, "`Time Info` ");
-						var playerQueryIntro = "<:thumbprint:420873257370124290>  `Displaying credentials for "+mcUser+"...`";
+						var playerQueryIntro = "<:thumbprint:532687574679158795> `Displaying credentials for "+mcUser+"...`";
 						var playerEmbed = {embed: {
 							color: 0xff8000,
 							author: {
@@ -1883,7 +1883,7 @@ const commands = {
 							"thumbnail": {
 								"url": "https://minotar.net/body/"+mcUser+"/200.png",
 							},
-							description: "`Player Name` "+mcUser+"\n`Rank` PLACEHOLDER\n`Identification Number` 0000-0000-0000-0000\n\n<:health:422012053092564992> `Current Health` NA\n<:xp:422013876847116289> `Current Level` "+xp_exp_lvl+"\n<:xp:422013876847116289> `XP to next Level` "+xp_exp_to_level+"\n<:xp:422013876847116289> `Current XP Level` "+xp_total_exp+"\n<:credit:422009800256258058> `Credit Balance` "+bal+"\n\n`Fleet` N/A\n`Towns` PLACEHOLDER\n\n"+cleanOut,				
+							description: "`Player Name` "+mcUser+"\n`Rank` PLACEHOLDER\n`Identification Number` 0000-0000-0000-0000\n\n<:Heart:532686774108160007> `Current Health` NA\n<:xp:532688543374639115> `Current Level` "+xp_exp_lvl+"\n<:xp:532688543374639115> `XP to next Level` "+xp_exp_to_level+"\n<<:xp:532688543374639115> `Current XP Level` "+xp_total_exp+"\n<:credit:532687325101293579> `Credit Balance` "+bal+"\n\n`Fleet` N/A\n`Towns` PLACEHOLDER\n\n"+cleanOut,				
 							//timestamp: new Date(),
 							//footer: {
 							//	text: info_copyright
