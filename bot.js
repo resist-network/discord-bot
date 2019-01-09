@@ -1873,12 +1873,12 @@ const commands = {
 					var exec = require('child_process').exec;
 					function puts(error, stdout, stderr) { 
 						var cleanOut = stdout.replace(/Resist.Network#  /g, "`Time Info` ");
-						var playerQueryIntro = "<:thumbprint:532687574679158795> `Displaying credentials for "+mcUser+"...`";
+						var playerQueryIntro = "`Displaying credentials for "+mcUser+"...`";
 						var playerEmbed = {embed: {
 							color: 0xff8000,
 							author: {
 								name: "Resist.Network - Identification Card",
-								icon_url: "https://minotar.net/avatar/"+mcUser+"/200.png"
+								icon_url: "https://www.top5reviewed.com/wp-content/uploads/2016/07/Fingerprint-Door-Lock-220x220.png"
 							},
 							"thumbnail": {
 								"url": "https://minotar.net/body/"+mcUser+"/200.png",
