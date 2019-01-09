@@ -1883,7 +1883,7 @@ const commands = {
 							"thumbnail": {
 								"url": "https://minotar.net/body/"+mcUser+"/200.png",
 							},
-							description: "`Player Name` "+mcUser+"\n`Rank` PLACEHOLDER\n`Identification Number` 0000-0000-0000-0000\n\n<:Heart:532686774108160007> `Current Health` NA\n<:xp:532688543374639115> `Current Level` "+xp_exp_lvl+"\n<:xp:532688543374639115> `XP to next Level` "+xp_exp_to_level+"\n<<:xp:532688543374639115> `Current XP Level` "+xp_total_exp+"\n<:credit:532687325101293579> `Credit Balance` "+bal+"\n\n`Fleet` N/A\n`Towns` PLACEHOLDER\n\n"+cleanOut,				
+							description: "`Player Name` "+mcUser+"\n`Rank` PLACEHOLDER\n`Identification Number` 0000-0000-0000-0000\n\n<:Heart:532686774108160007> `Current Health` NA\n<:xp:532688543374639115> `Current Level` "+xp_exp_lvl+"\n<:xp:532688543374639115> `XP to next Level` "+xp_exp_to_level+"\n<:xp:532688543374639115> `Current XP Level` "+xp_total_exp+"\n<:credit:532687325101293579> `Credit Balance` "+bal+"\n\n`Fleet` N/A\n`Towns` PLACEHOLDER\n\n"+cleanOut,				
 							//timestamp: new Date(),
 							//footer: {
 							//	text: info_copyright
