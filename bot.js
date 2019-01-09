@@ -1792,7 +1792,7 @@ const commands = {
 				var now = moment();
 				var formattedNow = now.format('YYYY-MM-DD HH:mm:ss Z');
 				console.log("["+formattedNow+"]["+msg.author.username+"/"+msg.author.id+"] Queried "+player+"...\n");
-				conJoinMC.query("SELECT * FROM `player_experience`,`player_time`,`player_accounts`,`permissions_inheritance` WHERE permissions_inheritance.child = player_accounts.player_uuid AND player_experience.player_name = '"+player+"' AND player_accounts.player_name = '"+player+"' AND player_time.playerName = '"+player+"';", function(err,rows) { 
+				conJoinMC.query("SELECT * FROM `site_users`, WHERE user_login = '"+player+"';", function(err,rows) { 
 					if(err) { console.log("MySQL Error: "+err); } 
 					if (!rows[0]) {
 						msg.channel.send({embed: {
