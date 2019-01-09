@@ -1809,13 +1809,15 @@ const commands = {
 						}});	
 						return true;
 					}
-					var mcUser = rows[0].playerName;
-					var mcWorld = rows[0].world;
+					var mcUser = rows[0].user_login;
+					/*var mcWorld = rows[0].world;
 					var mcStatus = rows[0].mc_online_status;
+					*/
 					var xp_exp = rows[0].exp;
 					var xp_exp_to_level = rows[0].exp_to_level;
 					var xp_total_exp = rows[0].total_exp;
 					var xp_exp_lvl = rows[0].exp_lvl;
+					/*
 					var total_votes = rows[0].votes;
 					var bal = rows[0].money;
 					var uuid = rows[0].player_uuid;
@@ -1828,10 +1830,10 @@ const commands = {
 						} else {
 							return a;
 						}
-					}
+					}*/
 
 					//start towns
-					conJoinMC.query("SELECT * FROM `player_accounts`,`ResidentsToTowns` WHERE player_accounts.player_uuid = ResidentsToTowns.resident AND player_accounts.player_name = '"+mcUser+"';", function(err,rows) { 
+					/*conJoinMC.query("SELECT * FROM `player_accounts`,`ResidentsToTowns` WHERE player_accounts.player_uuid = ResidentsToTowns.resident AND player_accounts.player_name = '"+mcUser+"';", function(err,rows) { 
 					if(err) { console.log("MySQL Error: "+err); } 
 					if (!rows[0]) {
 						msg.channel.send({embed: {
@@ -1847,8 +1849,9 @@ const commands = {
 							}
 						}});	
 						return true;
-					}
+					}*/
 					var towns = "";
+					/*
 					rows.forEach(function(row) {
 						towns = towns + row['town']+" ("+row['rank']+"), ";
 					});
@@ -1861,24 +1864,24 @@ const commands = {
 					
 					var mcHealth = 0;
 					var mcWallet = 0;
-					var playTimePretty = rows[0].playtime;
+					var playTimePretty = rows[0].playtime;*/
 
 					//msg.delete(1000);		
 					var sys = require('util');
 					var exec = require('child_process').exec;
 					function puts(error, stdout, stderr) { 
-						var cleanOut = stdout.replace(/WA.Net#  /g, "`Time Info` ");
+						var cleanOut = stdout.replace(/Resist.Network#  /g, "`Time Info` ");
 						var playerQueryIntro = "<:thumbprint:420873257370124290>  `Displaying credentials for "+mcUser+"...`";
 						var playerEmbed = {embed: {
 							color: 0xff8000,
 							author: {
-								name: "WA.Net - Identification Card",
+								name: "Resist.Network - Identification Card",
 								icon_url: "https://minotar.net/avatar/"+mcUser+"/200.png"
 							},
 							"thumbnail": {
 								"url": "https://minotar.net/body/"+mcUser+"/200.png",
 							},
-							description: "`Player Name` "+mcUser+"\n`Rank` "+rank+"\n`Identification Number` "+uuidSecure+"\n\n<:health:422012053092564992> `Current Health` NA\n<:xp:422013876847116289> `Current Level` "+xp_exp_lvl+"\n<:xp:422013876847116289> `XP to next Level` "+xp_exp_to_level+"\n<:xp:422013876847116289> `Current XP Level` "+xp_total_exp+"\n<:credit:422009800256258058> `Credit Balance` "+bal+"\n\n`Fleet` N/A\n`Towns` "+townsPretty+"\n\n"+cleanOut,				
+							description: "`Player Name` "+mcUser+"\n`Rank` PLACEHOLDER\n`Identification Number` 0000-0000-0000-0000\n\n<:health:422012053092564992> `Current Health` NA\n<:xp:422013876847116289> `Current Level` "+xp_exp_lvl+"\n<:xp:422013876847116289> `XP to next Level` "+xp_exp_to_level+"\n<:xp:422013876847116289> `Current XP Level` "+xp_total_exp+"\n<:credit:422009800256258058> `Credit Balance` PLACEHOLDER\n\n`Fleet` N/A\n`Towns` PLACEHOLDER\n\n"+cleanOut,				
 							//timestamp: new Date(),
 							//footer: {
 							//	text: info_copyright
