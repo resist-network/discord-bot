@@ -20747,3 +20747,30 @@ Repository Hash: 2aa1408f
 ---------------------------
 
 Starting Resist.Network Radio Streamer....
+
+
+
+
+
+Resist.Network is ready for you!
+---------------------------
+Bot is Ready!
+---------------------------
+Repository Hash: 54c6a158
+---------------------------
+
+Starting Resist.Network Radio Streamer....
+[2019-01-09 16:45:40 -05:00][sys__op/196825309692035072] Queried sys__op...
+
+MySQL Error: Error: Cannot enqueue Query after fatal error.
+/storage/resist-discord-bot/bot.js:1797
+                                        if (!rows[0]) {
+                                                 ^
+
+TypeError: Cannot read property '0' of undefined
+    at Query.<anonymous> (/storage/resist-discord-bot/bot.js:1797:15)
+    at Query.<anonymous> (/storage/resist-discord-bot/node_modules/mysql/lib/Connection.js:502:10)
+    at Query._callback (/storage/resist-discord-bot/node_modules/mysql/lib/Connection.js:468:16)
+    at Query.Sequence.end (/storage/resist-discord-bot/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
+    at /storage/resist-discord-bot/node_modules/mysql/lib/protocol/Protocol.js:224:14
+    at process._tickCallback (internal/process/next_tick.js:61:11)

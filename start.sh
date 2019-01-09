@@ -13,7 +13,8 @@ if ! screen -list | grep -q "bot"; then
 	sed "s#DISCORD_TOKEN#$DISCORD#g" /storage/resist-discord-bot/config.json.template > /storage/resist-discord-bot/config.json;
 	sed -i "s/MYSQL_USER/$MYSQL_USER/g" /storage/resist-discord-bot/config.json;
 	sed -i "s/MYSQL_PASSWORD/$MYSQL_PASSWORD/g" /storage/resist-discord-bot/config.json;
-	sed -i "s/MYSQL_HOST/$MYSQL_HOST/g" /storage/resist-discord-bot/config.json;	
+	sed -i "s/MYSQL_HOST/$MYSQL_HOST/g" /storage/resist-discord-bot/config.json;
+	sed -i "s/MYSQL_DATABASE/$MYSQL_DATABASE/g" /storage/resist-discord-bot/config.json;
 	git stash;
 	git pull;
 	#npm update;
