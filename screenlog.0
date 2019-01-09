@@ -20719,3 +20719,18 @@ Repository Hash: f6ca2de6
 ---------------------------
 
 Starting Resist.Network Radio Streamer....
+internal/modules/cjs/loader.js:710
+    throw err;
+    ^
+
+SyntaxError: /storage/resist-discord-bot/config.json: Unexpected token M in JSON at position 1272
+    at JSON.parse (<anonymous>)
+    at Object.Module._extensions..json (internal/modules/cjs/loader.js:707:27)
+    at Module.load (internal/modules/cjs/loader.js:598:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:537:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:529:3)
+    at Module.require (internal/modules/cjs/loader.js:636:17)
+    at require (internal/modules/cjs/helpers.js:20:18)
+    at Object.<anonymous> (/storage/resist-discord-bot/bot.js:6:10)
+    at Module._compile (internal/modules/cjs/loader.js:688:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:699:10)
