@@ -1897,9 +1897,8 @@ const commands = {
 					}					
 					
 					//
-		
+					
 					conJoinMC.end();
-					})
 				})
 			})
 		}
