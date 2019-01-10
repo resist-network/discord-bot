@@ -1824,8 +1824,21 @@ const commands = {
 					
 					var uuid = rows[0].uuid;
 					var uuidSecure = uuid.substr(uuid.length - 6);
+					
+					var rank = "";
+					if(rows[0].primary_group == "default") {
+						var rank = "Citizen";
+					}
+					if(rows[0].primary_group == "independent") {
+						var rank = "Independent";
+					}
+					if(rows[0].primary_group == "technician") {
+						var rank = "Technician";
+					}
+					if(rows[0].primary_group == "operator") {
+						var rank = "Operator";
+					}					
 					/*
-					var rank = rows[0].parent;
 					function getTIMESTAMP(UNIX_timestamp) {
 						var a = new Date(parseInt(UNIX_timestamp));
 						if (UNIX_timestamp == 0) {
@@ -1884,7 +1897,7 @@ const commands = {
 							"thumbnail": {
 								"url": "https://minotar.net/body/"+mcUser+"/200.png",
 							},
-							description: "`Player Name` "+mcUser+"\n`Rank` PLACEHOLDER\n`Identification Number` "+uuidSecure+"\n\n<:Heart:532686774108160007> `Current Health` NA\n<:xp:532688543374639115> `Current Level` "+xp_exp_lvl+"\n<:xp:532688543374639115> `XP to next Level` "+xp_exp_to_level+"\n<:xp:532688543374639115> `Current XP Level` "+xp_total_exp+"\n<:credit:532687325101293579> `Credit Balance` "+bal+"\n\n`Fleet` N/A\n`Towns` PLACEHOLDER\n\n"+cleanOut,				
+							description: "`Player Name` "+mcUser+"\n`Rank` "+rank+"\n`Identification Number` "+uuidSecure+"\n\n<:Heart:532686774108160007> `Current Health` NA\n<:xp:532688543374639115> `Current Level` "+xp_exp_lvl+"\n<:xp:532688543374639115> `XP to next Level` "+xp_exp_to_level+"\n<:xp:532688543374639115> `Current XP Level` "+xp_total_exp+"\n<:credit:532687325101293579> `Credit Balance` "+bal+"\n\n`Fleet` N/A\n`Towns` PLACEHOLDER\n\n"+cleanOut,				
 							//timestamp: new Date(),
 							//footer: {
 							//	text: info_copyright
