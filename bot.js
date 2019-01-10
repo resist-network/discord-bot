@@ -1792,7 +1792,7 @@ const commands = {
 				var now = moment();
 				var formattedNow = now.format('YYYY-MM-DD HH:mm:ss Z');
 				console.log("["+formattedNow+"]["+msg.author.username+"/"+msg.author.id+"] Queried "+player+"...\n");
-				conJoinMC.query("SELECT * FROM `site_users`, `accounts` WHERE site_users.user_login = '"+player+"';", function(err,rows) { 
+				conJoinMC.query("SELECT * FROM `site_users`, `accounts`, `luckperms_players` WHERE site_users.user_login = '"+player+"' AND luckperms_players.username = '"+player+"';", function(err,rows) { 
 					if(err) { console.log("MySQL Error: "+err); } 
 					if (!rows[0]) {
 						msg.channel.send({embed: {
@@ -1821,9 +1821,10 @@ const commands = {
 					var total_votes = rows[0].votes;
 					*/
 					var bal = rows[0].credit_balance;
-					/*
-					var uuid = rows[0].player_uuid;
+					
+					var uuid = rows[0].uuid;
 					var uuidSecure = uuid.substr(uuid.length - 6);
+					/*
 					var rank = rows[0].parent;
 					function getTIMESTAMP(UNIX_timestamp) {
 						var a = new Date(parseInt(UNIX_timestamp));
@@ -1883,7 +1884,7 @@ const commands = {
 							"thumbnail": {
 								"url": "https://minotar.net/body/"+mcUser+"/200.png",
 							},
-							description: "`Player Name` "+mcUser+"\n`Rank` PLACEHOLDER\n`Identification Number` 0000-0000-0000-0000\n\n<:Heart:532686774108160007> `Current Health` NA\n<:xp:532688543374639115> `Current Level` "+xp_exp_lvl+"\n<:xp:532688543374639115> `XP to next Level` "+xp_exp_to_level+"\n<:xp:532688543374639115> `Current XP Level` "+xp_total_exp+"\n<:credit:532687325101293579> `Credit Balance` "+bal+"\n\n`Fleet` N/A\n`Towns` PLACEHOLDER\n\n"+cleanOut,				
+							description: "`Player Name` "+mcUser+"\n`Rank` PLACEHOLDER\n`Identification Number` "+uuidSecure+"\n\n<:Heart:532686774108160007> `Current Health` NA\n<:xp:532688543374639115> `Current Level` "+xp_exp_lvl+"\n<:xp:532688543374639115> `XP to next Level` "+xp_exp_to_level+"\n<:xp:532688543374639115> `Current XP Level` "+xp_total_exp+"\n<:credit:532687325101293579> `Credit Balance` "+bal+"\n\n`Fleet` N/A\n`Towns` PLACEHOLDER\n\n"+cleanOut,				
 							//timestamp: new Date(),
 							//footer: {
 							//	text: info_copyright
