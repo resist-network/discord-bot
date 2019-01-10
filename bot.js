@@ -526,7 +526,7 @@ var readyLog = function(msg,d,u,uid) {
 		var gitHash = data.toString().substr(null,8);
 		console.log("Repository Hash: "+gitHash);
 		console.log("---------------------------\n");
-		client.channels.get(discord_channel_id_log).send("`Systems initialized, starting node daemon and bot...`\n```css\nBot Started Successfully!\n\nBot PID { "+process.pid+" }\n\nRepository Version Hash { "+gitHash+" }```");
+		client.channels.get(discord_channel_id_log).send("`Bot PID { "+process.pid+" }, Repo Hash { "+gitHash+" } started successfully!`");
 	});
 };
 
@@ -1275,7 +1275,7 @@ const commands = {
 				const dispatcher = connection.playStream("https://ia801905.us.archive.org/6/items/DSOTM/06%20-%20Money.mp3", streamOptions);
 				dispatcher.on("end", end => {
 					console.log("Main Resist.Network ICECAST Server has quit broadcasting!");
-					msg.channel.send("<:restart:526045216839303168> `Main Radio feed has quit broadcasting, check the servers!`");
+					//msg.channel.send("<:restart:526045216839303168> `Main Radio feed has quit broadcasting, check the servers!`");
 					voiceChannel.leave();
 				});
 			}).catch(err => console.log(err));
@@ -2241,7 +2241,7 @@ client.on('ready', () => {
 		const dispatcher = connection.playStream("https://ia801905.us.archive.org/6/items/DSOTM/06%20-%20Money.mp3", streamOptions);
 		dispatcher.on("end", end => {
 			console.log("Main Resist.Network ICECAST Server has quit broadcasting!");
-			client.channels.get(discord_channel_id_log).send("<:restart:526045216839303168> `Main Radio feed has quit broadcasting, check the servers!`");
+			client.channels.get(discord_channel_id_log).send("`Main Radio feed has quit broadcasting, check the servers!`");
 			voiceChannel.leave();
 		});
 	}).catch(err => console.log(err));
