@@ -1895,7 +1895,7 @@ const commands = {
 								icon_url: "https://www.top5reviewed.com/wp-content/uploads/2016/07/Fingerprint-Door-Lock-220x220.png"
 							},
 							"thumbnail": {
-								"url": "https://minotar.net/body/"+mcUser+"/200.png",
+								"url": "https://visage.surgeplay.com/full/128/"+uuid,
 							},
 							description: "`Player Name` "+mcUser+"\n`Rank` "+rank+"\n`Identification Number` "+uuidSecure+"\n\n<:Heart:532686774108160007> `Current Health` NA\n<:xp:532688543374639115> `Current Level` "+xp_exp_lvl+"\n<:xp:532688543374639115> `XP to next Level` "+xp_exp_to_level+"\n<:xp:532688543374639115> `Current XP Level` "+xp_total_exp+"\n<:credit:532687325101293579> `Credit Balance` "+bal+"\n\n`Fleet` N/A\n`Towns` PLACEHOLDER\n\n"+cleanOut,				
 							//timestamp: new Date(),
