@@ -20774,3 +20774,17 @@ TypeError: Cannot read property '0' of undefined
     at Query.Sequence.end (/storage/resist-discord-bot/node_modules/mysql/lib/protocol/sequences/Sequence.js:83:24)
     at /storage/resist-discord-bot/node_modules/mysql/lib/protocol/Protocol.js:224:14
     at process._tickCallback (internal/process/next_tick.js:61:11)
+
+
+
+
+
+Resist.Network is ready for you!
+---------------------------
+Bot is Ready!
+---------------------------
+Repository Hash: 8bf2da97
+---------------------------
+
+Starting Resist.Network Radio Streamer....
+speedtest         ^C
