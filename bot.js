@@ -1126,7 +1126,7 @@ const commands = {
 		function puts(error, stdout, stderr) { 
 			msg.channel.send(""+mentionCommandAuthor+" `Speed test result is complete, see attached.`\n```css\n"+stdout+"```"); 
 		}
-		exec("speedtest-cli", puts);
+		exec("/storage/resist-discord-bot/speedtest-cli", puts);
 	},'update': (msg) => {
 		msg.channel.send("`Starting update, please wait...`"); 
 		//msg.delete(1000);
