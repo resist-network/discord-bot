@@ -51,6 +51,7 @@ var discord_channel_id_log = config.discord_channel_id_log;
 var discord_channel_id_discord_log = config.discord_channel_id_discord_log;
 var discord_channel_id_welcome = config.discord_channel_id_welcome;
 var discord_channel_id_radio = config.discord_channel_id_radio;
+var discord_channel_id_botspam = config.discord_channel_id_botspam;
 var discord_auto_role_name = config.discord_auto_role_name;
 var discord_newuser_default_role_name = config.discord_newuser_default_role_name;
 var discord_server_support_role_id_one = config.discord_server_support_role_id_one;
@@ -64,7 +65,7 @@ var mysql_database = config.mysql_database;
 var info_website = config.info_website;
 var info_copyright = config.info_copyright;
 var api_youtube_data = config.api_youtube_data;
-var api_google_shortener = config.api_google_shortener;
+var api_google_shortener = config.api_youtube_data;
 
 var mm = require('musicmetadata');
 
@@ -408,7 +409,7 @@ function radioNowPlaying(channel){
 
 function radioQueue(channel){
 	console.log("Testing radio queue...");
-	http.get("http://radio.Resist.Network/status-json.xsl", function(res){
+	http.get("http://bot.Resist.Network/status-json.xsl", function(res){
 		var data = '';
 
 		res.on('data', function (chunk){
@@ -417,13 +418,13 @@ function radioQueue(channel){
 
 		res.on('end',function(){
 			var obj = JSON.parse(data);
-			var title = obj.icestats.source.title.replace(/\/storage\/WA-Bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
+			var title = obj.icestats.source.title.replace(/\/storage\/resist-discord-bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
 			console.log("Current Track { "+title+" }");
 
 			var sys = require('util');
 			var exec = require('child_process').exec;
 			function puts(error, stdout, stderr) { 
-				var playList = stdout.replace(/.mp3/g, "").replace(/\/storage\/WA-Bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
+				var playList = stdout.replace(/.mp3/g, "").replace(/\/storage\/resist-discord-bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
 				var finalPlayList = playList.replace(title,"{ "+title.replace(/_/g, '')+" }");
 				//console.log(finalPlayList);
 				client.channels.get(channel).send(":arrow_forward:  `Displaying current radio queue...`\n```css\n"+finalPlayList+"```");
@@ -436,7 +437,7 @@ function radioQueue(channel){
 }
 function radioRemove(channel){
 	console.log("Starting radio remove...");
-	http.get("http://radio.Resist.Network/status-json.xsl", function(res){
+	http.get("https://bot.Resist.Network/status-json.xsl", function(res){
 		var data = '';
 
 		res.on('data', function (chunk){
@@ -446,7 +447,7 @@ function radioRemove(channel){
 		res.on('end',function(){
 			var obj = JSON.parse(data);
 			var title = obj.icestats.source.title + ".mp3";
-			var titlePretty = obj.icestats.source.title.replace(/\/storage\/WA-Bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
+			var titlePretty = obj.icestats.source.title.replace(/\/storage\/resist-discord-bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
 
 			var sys = require('util');
 			var exec = require('child_process').exec;
@@ -458,14 +459,14 @@ function radioRemove(channel){
 			exec("pkill -10 ices && pkill -1 ices");
 	
 			setTimeout(function () {
-				radioNowPlaying("422898611106480139");
+				radioNowPlaying(discord_channel_id_botspam);
 			}, 10000);				
 		});
 	});
 }
 function radioRemoveBackend(channel,player){
 	console.log("Starting radio remove...");
-	http.get("http://radio.Resist.Network/status-json.xsl", function(res){
+	http.get("https://bot.Resist.Network/status-json.xsl", function(res){
 		var data = '';
 
 		res.on('data', function (chunk){
@@ -488,7 +489,7 @@ function radioRemoveBackend(channel,player){
 			exec("pkill -10 ices && pkill -1 ices");
 	
 			setTimeout(function () {
-				radioNowPlaying("422898611106480139");
+				radioNowPlaying(discord_channel_id_botspam);
 			}, 10000);				
 		});
 	});
@@ -497,12 +498,12 @@ function radioRemoveBackend(channel,player){
 var timed_out = false,
     timer     = setTimeout(function() {
         timed_out = true;
-		radioNowPlaying("422898611106480139");
+		radioNowPlaying(discord_channel_id_botspam);
     }, (1000*60*3)); // ten minutes passed
 
 
 function A() {
-    radioNowPlaying("226249731112828928", function(result) { // call func with callback
+    radioNowPlaying(discord_channel_id_botspam, function(result) { // call func with callback
         if (result) {
              clearTimeout(timer);
              DONE();
@@ -579,7 +580,7 @@ const commands = {
 			var sys = require('util')
 			var exec = require('child_process').exec;
 			function puts(error, stdout, stderr) { 
-				client.channel("350546430668046336").send({embed: {
+				client.channel(discord_channel_id_log).send({embed: {
 					color: 0xff8000,
 					author: {
 						name: bot_nickname+" - Reload",
@@ -1332,7 +1333,7 @@ const commands = {
 								//
 								request.post('https://www.googleapis.com/urlshortener/v1/url?key='+api_google_shortener, {
 								  json: {
-									'longUrl': 'https://radio.Resist.Network/music/'+video.snippet.title+'.mp3'
+									'longUrl': 'https://bot.Resist.Network/music/'+video.snippet.title+'.mp3'
 								  }
 								}, function (error, response, body) {
 								  if(error) {
@@ -1497,7 +1498,7 @@ const commands = {
 				var videoNamePretty = video.snippet.title;								
 				video.snippet.title = video.snippet.title.replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
 				var videoDownload = video.snippet.title;
-				var playerQueryIntro = "<:ytdl:526045628304719891> `[Main Computer] YouTube Download @ WA.Net# Starting download for "+videoNamePretty+"...`";
+				var playerQueryIntro = "<:ytdl:526045628304719891> `Starting YouTube download for "+videoNamePretty+"...`";
 				//console.log(video.snippet.thumbnails.medium.url);
 				var playerEmbed = {embed: {
 					color: 0x000000,
@@ -1529,13 +1530,13 @@ const commands = {
 						//
 						request.post('https://www.googleapis.com/urlshortener/v1/url?key='+api_google_shortener, {
 						  json: {
-							'longUrl': 'https://radio.Resist.Network/youtube/'+video.snippet.title+'.mp4'
+							'longUrl': 'https://bot.Resist.Network/youtube/'+video.snippet.title+'.mp4'
 						  }
 						}, function (error, response, body) {
 						  if(error) {
 							console.log(error)
 						  } else {
-							msg.channel.send("<:ytdl:423017037393166336> :white_check_mark:  `[Main Computer] YouTube Download @ WA.Net# Added download request from ` "+mentionCommandAuthor+" ` to the server...` ```"+videoNamePretty+"\nDownloaded and encoded into MP4 (Video)...\nAdded to WA.Net Downloads...\nEnjoy!```Watch it in your Browser or Download it Here -> "+body.id);	
+							msg.channel.send("<:ytdl:526045628304719891> :white_check_mark:  `Added YouTube download request from ` "+mentionCommandAuthor+" ` to the server...` ```"+videoNamePretty+"\nDownloaded and encoded into MP4 (Video)...\nAdded to Resist.Network Stream/Downloads...\nEnjoy!```Watch it in your Browser or Download it Here -> "+body.id);	
 							//console.log(response.statusCode, body)
 						  }
 						})
@@ -2034,7 +2035,7 @@ const commands = {
 					var playerEmbed = {embed: {
 						color: 0xff8000,
 						author: {
-							name: "WA.Net - Identification Card",
+							name: "Resist.Network - Identification Card",
 							icon_url: "https://minotar.net/avatar/"+mcUser+"/200.png"
 						},
 						"thumbnail": {

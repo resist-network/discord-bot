@@ -25,6 +25,7 @@
 	"discord_server_support_role_id_two" : "515837737962831883",
 	"discord_bot_name" : "Resist.Network",
 	"discord_channel_id_radio" : "526040729047531541",
+	"discord_channel_id_botspam" : "530807128642813962",
 	"mysql_host" : "MYSQL_HOST",
 	"mysql_user" : "MYSQL_USER",
 	"mysql_pass" : "MYSQL_PASSWORD",
