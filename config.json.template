@@ -33,7 +33,7 @@
 	"url_website" : "https://Resist.Network",
 	"modlist_link" : "https://resist.network/mod-list",
 	"info_copyright" : "©2019 All Rights Reserved",
-	"api_youtube_data" : "",
+	"api_youtube_data" : "YOUTUBE_KEY",
 	"discord_newuser_default_role_name" : "Citizen"
 }
 
