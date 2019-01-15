@@ -65,7 +65,7 @@ var mysql_database = config.mysql_database;
 var info_website = config.info_website;
 var info_copyright = config.info_copyright;
 var api_youtube_data = config.api_youtube_data;
-var api_google_shortener = config.api_youtube_data;
+var api_google_shortener = config.api_google_url;
 
 var mm = require('musicmetadata');
 
