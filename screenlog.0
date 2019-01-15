@@ -20821,3 +20821,27 @@ Repository Hash: c1ef09e2
 ---------------------------
 
 Starting Resist.Network Radio Streamer....
+
+
+
+
+
+Resist.Network is ready for you!
+---------------------------
+Bot is Ready!
+---------------------------
+Repository Hash: ee3d0dcf
+---------------------------
+
+Starting Resist.Network Radio Streamer....
+test 😄
+events.js:167
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: ENOENT: no such file or directory, open '/storage/resist-discord-bot/assets/public/youtube/temp/MATH_Test___Elsa_and_Anna_toddlers_at_School-Who_s_cheating___Pet_hamster.mp4'
+Emitted 'error' event at:
+    at WriteStream.onerror (_stream_readable.js:690:12)
+    at WriteStream.emit (events.js:182:13)
+    at lazyFs.open (internal/fs/streams.js:273:12)
+    at FSReqWrap.oncomplete (fs.js:141:20)
