@@ -1501,19 +1501,6 @@ const commands = {
 				var videoDownload = video.snippet.title;
 				var playerQueryIntro = "<:ytdl:526045628304719891> `Starting YouTube download for "+videoNamePretty+"...`";
 				//console.log(video.snippet.thumbnails.medium.url);
-				var playerEmbed = {embed: {
-					color: 0x000000,
-					title: videoNamePretty,					
-					"thumbnail": {
-						//medium/high/default
-						"url": video.snippet.thumbnails.default.url,
-					},
-					description: "\n https://www.youtube.com/watch?v="+video.id.videoId+"\n```dns\nYou will be notified (mentioned) when this download is complete and in the radio queue!```",
-					//timestamp: new Date(),
-					//footer: {
-					//	text: info_copyright
-					//}
-				}};	
 
 				//download to mp3
 				var videoUrl = "https://www.youtube.com/watch?v="+video.id.videoId;   
@@ -1535,12 +1522,26 @@ const commands = {
 						//  }
 						//}, function (error, response, body) {
 						var resistURL = 'https://bot.Resist.Network/youtube/'+video.snippet.title+'.mp4';
+						var playerEmbed = {embed: {
+							color: 0x000000,
+							title: videoNamePretty,					
+							"thumbnail": {
+								//medium/high/default
+								"url": video.snippet.thumbnails.default.url,
+							},
+							description: "\n "+resistURL+"\n```dns\nStream or download it at anytime from Resist.Network!```",
+							//timestamp: new Date(),
+							//footer: {
+							//	text: info_copyright
+							//}
+						}};	
+
 							//currentEdit
 						  //console.log(""+JSON.stringify(body.error)+"");
 						  //if(error) {
 							console.log(error)
 						  //} else {
-							msg.channel.send("<:ytdl:526045628304719891> `Added YouTube download request from ` "+mentionCommandAuthor+" ` to the server...` `Watch it in your Browser or Download it Here -> "+resistURL);	
+							msg.channel.send("<:ytdl:526045628304719891> `Added YouTube download request from ` "+mentionCommandAuthor+" ` to the server...`,playerEmbed);	
 							//console.log(response.statusCode, body)
 						  //}
 						//})
@@ -1552,7 +1553,7 @@ const commands = {
 					   //move now that it is done...
 					   move(youtubeTempDir + '/' + videoName + '.mp4', youtubeDir + '/' + videoName + '.mp4', completeMessage);
 					});           	   
-					msg.channel.send(playerQueryIntro, playerEmbed);
+					msg.channel.send(playerQueryIntro);
 				});              
 				//end download
 
