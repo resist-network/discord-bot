@@ -2246,7 +2246,7 @@ client.on('ready', () => {
 	console.log("Bot is Ready!");
 	console.log("---------------------------");
 	//A();
-	const streamOptions = { seek: 0, volume: 1 };
+/* 	const streamOptions = { seek: 0, volume: 1 };
 	var voiceChannel = client.channels.get(discord_channel_id_radio);
 	voiceChannel.join().then(connection => {
 		console.log("Starting Resist.Network Radio Streamer....");
@@ -2261,7 +2261,7 @@ client.on('ready', () => {
 			client.channels.get(discord_channel_id_log).send("`Main Radio feed has quit broadcasting, check the servers!`");
 			voiceChannel.leave();
 		});
-	}).catch(err => console.log(err));
+	}).catch(err => console.log(err)); */
 
 
 });
