@@ -1535,7 +1535,7 @@ const commands = {
 						  }
 						}, function (error, response, body) {
 							//currentEdit
-						  console.log(""+body.errors+"");
+						  console.log(""+body.error+"");
 						  if(error) {
 							console.log(error)
 						  } else {
