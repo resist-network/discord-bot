@@ -1541,7 +1541,7 @@ const commands = {
 						  //if(error) {
 							console.log(error)
 						  //} else {
-							msg.channel.send("<:ytdl:526045628304719891> `Added YouTube download request from ` "+mentionCommandAuthor+" ` to the server...`,playerEmbed);	
+							msg.channel.send("<:ytdl:526045628304719891> `Added YouTube download request from ` "+mentionCommandAuthor+" ` to the server...`",playerEmbed);	
 							//console.log(response.statusCode, body)
 						  //}
 						//})
