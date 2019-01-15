@@ -1534,7 +1534,8 @@ const commands = {
 							'longUrl': 'https://bot.Resist.Network/youtube/'+video.snippet.title+'.mp4'
 						  }
 						}, function (error, response, body) {
-						  console.log(response);
+							//currentEdit
+						  console.log(""+body.errors+"");
 						  if(error) {
 							console.log(error)
 						  } else {
