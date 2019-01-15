@@ -1529,11 +1529,11 @@ const commands = {
 								//medium/high/default
 								"url": video.snippet.thumbnails.default.url,
 							},
-							description: "\n "+resistURL+"\n```dns\nStream or download it at anytime from Resist.Network!```",
-							//timestamp: new Date(),
-							//footer: {
-							//	text: info_copyright
-							//}
+							//description: "\n "+resistURL+"\n```dns\nStream or download it at anytime from Resist.Network!```",
+							timestamp: new Date(),
+							footer: {
+								text: info_copyright
+							}
 						}};	
 
 							//currentEdit
@@ -1553,7 +1553,7 @@ const commands = {
 					   //move now that it is done...
 					   move(youtubeTempDir + '/' + videoName + '.mp4', youtubeDir + '/' + videoName + '.mp4', completeMessage);
 					});           	   
-					msg.channel.send(playerQueryIntro);
+					//msg.channel.send(playerQueryIntro);
 				});              
 				//end download
 
