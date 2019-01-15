@@ -1529,20 +1529,21 @@ const commands = {
 
 					function completeMessage() {
 						//
-						request.post('https://www.googleapis.com/urlshortener/v1/resist.network/register?key='+api_google_shortener, {
-						  json: {
-							'longUrl': 'https://bot.Resist.Network/youtube/'+video.snippet.title+'.mp4'
-						  }
-						}, function (error, response, body) {
+						//request.post('https://www.googleapis.com/urlshortener/v1/url?key='+api_google_shortener+'', {
+						//  json: {
+						//	'longUrl': 'https://Resist.Network/register'
+						//  }
+						//}, function (error, response, body) {
+						var resistURL = 'https://bot.Resist.Network/youtube/'+video.snippet.title+'.mp4';
 							//currentEdit
-						  console.log(""+JSON.stringify(body.error)+"");
-						  if(error) {
+						  //console.log(""+JSON.stringify(body.error)+"");
+						  //if(error) {
 							console.log(error)
-						  } else {
-							msg.channel.send("<:ytdl:526045628304719891> `Added YouTube download request from ` "+mentionCommandAuthor+" ` to the server...` ```"+videoNamePretty+"\nDownloaded and encoded into MP4 (Video)...\nAdded to Resist.Network Stream/Downloads...\nEnjoy!```Watch it in your Browser or Download it Here -> "+body.id);	
+						  //} else {
+							msg.channel.send("<:ytdl:526045628304719891> `Added YouTube download request from ` "+mentionCommandAuthor+" ` to the server...` ```"+videoNamePretty+"\nDownloaded and encoded into MP4 (Video)...\nAdded to Resist.Network Stream/Downloads...\nEnjoy!```Watch it in your Browser or Download it Here -> "+resistURL);	
 							//console.log(response.statusCode, body)
-						  }
-						})
+						  //}
+						//})
 						//
 					}
 					stream.on('finish', function() {
