@@ -454,7 +454,7 @@ function radioRemove(channel){
 				client.channels.get(channel).send(":wastebasket:  `Removed "+titlePretty+" `from the radio queue`!");
 				return true;
 			}
-			exec("rm -rf /storage/WA-Bot/assets/public/music/"+title, puts);
+			exec("rm -rf /storage/resist-discord-bot/assets/public/music/"+title, puts);
 			exec("pkill -10 ices && pkill -1 ices");
 	
 			setTimeout(function () {
@@ -484,7 +484,7 @@ function radioRemoveBackend(channel,player){
 				//client.channels.get("419425539884056587").send(":wastebasket:  `Player "+player+" removed "+titlePretty+" `from the radio queue`!");
 				return true;
 			}
-			exec("rm -rf /storage/WA-Bot/assets/public/music/"+title, puts);
+			exec("rm -rf /storage/resist-discord-bot/assets/public/music/"+title, puts);
 			exec("pkill -10 ices && pkill -1 ices");
 	
 			setTimeout(function () {
@@ -610,8 +610,8 @@ const commands = {
 				exec("UnSupported OS !!", puts);
 			} else {
 				var lastChannel = msg.channel.id;
-				exec('echo "'+lastChannel+'" > /storage/WA-Bot/lastChannel');
-				exec("/storage/WA-Bot/reload.sh &");
+				exec('echo "'+lastChannel+'" > /storage/resist-discord-bot/lastChannel');
+				exec("/storage/resist-discord-bot/reload.sh &");
 				//exec("", puts);
 			}	
 		});
@@ -1151,7 +1151,7 @@ const commands = {
 				}
 			});
 		}
-		exec("cd /storage/WA-Bot/; git pull; npm install;", puts);
+		exec("cd /storage/resist-discord-bot/; git pull; npm install;", puts);
  },'nslookup': (msg) => {
 		//msg.delete(1000);
 		var mentionCommandAuthor = "<@"+msg.author.id+">";
@@ -1255,8 +1255,8 @@ const commands = {
 			msg.channel.send('Search String: '+testRaw);
 			break;
 		case "wipe":
-			exec("rm -rf /storage/WA-Bot/assets/public/music/*.mp3");
-			exec("cp -rf /storage/WA-Bot/assets/public/music-orig/*.mp3 /storage/WA-Bot/assets/public/music/.");
+			exec("rm -rf /storage/resist-discord-bot/assets/public/music/*.mp3");
+			exec("cp -rf /storage/resist-discord-bot/assets/public/music-orig/*.mp3 /storage/resist-discord-bot/assets/public/music/.");
 			exec("mv /storage/listen.m3u.orig /storage/listen.m3u");
  			msg.channel.send(":wastebasket:  `Wiping radio queue...`");
 			radioQueue("422898611106480139");
@@ -1318,8 +1318,8 @@ const commands = {
 
 						//download to mp3
 						var videoUrl = "https://www.youtube.com/watch?v="+video.id.videoId;   
-						var tempDir = "/storage/WA-Bot/assets/public/music/temp"; 
-						var musicDir = "/storage/WA-Bot/assets/public/music"; 
+						var tempDir = "/storage/resist-discord-bot/assets/public/music/temp"; 
+						var musicDir = "/storage/resist-discord-bot/assets/public/music"; 
 
 						var videoReadableStream = ytdl(videoUrl, { filter: 'audioonly'});
 
@@ -1339,7 +1339,7 @@ const commands = {
 									console.log(error)
 								  } else {
 									exec("rm /storage/listen.m3u");
-									exec("find /storage/WA-Bot/music | grep .mp3 > /storage/listen.m3u");
+									exec("find /storage/resist-discord-bot/music | grep .mp3 > /storage/listen.m3u");
 									msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" ` to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
 									//console.log(response.statusCode, body)
 								  }
@@ -1420,8 +1420,8 @@ const commands = {
 
 						//download to mp3
 						var videoUrl = "https://www.youtube.com/watch?v="+video.id.videoId;   
-						var tempDir = "/storage/WA-Bot/assets/public/music/temp"; 
-						var musicDir = "/storage/WA-Bot/assets/public/music"; 
+						var tempDir = "/storage/resist-discord-bot/assets/public/music/temp"; 
+						var musicDir = "/storage/resist-discord-bot/assets/public/music"; 
 
 						var videoReadableStream = ytdl(videoUrl, { filter: 'audioonly'});
 
@@ -1441,7 +1441,7 @@ const commands = {
 									console.log(error)
 								  } else {
 									exec("rm /storage/listen.m3u");
-									exec("find /storage/WA-Bot/music | grep .mp3 > /storage/listen.m3u");
+									exec("find /storage/resist-discord-bot/music | grep .mp3 > /storage/listen.m3u");
 									msg.channel.send(":white_check_mark:  `Added request from in game player "+mentionCommandAuthor+" to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
 									//console.log(response.statusCode, body)
 								  }
@@ -1515,8 +1515,8 @@ const commands = {
 
 				//download to mp3
 				var videoUrl = "https://www.youtube.com/watch?v="+video.id.videoId;   
-				var youtubeTempDir = "/storage/WA-Bot/assets/public/youtube/temp"; 
-				var youtubeDir = "/storage/WA-Bot/assets/public/youtube"; 
+				var youtubeTempDir = "/storage/resist-discord-bot/assets/public/youtube/temp"; 
+				var youtubeDir = "/storage/resist-discord-bot/assets/public/youtube"; 
 
 				var videoReadableStream = ytdl(videoUrl);
 
@@ -1586,7 +1586,7 @@ const commands = {
 			//msg.channel.send(main_computer+" "+main_minecraft+" `[Main Computer] Bot is displaying recent Discord cybernetics...` ```"+stdout.substring(stdout.indexOf(" ", 2000));
 		}
 		//exec("git log --graph --abbrev-commit -n 5", puts);
-		exec("tail -n 30 /storage/WA-Bot/screenlog.0 | sed '/^[[:space:]]*$/d;s/[[:space:]]*$//'", puts);
+		exec("tail -n 30 /storage/resist-discord-bot/screenlog.0 | sed '/^[[:space:]]*$/d;s/[[:space:]]*$//'", puts);
  },'traceroute': (msg) => {
 		//msg.delete(1000);		
 		let host = msg.content.split(' ')[1];
