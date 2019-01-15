@@ -1540,7 +1540,7 @@ const commands = {
 						  //if(error) {
 							console.log(error)
 						  //} else {
-							msg.channel.send("<:ytdl:526045628304719891> `Added YouTube download request from ` "+mentionCommandAuthor+" ` to the server...` ```"+videoNamePretty+"\nDownloaded and encoded into MP4 (Video)...\nAdded to Resist.Network Stream/Downloads...\nEnjoy!```Watch it in your Browser or Download it Here -> "+resistURL);	
+							msg.channel.send("<:ytdl:526045628304719891> `Added YouTube download request from ` "+mentionCommandAuthor+" ` to the server...` `Watch it in your Browser or Download it Here -> "+resistURL);	
 							//console.log(response.statusCode, body)
 						  //}
 						//})
