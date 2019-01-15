@@ -23139,3 +23139,49 @@ Bot is Ready!
 Repository Hash: e82d1d84
 ---------------------------
 
+^C
+
+
+
+
+Resist.Network is ready for you!
+---------------------------
+Bot is Ready!
+---------------------------
+Repository Hash: d7bd3fb9
+---------------------------
+
+pink floyd money
+events.js:167
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: ENOENT: no such file or directory, open '/storage/resist-discord-bot/assets/public/youtube/temp/Money-Pink_Floyd_HD__Studio_Version_.mp4'
+Emitted 'error' event at:
+    at WriteStream.onerror (_stream_readable.js:690:12)
+    at WriteStream.emit (events.js:182:13)
+    at lazyFs.open (internal/fs/streams.js:273:12)
+    at FSReqWrap.oncomplete (fs.js:141:20)
+
+
+
+
+
+Resist.Network is ready for you!
+---------------------------
+Bot is Ready!
+---------------------------
+Repository Hash: d7bd3fb9
+---------------------------
+
+pink floyd money
+events.js:167
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: ENOENT: no such file or directory, open '/storage/resist-discord-bot/assets/public/youtube/temp/Money-Pink_Floyd_HD__Studio_Version_.mp4'
+Emitted 'error' event at:
+    at WriteStream.onerror (_stream_readable.js:690:12)
+    at WriteStream.emit (events.js:182:13)
+    at lazyFs.open (internal/fs/streams.js:273:12)
+    at FSReqWrap.oncomplete (fs.js:141:20)
