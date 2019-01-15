@@ -1336,6 +1336,7 @@ const commands = {
 									'longUrl': 'https://bot.Resist.Network/music/'+video.snippet.title+'.mp3'
 								  }
 								}, function (error, response, body) {
+								  console.log(response);
 								  if(error) {
 									console.log(error)
 								  } else {
