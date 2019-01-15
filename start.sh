@@ -16,6 +16,7 @@ if ! screen -list | grep -q "bot"; then
 	sed -i "s/MYSQL_PASSWORD/$MYSQL_PASSWORD/g" /storage/resist-discord-bot/config.json;
 	sed -i "s/MYSQL_HOST/$MYSQL_HOST/g" /storage/resist-discord-bot/config.json;
 	sed -i "s/MYSQL_DATABASE/$MYSQL_DATABASE/g" /storage/resist-discord-bot/config.json;
+	sed -i "s/YOUTUBE_KEY/$YOUTUBE_KEY/g" /storage/resist-discord-bot/config.json;
 	git stash;
 	git pull;
 	#npm update;
