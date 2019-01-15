@@ -5,6 +5,7 @@ MYSQL_DATABASE=$(cat ~/.mysql_database)
 MYSQL_USER=$(cat ~/.mysql_user)
 MYSQL_PASSWORD=$(cat ~/.mysql_password)
 MYSQL_HOST=$(cat ~/.mysql_host)
+YOUTUBE_KEY=$(cat ~/.youtube_key)
 MONGO=$(cat ~/.mongo)
 cd "$(dirname "$0")"
 if ! screen -list | grep -q "bot"; then
