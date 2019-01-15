@@ -25,7 +25,7 @@ var cluster = require('cluster');
 var systemOS = os.platform();
 var prettySize = require('prettysize');
 var prettyMs = require('pretty-ms');
-var ffmpeg = require('@ffmpeg-installer/ffmpeg');
+var ffmpeg = require('fluent-ffmpeg');
 	
 bot_prefix = config.bot_prefix;
 bot_passes = config.bot_passes;
