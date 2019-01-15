@@ -1529,7 +1529,7 @@ const commands = {
 
 					function completeMessage() {
 						//
-						request.post('https://www.googleapis.com/urlshortener/v1/url?key='+api_google_shortener, {
+						request.post('https://www.googleapis.com/urlshortener/v1/resist.network/register?key='+api_google_shortener, {
 						  json: {
 							'longUrl': 'https://bot.Resist.Network/youtube/'+video.snippet.title+'.mp4'
 						  }
