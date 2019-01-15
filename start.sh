@@ -10,6 +10,7 @@ GOOGLE_URL=$(cat ~/.google_url)
 MONGO=$(cat ~/.mongo)
 cd "$(dirname "$0")"
 if ! screen -list | grep -q "bot"; then
+	echo "Bot was not started, starting in background!"
 	cd /storage/resist-discord-bot/
 	rm /storage/resist-discord-bot/config.json
 	sed "s#DISCORD_TOKEN#$DISCORD#g" /storage/resist-discord-bot/config.json.template > /storage/resist-discord-bot/config.json;
@@ -23,4 +24,6 @@ if ! screen -list | grep -q "bot"; then
 	#git pull;
 	#npm update;
         screen -LdmS bot node /storage/resist-discord-bot/bot.js
+else
+	echo "Bot is already started, not starting!"
 fi
