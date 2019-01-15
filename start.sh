@@ -7,6 +7,7 @@ MYSQL_PASSWORD=$(cat ~/.mysql_password)
 MYSQL_HOST=$(cat ~/.mysql_host)
 YOUTUBE_KEY=$(cat ~/.youtube_key)
 MONGO=$(cat ~/.mongo)
+sleep 10
 cd "$(dirname "$0")"
 if ! screen -list | grep -q "bot"; then
 	cd /storage/resist-discord-bot/
