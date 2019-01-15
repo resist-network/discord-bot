@@ -424,7 +424,7 @@ function radioQueue(channel){
 			var sys = require('util');
 			var exec = require('child_process').exec;
 			function puts(error, stdout, stderr) { 
-				var playList = stdout.replace(/.mp3/g, "").replace(/\/storage\/resist-discord-bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
+				var playList = stdout.replace(/.ogg/g, "").replace(/\/storage\/resist-discord-bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
 				var finalPlayList = playList.replace(title,"{ "+title.replace(/_/g, '')+" }");
 				//console.log(finalPlayList);
 				client.channels.get(channel).send(":arrow_forward:  `Displaying current radio queue...`\n```css\n"+finalPlayList+"```");
@@ -446,7 +446,7 @@ function radioRemove(channel){
 
 		res.on('end',function(){
 			var obj = JSON.parse(data);
-			var title = obj.icestats.source.title + ".mp3";
+			var title = obj.icestats.source.title + ".ogg";
 			var titlePretty = obj.icestats.source.title.replace(/\/storage\/resist-discord-bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
 
 			var sys = require('util');
@@ -475,7 +475,7 @@ function radioRemoveBackend(channel,player){
 
 		res.on('end',function(){
 			var obj = JSON.parse(data);
-			var title = obj.icestats.source.title + ".mp3";
+			var title = obj.icestats.source.title + ".ogg";
 			var titlePretty = obj.icestats.source.title.replace(/\/storage\/WA-Bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
 
 			var sys = require('util');
@@ -1256,8 +1256,8 @@ const commands = {
 			msg.channel.send('Search String: '+testRaw);
 			break;
 		case "wipe":
-			exec("rm -rf /storage/resist-discord-bot/assets/public/music/*.mp3");
-			exec("cp -rf /storage/resist-discord-bot/assets/public/music-orig/*.mp3 /storage/resist-discord-bot/assets/public/music/.");
+			exec("rm -rf /storage/resist-discord-bot/assets/public/music/*.ogg");
+			exec("cp -rf /storage/resist-discord-bot/assets/public/music-orig/*.ogg /storage/resist-discord-bot/assets/public/music/.");
 			exec("mv /storage/listen.m3u.orig /storage/listen.m3u");
  			msg.channel.send(":wastebasket:  `Wiping radio queue...`");
 			radioQueue("422898611106480139");
@@ -1275,7 +1275,7 @@ const commands = {
 				//const stream = ytdl('http://listen.radionomy.com/hotmixradio-lounge-128.m3u', { filter : 'audioonly' });
 				//const stream = ffmpeg('https://radio.Resist.Network/music/Mad_World_-_Gary_Jules.mp3');
 
-				const dispatcher = connection.playStream("https://ia801905.us.archive.org/6/items/DSOTM/06%20-%20Money.mp3", streamOptions);
+				const dispatcher = connection.playStream("http://bot.resist.network:8000/listen.mp3", streamOptions);
 				dispatcher.on("end", end => {
 					console.log("Main Resist.Network ICECAST Server has quit broadcasting!");
 					//msg.channel.send("<:restart:526045216839303168> `Main Radio feed has quit broadcasting, check the servers!`");
@@ -1358,7 +1358,7 @@ const commands = {
 								   //res.writeHead(204);
 								   //res.end();
 								   //move now that it is done...
-									ffmpeg(tempFile).audioCodec('libmp3lame').save(mp3Path).on('end', function() {
+									ffmpeg(tempFile).audioCodec('libvorbis').save(mp3Path).on('end', function() {
 										fs.unlinkSync(tempFile);
 										completeMessage();
 										//console.log('Done');
