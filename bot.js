@@ -1529,7 +1529,7 @@ const commands = {
 								//medium/high/default
 								"url": video.snippet.thumbnails.default.url,
 							},
-							//description: "\n "+resistURL+"\n```dns\nStream or download it at anytime from Resist.Network!```",
+							description: "\n "+resistURL+"\n```dns\nStream or download!```",
 							timestamp: new Date(),
 							footer: {
 								text: info_copyright
