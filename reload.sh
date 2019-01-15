@@ -4,8 +4,8 @@ killall ices;
 /storage/ices-start.sh;
 git stash;
 git pull;
-cd /storage/WA-Bot;
-screen -S WA-Bot -X quit;
-screen -S WA-Bot-Music -X quit;
+cd /storage/resist-discord-bot;
+screen -S bot -X quit;
+screen -S bot-music -X quit;
 pkill -9 node
-/storage/WA-Bot/WA-Bot.sh;
+/storage/resist-discord-bot/start.sh;
