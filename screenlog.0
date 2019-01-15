@@ -20845,3 +20845,15 @@ Emitted 'error' event at:
     at WriteStream.emit (events.js:182:13)
     at lazyFs.open (internal/fs/streams.js:273:12)
     at FSReqWrap.oncomplete (fs.js:141:20)
+
+
+
+
+
+Resist.Network is ready for you!
+---------------------------
+Bot is Ready!
+---------------------------
+Repository Hash: 4a638253
+---------------------------
+
