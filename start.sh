@@ -6,8 +6,8 @@ MYSQL_USER=$(cat ~/.mysql_user)
 MYSQL_PASSWORD=$(cat ~/.mysql_password)
 MYSQL_HOST=$(cat ~/.mysql_host)
 YOUTUBE_KEY=$(cat ~/.youtube_key)
+GOOGLE_URL=$(cat ~/.google_url)
 MONGO=$(cat ~/.mongo)
-sleep 10
 cd "$(dirname "$0")"
 if ! screen -list | grep -q "bot"; then
 	cd /storage/resist-discord-bot/
@@ -18,6 +18,7 @@ if ! screen -list | grep -q "bot"; then
 	sed -i "s/MYSQL_HOST/$MYSQL_HOST/g" /storage/resist-discord-bot/config.json;
 	sed -i "s/MYSQL_DATABASE/$MYSQL_DATABASE/g" /storage/resist-discord-bot/config.json;
 	sed -i "s/YOUTUBE_KEY/$YOUTUBE_KEY/g" /storage/resist-discord-bot/config.json;
+	sed -i "s/GOOGLE_URL/$GOOGLE_URL/g" /storage/resist-discord-bot/config.json;
 	#git stash;
 	#git pull;
 	#npm update;
