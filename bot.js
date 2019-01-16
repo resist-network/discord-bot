@@ -1100,7 +1100,7 @@ const commands = {
 		var sys = require('util');
 		var exec = require('child_process').exec;
 		function puts(error, stdout, stderr) {
-			msg.channel.send("`{embed: {
+			msg.channel.send({embed: {
 				color: 0xff8000,
 				author: {
 					name: bot_nickname+" - Self Update",
@@ -1113,7 +1113,7 @@ const commands = {
 			      text: info_copyright
 			    }
 				}
-			}`");
+			});
 		}
 		exec("cd /storage/resist-discord-bot/; git pull; npm install;", puts);
  },'nslookup': (msg) => {
