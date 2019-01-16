@@ -571,7 +571,7 @@ function botReboot() {
 }
 const commands = {
 	'reload': (msg) => {
-		msg.channel.send("```Reloading Bot...\n\nBot PID: "+process.pid+"\n\nRepository Version Hash: "+gitHash+"```");
+		msg.channel.send("```Reloading and updating Bot PID: "+process.pid+", be right back!```");
 		//msg.delete(1000);
 		var gitHash;
 		fs.readFile('.git/refs/heads/master', function(err, data) {
