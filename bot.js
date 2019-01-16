@@ -1341,7 +1341,7 @@ const commands = {
 								  } else {
 									exec("rm /storage/listen.m3u");
 									exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
-									msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" ` to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into OGG (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
+									msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" ` to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
 									//console.log(response.statusCode, body)
 								  }
 								})
@@ -1357,7 +1357,7 @@ const commands = {
 								   //res.writeHead(204);
 								   //res.end();
 								   //move now that it is done...
-									ffmpeg(tempFile).audioCodec('libvorbis').save(mp3Path).on('end', function() {
+									ffmpeg(tempFile).audioCodec('libmp3lame').save(mp3Path).on('end', function() {
 										fs.unlinkSync(tempFile);
 										completeMessage();
 										//console.log('Done');
@@ -1443,7 +1443,7 @@ const commands = {
 								  } else {
 									exec("rm /storage/listen.m3u");
 									exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
-									msg.channel.send(":white_check_mark:  `Added request from in game player "+mentionCommandAuthor+" to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into OGG (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
+									msg.channel.send(":white_check_mark:  `Added request from in game player "+mentionCommandAuthor+" to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
 									//console.log(response.statusCode, body)
 								  }
 								})
@@ -1459,7 +1459,7 @@ const commands = {
 								   //res.writeHead(204);
 								   //res.end();
 								   //move now that it is done...
-									ffmpeg(tempFile).audioCodec('libvorbis').save(mp3Path).on('end', function() {
+									ffmpeg(tempFile).audioCodec('libmp3lame').save(mp3Path).on('end', function() {
 										fs.unlinkSync(tempFile);
 										completeMessage();
 										//console.log('Done');
