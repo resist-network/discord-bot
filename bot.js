@@ -1269,7 +1269,7 @@ const commands = {
 						var videoNamePretty = video.snippet.title;				
 						video.snippet.title = video.snippet.title.replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
 						var videoDownload = video.snippet.title;
-						var playerQueryIntro = ":small_red_triangle_down: `Starting encoding for "+videoNamePretty+"...`\n`You will be mentioned when it is complete and in the queue!`";
+						var playerQueryIntro = "`Starting encoding for "+videoNamePretty+"...`\n`You will be mentioned when it is complete and in the queue!`";
 						var playerEmbed = {embed: {
 							color: 0x000000,
 							title: videoNamePretty,					
