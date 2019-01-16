@@ -392,18 +392,18 @@ function searchPb(query, callback) {
 // radio now playing
 
 function radioNowPlaying(channel){
-	//http.get("http://radio.Resist.Network/status-json.xsl", function(res){
-	//	var data = '';
-//
-	//	res.on('data', function (chunk){
-	//		data += chunk;
-	//	});
+	http.get("https://radio.Resist.Network/status-json.xsl", function(res){
+		var data = '';
 
-	//	res.on('end',function(){
-	//		var obj = JSON.parse(data);
-	//	client.channels.get(channel).send(":arrow_forward:  `Displaying current track and stream information...`\n```css\nCurrent Track { "+obj.icestats.source.title.replace(/_/g, ' ').replace(/-/g,' ')+" }\nNext Track { Not Yet Implemented }\nPrevious Track { Not Yet Implemented }\nPeak Listeners { "+obj.icestats.source.listener_peak+" }\nCurrent Listeners { "+obj.icestats.source.listeners+" }\nCurrent Bit Rate { "+obj.icestats.source.bitrate+" }```");
-	//	});
-	//});
+		res.on('data', function (chunk){
+			data += chunk;
+		});
+
+		res.on('end',function(){
+			var obj = JSON.parse(data);
+		client.channels.get(channel).send(":arrow_forward:  `Displaying current track and stream information...`\n```css\nCurrent Track { "+obj.icestats.source.title.replace(/_/g, ' ').replace(/-/g,' ')+" }\nNext Track { Not Yet Implemented }\nPrevious Track { Not Yet Implemented }\nPeak Listeners { "+obj.icestats.source.listener_peak+" }\nCurrent Listeners { "+obj.icestats.source.listeners+" }\nCurrent Bit Rate { "+obj.icestats.source.bitrate+" }```");
+		});
+	});
 	return true;
 }
 
@@ -1271,9 +1271,9 @@ const commands = {
 			voiceChannel.join().then(connection => {
 				console.log("Starting Resist.Network Radio Streamer....");
 				client.channels.get(discord_channel_id_log).send("`Initializing the Resist.Network Media encoders and Playing Test Track...`");
-				//radioNowPlaying("422898611106480139");
+				radioNowPlaying("530807128642813962");
 				//const stream = ytdl('http://listen.radionomy.com/hotmixradio-lounge-128.m3u', { filter : 'audioonly' });
-				//const stream = ffmpeg('https://radio.Resist.Network/music/Mad_World_-_Gary_Jules.mp3');
+				const stream = ffmpeg('https://radio.Resist.Network/listen.mp3');
 
 				const dispatcher = connection.playStream("http://bot.resist.network:8000/listen.mp3", streamOptions);
 				dispatcher.on("end", end => {
