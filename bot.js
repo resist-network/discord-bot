@@ -604,7 +604,7 @@ const commands = {
 			var sys = require('util')
 			var exec = require('child_process').exec;
 			function puts(error, stdout, stderr) { 
-				msg.channel.send(stdout);
+				msg.channel.send("`"+stdout+"`");
 			}
 			if (systemOS === "win32") {
 				//exec("ping -n 5 "+host, puts);
