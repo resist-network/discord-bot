@@ -1303,11 +1303,13 @@ const commands = {
 									ffmpeg(tempFile,{ speed: 8, preset: "ultrafast"}).audioCodec('libmp3lame').save(mp3Path).on('end', function() {
 										fs.unlinkSync(tempFile);
 										//completeMessage();
-										move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3', console.log('DONE2'));
-										console.log('Done');
-										msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" `titled "+videoNamePretty+"\n, to Resist.Network Live Radio Queue!`\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
 										exec("rm /storage/listen.m3u");
-										exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
+										function moveComplete() {
+											exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
+										}
+										move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3', moveComplete());
+										console.log('Done');
+										msg.channel.send(":white_check_mark: `Added request from ` "+mentionCommandAuthor+" `titled "+videoNamePretty+"!`\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
 									});					   
 								});    
 							}
