@@ -1269,7 +1269,7 @@ const commands = {
 			var voiceChannel = client.channels.get(discord_channel_id_radio);
 			voiceChannel.join().then(connection => {
 				console.log("Starting Resist.Network Radio Streamer....");
-				client.channels.get(discord_channel_id_log).send("`Initializing the Resist.Network Media encoders and Playing Test Track...`");
+				client.channels.get(discord_channel_id_botspam).send("`Initializing the Resist.Network Media encoders and Playing Test Track...`");
 				//radioNowPlaying("422898611106480139");
 				//const stream = ytdl('http://listen.radionomy.com/hotmixradio-lounge-128.m3u', { filter : 'audioonly' });
 				//const stream = ffmpeg('https://radio.Resist.Network/music/Mad_World_-_Gary_Jules.mp3');
@@ -2237,7 +2237,7 @@ client.on('ready', () => {
 	voiceChannel.join().then(connection => {
 		console.log("Starting Resist.Network Live Radio Stream....");
 		client.channels.get(discord_channel_id_botspam).send("`Initializing the Resist.Network Media encoders and Live Radio...`");
-		radioNowPlaying("discord_channel_id_botspam);
+		radioNowPlaying(discord_channel_id_botspam);
 		//const stream = ytdl('http://listen.radionomy.com/hotmixradio-lounge-128.m3u', { filter : 'audioonly' });
 		const stream = ffmpeg('https://Resist.Network/listen.mp3');
 
