@@ -1307,7 +1307,7 @@ const commands = {
 										//completeMessage();
 										move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3', console.log('DONE2'));
 										console.log('Done');
-										msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" ` to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Listen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
+										msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" `titled "+videoNamePretty+"\n, to Resist.Network Live Radio Queue!`\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
 									});					   
 								});    
 							}
