@@ -23,8 +23,8 @@ if ! screen -list | grep -q "bot"; then
 	sed -i "s/MYSQL_DATABASE/$MYSQL_DATABASE/g" /storage/resist-discord-bot/config.json;
 	sed -i "s/YOUTUBE_KEY/$YOUTUBE_KEY/g" /storage/resist-discord-bot/config.json;
 	sed -i "s/GOOGLE_URL/$GOOGLE_URL/g" /storage/resist-discord-bot/config.json;
-	#git stash;
-	#git pull;
+	git stash;
+	git pull;
 	#npm update;
         screen -LdmS bot node /storage/resist-discord-bot/bot.js
 else
