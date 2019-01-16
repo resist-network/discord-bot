@@ -526,7 +526,7 @@ var readyLog = function(msg,d,u,uid) {
 		var gitHash = data.toString().substr(null,8);
 		console.log("Repository Hash: "+gitHash);
 		console.log("---------------------------\n");
-		client.channels.get(discord_channel_id_botspam).send("`Bot PID { "+process.pid+" }, Repo Hash { "+gitHash+" } started successfully!`");
+		client.channels.get(discord_channel_id_log).send("`Bot PID { "+process.pid+" }, Repo Hash { "+gitHash+" } started successfully!`");
 	});
 };
 
@@ -1233,7 +1233,7 @@ const commands = {
 			var voiceChannel = client.channels.get(discord_channel_id_radio);
 			voiceChannel.join().then(connection => {
 				console.log("Starting Resist.Network Radio Streamer....");
-				client.channels.get(discord_channel_id_botspam).send("`Initializing the Resist.Network media encoders and live radio...`");
+				client.channels.get(discord_channel_id_log).send("`Initializing the Resist.Network media encoders and live radio...`");
 				//radioNowPlaying("422898611106480139");
 				//const stream = ytdl('http://listen.radionomy.com/hotmixradio-lounge-128.m3u', { filter : 'audioonly' });
 				//const stream = ffmpeg('https://radio.Resist.Network/music/Mad_World_-_Gary_Jules.mp3');
