@@ -1328,6 +1328,7 @@ const commands = {
 							var videoWritableStream = fs.createWriteStream(tempDir + '/' + videoName + '.mp3'); 
 							var stream = videoReadableStream.pipe(videoWritableStream);
 							exec("rm /storage/listen.m3u");
+							move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3');
 							exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
 							msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" ` to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Listen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
 							msg.channel.send(playerQueryIntro, playerEmbed);
