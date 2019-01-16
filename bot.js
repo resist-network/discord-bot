@@ -2205,7 +2205,7 @@ client.on('ready', () => {
 		//const stream = ytdl('http://listen.radionomy.com/hotmixradio-lounge-128.m3u', { filter : 'audioonly' });
 		const stream = ffmpeg('https://Resist.Network/listen.mp3');
 
-		const dispatcher = connection.playStream("https://ia801905.us.archive.org/6/items/DSOTM/06%20-%20Money.mp3", streamOptions);
+		const dispatcher = connection.playStream("'https://Resist.Network/listen.mp3", streamOptions);
 		dispatcher.on("end", end => {
 			console.log("Main Resist.Network ICECAST Server has quit broadcasting!");
 			client.channels.get(discord_channel_id_log).send("`Main Radio feed has quit broadcasting, check the servers!`");
