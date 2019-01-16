@@ -1327,26 +1327,9 @@ const commands = {
 							var videoName = info.title.replace('|','').replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
 							var videoWritableStream = fs.createWriteStream(tempDir + '/' + videoName + '.mp3'); 
 							var stream = videoReadableStream.pipe(videoWritableStream);
-
-							function completeMessage() {
-								//
-								request.post('https://www.googleapis.com/urlshortener/v1/url?key='+api_google_shortener, {
-								  json: {
-									'longUrl': 'https://bot.Resist.Network/music/'+video.snippet.title+'.mp3'
-								  }
-								}, function (error, response, body) {
-								  console.log(response);
-								  if(error) {
-									console.log(error)
-								  } else {
-									exec("rm /storage/listen.m3u");
-									exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
-									msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" ` to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
-									//console.log(response.statusCode, body)
-								  }
-								})
-								//
-							}
+							exec("rm /storage/listen.m3u");
+							exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
+							msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" ` to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
 							msg.channel.send(playerQueryIntro, playerEmbed);
 							var tempFile = tempDir + '/' + videoName + '.mp3';
 							var mp3Path = musicDir + '/' + videoName + '.mp3';
