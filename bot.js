@@ -611,7 +611,7 @@ const commands = {
 			} else {
 				var lastChannel = msg.channel.id;
 				exec('echo "'+lastChannel+'" > /storage/resist-discord-bot/lastChannel');
-				exec("/storage/resist-discord-bot/reload.sh &");
+				exec("/storage/resist-discord-bot/reload.sh &", puts);
 				//exec("", puts);
 			}	
 		});
