@@ -2,34 +2,34 @@
    
      <!-- GENERIC -->
      <background>1</background>
-     <pidfile>/var/run/icecast/ices1.pid</pidfile>
+     <pidfile>/var/run/icecast2/resist.pid</pidfile>
    
      <!-- LOGGING -->
-     <logpath>/var/log/icecast</logpath>
+     <logpath>/var/log/icecast2</logpath>
      <logfile>resist.log</logfile>
      <logsize>2048</logsize>
-     <loglevel>3</loglevel>
+     <loglevel>4</loglevel>
      <consolelog>0</consolelog>
    
      <!-- STREAM -->
      <stream>
        <metadata>
-         <name>Resist.Network Live Radio</name>
+         <name>Resist.Network Radio</name>
          <genre>Various</genre>
-         <description>Resist.Network Live Radio Feed in Game, Discord and on the Web. Want to play a game?</description>
-         <url>http://bot.resist.network:8000/</url>
+         <description>Live Radio Feed in Game, Discord and on the Web. Want to play a game?</description>
+         <url>https://resist.network</url>
        </metadata>
        <input>
          <param name="type">basic</param>
          <param name="file">/storage/listen.m3u</param>
-         <param name="random">1</param>
-         <param name="once">0</param>
+         <param name="random">0</param>
+ 	 <param name="once">1</param>
          <param name="restart-after-reread">1</param>
        </input>
        <instance>
          <hostname>localhost</hostname>
          <port>8000</port>
-         <password>ICECAST_PASS</password>
+         <password>RADIO_PASSWORD</password>
          <mount>/listen.mp3</mount>
        </instance>
      </stream>
