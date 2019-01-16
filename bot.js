@@ -401,7 +401,7 @@ function radioNowPlaying(channel){
 
 		res.on('end',function(){
 			var obj = JSON.parse(data);
-		client.channels.get(channel).send(":arrow_forward:  `Displaying current track and stream information...`\n```css\nCurrent Track { "+obj.icestats.source.title.replace(/_/g, ' ').replace(/-/g,' ')+" }\nNext Track { Not Yet Implemented }\nPrevious Track { Not Yet Implemented }\nPeak Listeners { "+obj.icestats.source.listener_peak+" }\nCurrent Listeners { "+obj.icestats.source.listeners+" }\nCurrent Bit Rate { "+obj.icestats.source.bitrate+" }```");
+		client.channels.get(channel).send(":arrow_forward:  `Displaying current track and stream information...`\n```css\nCurrent Track { "+obj.icestats.source.title+" }\nNext Track { Not Yet Implemented }\nPrevious Track { Not Yet Implemented }\nPeak Listeners { "+obj.icestats.source.listener_peak+" }\nCurrent Listeners { "+obj.icestats.source.listeners+" }\nCurrent Bit Rate { "+obj.icestats.source.bitrate+" }```");
 		});
 	});
 	return true;
@@ -425,7 +425,7 @@ function radioQueue(channel){
 			var exec = require('child_process').exec;
 			function puts(error, stdout, stderr) { 
 				var playList = stdout.replace(/.ogg/g, "").replace(/\/storage\/resist-discord-bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
-				var finalPlayList = playList.replace(title,"{ "+title.replace(/_/g, '')+" }");
+				var finalPlayList = playList.replace(title,"{ "+title+" }");
 				//console.log(finalPlayList);
 				client.channels.get(channel).send(":arrow_forward:  `Displaying current radio queue...`\n```css\n"+finalPlayList+"```");
 				return true;
@@ -527,7 +527,7 @@ var readyLog = function(msg,d,u,uid) {
 		var gitHash = data.toString().substr(null,8);
 		console.log("Repository Hash: "+gitHash);
 		console.log("---------------------------\n");
-		client.channels.get(discord_channel_id_log).send("`Bot PID { "+process.pid+" }, Repo Hash { "+gitHash+" } started successfully!`");
+		client.channels.get(discord_channel_id_botspam).send("`Bot PID { "+process.pid+" }, Repo Hash { "+gitHash+" } started successfully!`");
 	});
 };
 
@@ -1270,8 +1270,8 @@ const commands = {
 			var voiceChannel = client.channels.get(discord_channel_id_radio);
 			voiceChannel.join().then(connection => {
 				console.log("Starting Resist.Network Radio Streamer....");
-				client.channels.get(discord_channel_id_log).send("`Initializing the Resist.Network Media encoders and Playing Test Track...`");
-				radioNowPlaying("530807128642813962");
+				client.channels.get(discord_channel_id_botspam).send("`Initializing the Resist.Network Media encoders and Starting Broadcast...`");
+				radioNowPlaying(discord_channel_id_botspam);
 				//const stream = ytdl('http://listen.radionomy.com/hotmixradio-lounge-128.m3u', { filter : 'audioonly' });
 				const stream = ffmpeg('https://radio.Resist.Network/listen.mp3');
 
