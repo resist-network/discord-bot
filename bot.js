@@ -1252,8 +1252,7 @@ const commands = {
 				msg.channel.send(":exclamation: `You need to supply a search term with !radio add [searchTerm]...`");	
 				return true;
 			}
-			msg.channel.send(":mag_right: `Searching YouTube for `"+searchRaw.substr(1)+" `...`");	
-			console.log(searchRaw);
+			console.log("Searching YouTube for "+searchRaw.substr(1)+"...");	
 			var YouTube = require('youtube-node');
 			var mentionCommandAuthor = "<@"+msg.author.id+">";
 			var youTube = new YouTube();
