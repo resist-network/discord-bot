@@ -2116,6 +2116,10 @@ client.on('ready', () => {
 client.on('message', msg => {
 	//console.log("["+logTimestamp+"] "+msg.author.username+"("+msg.author.id+") "+msg);
 	if (!msg.content.startsWith(bot_prefix)) { 
+		//AI sequence here
+		if(msg.content.contains('thank you bot') || msg.content.contains('tank you bot') || msg.content.contains('thank you bot') || msg.content.contains('dank') || msg.content.contains('thonk')) {
+			msg.channel.send('You are most welcome my masters.');
+		}
 	} else {
 		if (commands.hasOwnProperty(msg.content.toLowerCase().slice(bot_prefix.length).split(' ')[0])) {
 			commands[msg.content.toLowerCase().slice(bot_prefix.length).split(' ')[0]](msg);
