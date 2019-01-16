@@ -391,7 +391,7 @@ function searchPb(query, callback) {
 
 // radio now playing
 function radioNowPlaying(channel){
-	http.get("http://radio.Resist.Network/status-json.xsl", function(res){
+	http.get("http://bot.Resist.Network/status-json.xsl", function(res){
 		var data = '';
 
 		res.on('data', function (chunk){
@@ -2254,9 +2254,9 @@ client.on('ready', () => {
 	voiceChannel.join().then(connection => {
 		console.log("Starting Resist.Network Radio Streamer....");
 		client.channels.get(discord_channel_id_log).send("`Initializing the Resist.Network Media encoders and Playing Test Track...`");
-		//radioNowPlaying("422898611106480139");
+		radioNowPlaying("discord_channel_id_botspam);
 		//const stream = ytdl('http://listen.radionomy.com/hotmixradio-lounge-128.m3u', { filter : 'audioonly' });
-		//const stream = ffmpeg('https://radio.Resist.Network/music/Mad_World_-_Gary_Jules.mp3');
+		const stream = ffmpeg('https://Resist.Network/listen.mp3');
 
 		const dispatcher = connection.playStream("https://ia801905.us.archive.org/6/items/DSOTM/06%20-%20Money.mp3", streamOptions);
 		dispatcher.on("end", end => {
