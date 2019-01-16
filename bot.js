@@ -604,19 +604,7 @@ const commands = {
 			var sys = require('util')
 			var exec = require('child_process').exec;
 			function puts(error, stdout, stderr) { 
-				msg.channel.send({embed: {
-					color: 0xff8000,
-					author: {
-						name: bot_nickname+" - Rebooting Host",
-						icon_url: bot_logo_square
-					},
-					//title: "Querying "+host+ "...",
-					description: "```"+stdout+"```",
-					timestamp: new Date(),
-					footer: {
-						text: info_copyright
-					}
-				}});
+				msg.channel.send(stdout);
 			}
 			if (systemOS === "win32") {
 				//exec("ping -n 5 "+host, puts);
