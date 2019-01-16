@@ -465,7 +465,7 @@ function radioRemove(channel){
 }
 function radioRemoveBackend(channel,player){
 	console.log("Starting radio remove...");
-	http.get("http://bot.Resist.Network:8000/status-json.xsl", function(res){
+	http.get("https://bot.Resist.Network/status-json.xsl", function(res){
 		var data = '';
 
 		res.on('data', function (chunk){
@@ -1328,14 +1328,13 @@ const commands = {
 							var videoWritableStream = fs.createWriteStream(tempDir + '/' + videoName + '.mp3'); 
 							var stream = videoReadableStream.pipe(videoWritableStream);
 							exec("rm /storage/listen.m3u");
-							move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3');
 							exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
 							msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" ` to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Listen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
 							msg.channel.send(playerQueryIntro, playerEmbed);
 							var tempFile = tempDir + '/' + videoName + '.mp3';
 							var mp3Path = musicDir + '/' + videoName + '.mp3';
 							if (fs.existsSync(mp3Path)) {
-								//completeMessage();
+								completeMessage();
 							} else {
 								stream.on('finish', function() {
 								   //res.writeHead(204);
@@ -1343,8 +1342,8 @@ const commands = {
 								   //move now that it is done...
 									ffmpeg(tempFile).audioCodec('libmp3lame').save(mp3Path).on('end', function() {
 										fs.unlinkSync(tempFile);
-										//completeMessage();
-										//console.log('Done');
+										completeMessage();
+										console.log('HERE');
 									});					   
 									//move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3', completeMessage);
 								});    
