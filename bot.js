@@ -1197,7 +1197,7 @@ const commands = {
 	switch(cmd) {
 		case "skip":
 			exec("pkill -10 ices && pkill -1 ices");
-			msg.channel.send(":fast_forward:  `Skipping to the next radio track!`");		
+			msg.channel.send("`Skipping to the next radio track!`");		
 			
 			setTimeout(function () {
 				radioNowPlaying(discord_channel_id_botspam);
@@ -1303,11 +1303,11 @@ const commands = {
 									ffmpeg(tempFile,{ speed: 8, preset: "ultrafast"}).audioCodec('libmp3lame').save(mp3Path).on('end', function() {
 										fs.unlinkSync(tempFile);
 										//completeMessage();
-										exec("rm /storage/listen.m3u");
-										function moveComplete() {
+										function rmComplete() {
 											exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
 										}
-										move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3', moveComplete());
+										exec("rm /storage/listen.m3u", rmComplete());
+										//move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3', moveComplete());
 										console.log('Done');
 										msg.channel.send(":white_check_mark: `Added request from ` "+mentionCommandAuthor+" `titled "+videoNamePretty+"!`\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
 									});					   
