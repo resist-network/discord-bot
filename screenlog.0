@@ -23185,3 +23185,149 @@ Emitted 'error' event at:
     at WriteStream.emit (events.js:182:13)
     at lazyFs.open (internal/fs/streams.js:273:12)
     at FSReqWrap.oncomplete (fs.js:141:20)
+Logfile opened
+Error opening /storage/resist-discord-bot/assets/public/music/temp/Money-Pink_Floyd_HD__Studio_Version_.ogg: Couldn't find synch
+Cannot play /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.ogg without reencoding
+Playing 
+
+
+
+
+
+Resist.Network is ready for you!
+---------------------------
+Bot is Ready!
+---------------------------
+Repository Hash: 85669ef8
+---------------------------
+
+/storage/resist-discord-bot/bot.js:420
+                        var title = obj.icestats.source.title.replace(/\/storage\/resist-discord-bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
+                                                        ^
+
+TypeError: Cannot read property 'title' of undefined
+    at IncomingMessage.<anonymous> (/storage/resist-discord-bot/bot.js:420:36)
+    at IncomingMessage.emit (events.js:187:15)
+    at endReadableNT (_stream_readable.js:1094:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Logfile opened
+Error opening /storage/resist-discord-bot/assets/public/music/temp/Money-Pink_Floyd_HD__Studio_Version_.ogg: Couldn't find synch
+Cannot play /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.ogg without reencoding
+Playing 
+
+
+
+
+
+Resist.Network is ready for you!
+---------------------------
+Bot is Ready!
+---------------------------
+Repository Hash: 85669ef8
+---------------------------
+
+Logfile opened
+Error opening /storage/resist-discord-bot/assets/public/music/temp/Money-Pink_Floyd_HD__Studio_Version_.ogg: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.ogg: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/temp/Money-Pink_Floyd_HD__Studio_Version_.ogg: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.ogg: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/temp/Money-Pink_Floyd_HD__Studio_Version_.ogg: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.ogg: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/temp/Money-Pink_Floyd_HD__Studio_Version_.ogg: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.ogg: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/temp/Money-Pink_Floyd_HD__Studio_Version_.ogg: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.ogg: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/temp/Money-Pink_Floyd_HD__Studio_Version_.ogg: Error opening: No such file or directory
+Exiting after 10 consecutive errors.
+Ices Exiting...
+Logfile opened
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Exiting after 10 consecutive errors.
+Ices Exiting...
+Logfile opened
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Exiting after 10 consecutive errors.
+Ices Exiting...
+Logfile opened
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Error opening /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Studio_Version_.mp3: Error opening: No such file or directory
+Exiting after 10 consecutive errors.
+Ices Exiting...
+  pink floyd money
+Logfile opened
+Playlist file name is empty, shutting down.
+Ices Exiting...
+undefined:1
+<html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/storage/resist-discord-bot/bot.js:402:19)
+    at IncomingMessage.emit (events.js:187:15)
+    at endReadableNT (_stream_readable.js:1094:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
+Logfile opened
+Playlist file name is empty, shutting down.
+Ices Exiting...
+
+
+
+
+
+Resist.Network is ready for you!
+---------------------------
+Bot is Ready!
+---------------------------
+Repository Hash: 85669ef8
+---------------------------
+
+  pink floyd money
+Logfile opened
+Playlist file name is empty, shutting down.
+Ices Exiting...
+Logfile opened
+Playlist file name is empty, shutting down.
+Ices Exiting...
+Logfile opened
+Playlist file name is empty, shutting down.
+Ices Exiting...
+undefined:1
+<html>
+^
+
+SyntaxError: Unexpected token < in JSON at position 0
+    at JSON.parse (<anonymous>)
+    at IncomingMessage.<anonymous> (/storage/resist-discord-bot/bot.js:402:19)
+    at IncomingMessage.emit (events.js:187:15)
+    at endReadableNT (_stream_readable.js:1094:12)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
