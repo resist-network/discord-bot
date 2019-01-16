@@ -2247,7 +2247,7 @@ client.on('ready', () => {
 			client.channels.get(discord_channel_id_log).send("`Main Radio feed has quit broadcasting, check the servers!`");
 			voiceChannel.leave();
 		});
-	}).catch(err => console.log(err)); */
+	}).catch(err => console.log(err));
 
 
 });
