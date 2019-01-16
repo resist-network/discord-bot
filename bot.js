@@ -461,7 +461,7 @@ function radioRemove(channel){
 				return true;
 			}
 
-			exec("rm /storage/listen.m3u;rm -rf /storage/resist-discord-bot/assets/public/music/"+title+"", puts(error, stdout, stderr));			
+			exec("rm /storage/listen.m3u;rm -rf /storage/resist-discord-bot/assets/public/music/"+title+"", puts());			
 		});
 	});
 }
