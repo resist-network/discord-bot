@@ -5,6 +5,9 @@ package-lock.json
 assets/public/youtube/*mp3
 assets/public/youtube/*mp4
 assets/public/youtube/*m4u
+assets/public/youtube/*ogg
 assets/public/youtube/temp/*mp3
 assets/public/youtube/temp/*mp4
 assets/public/youtube/temp/*m4u
+assets/public/youtube/temp/ogg
+*.ogg
