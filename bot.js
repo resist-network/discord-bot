@@ -409,7 +409,7 @@ function radioNowPlaying(channel){
 
 function radioQueue(channel){
 	console.log("Testing radio queue...");
-	http.get("http://bot.Resist.Network/status-json.xsl", function(res){
+	http.get("http://bot.Resist.Network:8000/status-json.xsl", function(res){
 		var data = '';
 
 		res.on('data', function (chunk){
