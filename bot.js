@@ -25,7 +25,7 @@ var cluster = require('cluster');
 var systemOS = os.platform();
 var prettySize = require('prettysize');
 var prettyMs = require('pretty-ms');
-var ffmpeg = require('fluent-ffmpeg');
+var ffmpeg = require('ffmpeg');
 	
 bot_prefix = config.bot_prefix;
 bot_passes = config.bot_passes;
@@ -418,8 +418,8 @@ function radioQueue(channel){
 
 		res.on('end',function(){
 			var obj = JSON.parse(data);
-			//var title = obj.icestats.source.title.replace(/\/storage\/resist-discord-bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
-			//console.log("Current Track { "+title+" }");
+			var title = obj.icestats.source.title.replace(/\/storage\/resist-discord-bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
+			console.log("Current Track { "+title+" }");
 
 			var sys = require('util');
 			var exec = require('child_process').exec;
