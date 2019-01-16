@@ -1025,7 +1025,7 @@ const commands = {
 		if (systemOS === "win32") {
 			//exec("ping -n 5 "+host, puts);
 		} else {
-			exec("/storage/tps.sh | iconv -f utf-8 -t utf-8 -c", puts);
+			exec("/bin/bash /storage/resist-discord-bot/tps.sh | iconv -f utf-8 -t utf-8 -c", puts);
 		}
 	},'achievements': (msg) => {
 		//msg.delete(1000);		
