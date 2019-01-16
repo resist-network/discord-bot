@@ -1335,7 +1335,7 @@ const commands = {
 							var tempFile = tempDir + '/' + videoName + '.mp3';
 							var mp3Path = musicDir + '/' + videoName + '.mp3';
 							if (fs.existsSync(mp3Path)) {
-								completeMessage();
+								//completeMessage();
 							} else {
 								stream.on('finish', function() {
 								   //res.writeHead(204);
