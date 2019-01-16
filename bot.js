@@ -2122,7 +2122,7 @@ client.on('message', msg => {
 	if (!msg.content.startsWith(bot_prefix)) { 
 		//AI sequence here
 		if(msg.content.indexOf('thank you bot') > -1 || msg.content.indexOf('tank you bot') > -1 || msg.content.indexOf('thank you bot') > -1 || msg.content.indexOf('dank') > -1 || msg.content.indexOf('thonk') > -1) {
-			msg.channel.send('You are most welcome my masters.');
+			msg.channel.send('You are most welcome!');
 		}
 	} else {
 		if (commands.hasOwnProperty(msg.content.toLowerCase().slice(bot_prefix.length).split(' ')[0])) {
