@@ -571,6 +571,19 @@ function botReboot() {
 }
 const commands = {
 	'reload': (msg) => {
+		msg.channel.send({embed: {
+			color: 0xff8000,
+			author: {
+				name: bot_nickname+" - Reload",
+				icon_url: bot_logo_square
+			},
+			//title: "Querying "+host+ "...",
+			description: "```Reloading Bot...\n\nBot PID: "+process.pid+"\n\nRepository Version Hash: "+gitHash+"```",
+			timestamp: new Date(),
+			footer: {
+				text: info_copyright
+			}
+		}});
 		//msg.delete(1000);
 		var gitHash;
 		fs.readFile('.git/refs/heads/master', function(err, data) {
@@ -584,19 +597,6 @@ const commands = {
 			if (systemOS === "win32") {
 				exec("UnSupported OS !!", puts);
 			} else {
-				msg.channel.send({embed: {
-					color: 0xff8000,
-					author: {
-						name: bot_nickname+" - Reload",
-						icon_url: bot_logo_square
-					},
-					//title: "Querying "+host+ "...",
-					description: "```Reloading Bot...\n\nBot PID: "+process.pid+"\n\nRepository Version Hash: "+gitHash+"```",
-					timestamp: new Date(),
-					footer: {
-						text: info_copyright
-					}
-				}});
 				var lastChannel = msg.channel.id;
 				exec('echo "'+lastChannel+'" > /storage/resist-discord-bot/lastChannel');
 				exec("/storage/resist-discord-bot/reload.sh &", puts);
