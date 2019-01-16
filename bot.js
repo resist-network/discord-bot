@@ -457,7 +457,9 @@ function radioRemove(channel){
 			}
 			function puts(error, stdout, stderr) { 
 				client.channels.get(channel).send("`Removed "+titlePretty+" from the radio queue!`");
-				rmComplete();
+				exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
+				exec("pkill -10 ices && pkill -1 ices");
+				//rmComplete();
 				return true;
 			}
 
