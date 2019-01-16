@@ -1234,7 +1234,7 @@ const commands = {
 			voiceChannel.join().then(connection => {
 				console.log("Starting Resist.Network Radio Streamer....");
 				client.channels.get(discord_channel_id_log).send("`Initializing the Resist.Network media encoders and live radio...`");
-				//radioNowPlaying("422898611106480139");
+				radioNowPlaying(discord_channel_id_botspam);
 				//const stream = ytdl('http://listen.radionomy.com/hotmixradio-lounge-128.m3u', { filter : 'audioonly' });
 				//const stream = ffmpeg('https://radio.Resist.Network/music/Mad_World_-_Gary_Jules.mp3');
 
@@ -1304,7 +1304,7 @@ const commands = {
 								   //res.writeHead(204);
 								   //res.end();
 								   //move now that it is done...
-									ffmpeg(tempFile).audioCodec('libmp3lame').save(mp3Path).on('end', function() {
+									ffmpeg(tempFile,{ speed: 8, preset: "ultrafast"}).audioCodec('libmp3lame').save(mp3Path).on('end', function() {
 										fs.unlinkSync(tempFile);
 										//completeMessage();
 										console.log('Done');
@@ -1406,7 +1406,7 @@ const commands = {
 								   //res.writeHead(204);
 								   //res.end();
 								   //move now that it is done...
-									ffmpeg(tempFile).audioCodec('libmp3lame').save(mp3Path).on('end', function() {
+									ffmpeg(tempFile,{ speed: 8, preset: "ultrafast"}).audioCodec('libmp3lame').save(mp3Path).on('end', function() {
 										fs.unlinkSync(tempFile);
 										completeMessage();
 										//console.log('Done');
