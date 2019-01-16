@@ -1318,22 +1318,36 @@ const commands = {
 
 						//download to mp3
 						var videoUrl = "https://www.youtube.com/watch?v="+video.id.videoId;   
-						//var tempDir = "/storage/resist-discord-bot/assets/public/music/temp"; 
+						var tempDir = "/storage/resist-discord-bot/assets/public/music/temp"; 
 						var musicDir = "/storage/resist-discord-bot/assets/public/music"; 
 
 						var videoReadableStream = ytdl(videoUrl, { filter: 'audioonly'});
 
 						ytdl.getInfo(videoUrl, function(err, info){
 							var videoName = info.title.replace('|','').replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
-							var videoWritableStream = fs.createWriteStream(musicDir + '/' + videoName + '.mp3'); 
+							var videoWritableStream = fs.createWriteStream(tempDir + '/' + videoName + '.mp3'); 
 							var stream = videoReadableStream.pipe(videoWritableStream);
 							exec("rm /storage/listen.m3u");
 							exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
 							msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" ` to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Listen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
-							//msg.channel.send(playerQueryIntro, playerEmbed);
-							var tempFile = musicDir + '/' + videoName + '.mp3';
+							msg.channel.send(playerQueryIntro, playerEmbed);
+							var tempFile = tempDir + '/' + videoName + '.mp3';
 							var mp3Path = musicDir + '/' + videoName + '.mp3';
-							console.log('Downloaded File: '+tempFile)
+							if (fs.existsSync(mp3Path)) {
+								completeMessage();
+							} else {
+								stream.on('finish', function() {
+								   //res.writeHead(204);
+								   //res.end();
+								   //move now that it is done...
+									ffmpeg(tempFile).audioCodec('libmp3lame').save(mp3Path).on('end', function() {
+										fs.unlinkSync(tempFile);
+										completeMessage();
+										console.log('Done');
+									});					   
+									move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3', completeMessage);
+								});    
+							}
 						});              
 						//end download
 
