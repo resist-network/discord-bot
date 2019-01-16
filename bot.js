@@ -454,11 +454,11 @@ function radioRemove(channel){
 				client.channels.get(channel).send("`Removed "+titlePretty+" from the radio queue!`");
 				return true;
 			}
-			function rmComplete(error, stdout, stderr) {
+			function rmComplete() {
 				exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
 				exec("pkill -10 ices && pkill -1 ices");
 			}
-			exec("rm /storage/listen.m3u; rm -rf /storage/resist-discord-bot/assets/public/music/"+title+"", rmComplete(error, stdout, stderr));			
+			exec("rm /storage/listen.m3u; rm -rf /storage/resist-discord-bot/assets/public/music/"+title+"", rmComplete());			
 		});
 	});
 }
