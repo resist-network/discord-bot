@@ -2232,11 +2232,11 @@ client.on('ready', () => {
 	console.log("Bot is Ready!");
 	console.log("---------------------------");
 	//A();
-/* 	const streamOptions = { seek: 0, volume: 1 };
+ 	const streamOptions = { seek: 0, volume: 1 };
 	var voiceChannel = client.channels.get(discord_channel_id_radio);
 	voiceChannel.join().then(connection => {
-		console.log("Starting Resist.Network Radio Streamer....");
-		client.channels.get(discord_channel_id_log).send("`Initializing the Resist.Network Media encoders and Playing Test Track...`");
+		console.log("Starting Resist.Network Live Radio Stream....");
+		client.channels.get(discord_channel_id_botspam).send("`Initializing the Resist.Network Media encoders and Live Radio...`");
 		radioNowPlaying("discord_channel_id_botspam);
 		//const stream = ytdl('http://listen.radionomy.com/hotmixradio-lounge-128.m3u', { filter : 'audioonly' });
 		const stream = ffmpeg('https://Resist.Network/listen.mp3');
