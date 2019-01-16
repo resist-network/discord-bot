@@ -1345,7 +1345,7 @@ const commands = {
 										//completeMessage();
 										console.log('Done');
 									});					   
-									//move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3', completeMessage);
+									move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3', console.log('DONE2'));
 								});    
 							}
 						});              
