@@ -2098,8 +2098,8 @@ client.on('ready', () => {
 	var voiceChannel = client.channels.get(discord_channel_id_radio);
 	voiceChannel.join().then(connection => {
 		console.log("Starting Resist.Network Live Radio Stream....");
-		client.channels.get(discord_channel_id_botspam).send("`Initializing the Resist.Network media encoders and live radio...`");
-		radioNowPlaying(discord_channel_id_botspam);
+		client.channels.get(discord_channel_id_log).send("`Initializing the Resist.Network media encoders and live radio...`");
+		radioNowPlaying(discord_channel_id_log);
 		//const stream = ytdl('http://listen.radionomy.com/hotmixradio-lounge-128.m3u', { filter : 'audioonly' });
 		const stream = ffmpeg('https://Resist.Network/listen.mp3');
 		const dispatcher = connection.playStream("https://resist.network/listen.mp3", streamOptions);
