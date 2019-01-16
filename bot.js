@@ -2117,7 +2117,7 @@ client.on('message', msg => {
 	//console.log("["+logTimestamp+"] "+msg.author.username+"("+msg.author.id+") "+msg);
 	if (!msg.content.startsWith(bot_prefix)) { 
 		//AI sequence here
-		if(msg.content.contains('thank you bot') || msg.content.contains('tank you bot') || msg.content.contains('thank you bot') || msg.content.contains('dank') || msg.content.contains('thonk')) {
+		if(msg.content.indexOf('thank you bot') > -1 || msg.content.indexOf('tank you bot') > -1 || msg.content.indexOf('thank you bot') > -1 || msg.content.indexOf('dank') > -1 || msg.content.indexOf('thonk') > -1) {
 			msg.channel.send('You are most welcome my masters.');
 		}
 	} else {
