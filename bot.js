@@ -1269,7 +1269,7 @@ const commands = {
 						var videoNamePretty = video.snippet.title;				
 						video.snippet.title = video.snippet.title.replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
 						var videoDownload = video.snippet.title;
-						var playerQueryIntro = ":small_red_triangle_down: `Starting encoding for "+videoNamePretty+", you will be mentioned when it is complete and in the queue!`";
+						var playerQueryIntro = ":small_red_triangle_down: `Starting encoding for "+videoNamePretty+"...`\n`You will be mentioned when it is complete and in the queue!`";
 						var playerEmbed = {embed: {
 							color: 0x000000,
 							title: videoNamePretty,					
@@ -1290,8 +1290,6 @@ const commands = {
 							var videoName = info.title.replace('|','').replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
 							var videoWritableStream = fs.createWriteStream(tempDir + '/' + videoName + '.mp3'); 
 							var stream = videoReadableStream.pipe(videoWritableStream);
-							exec("rm /storage/listen.m3u");
-							exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
 							msg.channel.send(playerQueryIntro);							
 							var tempFile = tempDir + '/' + videoName + '.mp3';
 							var mp3Path = musicDir + '/' + videoName + '.mp3';
@@ -1308,6 +1306,8 @@ const commands = {
 										move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3', console.log('DONE2'));
 										console.log('Done');
 										msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" `titled "+videoNamePretty+"\n, to Resist.Network Live Radio Queue!`\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
+										exec("rm /storage/listen.m3u");
+										exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
 									});					   
 								});    
 							}
