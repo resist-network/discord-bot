@@ -25,7 +25,7 @@ var cluster = require('cluster');
 var systemOS = os.platform();
 var prettySize = require('prettysize');
 var prettyMs = require('pretty-ms');
-var ffmpeg = require('ffmpeg');
+var ffmpeg = require('fluent-ffmpeg');
 	
 bot_prefix = config.bot_prefix;
 bot_passes = config.bot_passes;
@@ -1228,7 +1228,7 @@ const commands = {
 		//exec("git log --graph --abbrev-commit -n 5", puts);
 		//exec("/storage/list.sh "+request, puts);
 		searchKat(request, puts);
- },'radio': (msg) => {
+},'radio': (msg) => {
 	let cmd = msg.content.split(' ')[1];
 	//msg.delete(1000);
 	switch(cmd) {
@@ -1256,8 +1256,8 @@ const commands = {
 			msg.channel.send('Search String: '+testRaw);
 			break;
 		case "wipe":
-			exec("rm -rf /storage/resist-discord-bot/assets/public/music/*.mp3");
-			exec("cp -rf /storage/resist-discord-bot/assets/public/music-orig/*.mp3 /storage/resist-discord-bot/assets/public/music/.");
+			exec("rm -rf /storage/resist-discord-bot/assets/public/music/*.ogg");
+			exec("cp -rf /storage/resist-discord-bot/assets/public/music-orig/*.ogg /storage/resist-discord-bot/assets/public/music/.");
 			exec("mv /storage/listen.m3u.orig /storage/listen.m3u");
  			msg.channel.send(":wastebasket:  `Wiping radio queue...`");
 			radioQueue("422898611106480139");
@@ -1270,10 +1270,10 @@ const commands = {
 			var voiceChannel = client.channels.get(discord_channel_id_radio);
 			voiceChannel.join().then(connection => {
 				console.log("Starting Resist.Network Radio Streamer....");
-				client.channels.get(discord_channel_id_botspam).send("`Initializing the Resist.Network Media encoders and Starting Broadcast...`");
-				radioNowPlaying(discord_channel_id_botspam);
+				client.channels.get(discord_channel_id_log).send("`Initializing the Resist.Network Media encoders and Playing Test Track...`");
+				//radioNowPlaying("422898611106480139");
 				//const stream = ytdl('http://listen.radionomy.com/hotmixradio-lounge-128.m3u', { filter : 'audioonly' });
-				const stream = ffmpeg('https://radio.Resist.Network/listen.mp3');
+				//const stream = ffmpeg('https://radio.Resist.Network/music/Mad_World_-_Gary_Jules.mp3');
 
 				const dispatcher = connection.playStream("http://bot.resist.network:8000/listen.mp3", streamOptions);
 				dispatcher.on("end", end => {
@@ -1326,14 +1326,14 @@ const commands = {
 
 						ytdl.getInfo(videoUrl, function(err, info){
 							var videoName = info.title.replace('|','').replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
-							var videoWritableStream = fs.createWriteStream(tempDir + '/' + videoName + '.mp3'); 
+							var videoWritableStream = fs.createWriteStream(tempDir + '/' + videoName + '.ogg'); 
 							var stream = videoReadableStream.pipe(videoWritableStream);
 
 							function completeMessage() {
 								//
 								request.post('https://www.googleapis.com/urlshortener/v1/url?key='+api_google_shortener, {
 								  json: {
-									'longUrl': 'https://bot.Resist.Network/music/'+video.snippet.title+'.mp3'
+									'longUrl': 'https://bot.Resist.Network/music/'+video.snippet.title+'.ogg'
 								  }
 								}, function (error, response, body) {
 								  console.log(response);
@@ -1341,16 +1341,16 @@ const commands = {
 									console.log(error)
 								  } else {
 									exec("rm /storage/listen.m3u");
-									exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
-									msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" ` to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into OGG (Audio)...\nAdded to Resist.Network Live Radio Queue!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
+									exec("find /storage/resist-discord-bot/assets/public/music | grep .ogg > /storage/listen.m3u");
+									msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" ` to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into OGG (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
 									//console.log(response.statusCode, body)
 								  }
 								})
 								//
 							}
 							msg.channel.send(playerQueryIntro, playerEmbed);
-							var tempFile = tempDir + '/' + videoName + '.mp3';
-							var mp3Path = musicDir + '/' + videoName + '.mp3';
+							var tempFile = tempDir + '/' + videoName + '.ogg';
+							var mp3Path = musicDir + '/' + videoName + '.ogg';
 							if (fs.existsSync(mp3Path)) {
 								completeMessage();
 							} else {
@@ -1358,12 +1358,12 @@ const commands = {
 								   //res.writeHead(204);
 								   //res.end();
 								   //move now that it is done...
-									ffmpeg(tempFile).audioCodec('libmp3lame').save(mp3Path).on('end', function() {
+									ffmpeg(tempFile).audioCodec('libvorbis').save(mp3Path).on('end', function() {
 										fs.unlinkSync(tempFile);
 										completeMessage();
 										//console.log('Done');
 									});					   
-									//move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3', completeMessage);
+									//move(tempDir + '/' + videoName + '.ogg', musicDir + '/' + videoName + '.ogg', completeMessage);
 								});    
 							}
 						});              
@@ -1429,21 +1429,21 @@ const commands = {
 
 						ytdl.getInfo(videoUrl, function(err, info){
 							var videoName = info.title.replace('|','').replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
-							var videoWritableStream = fs.createWriteStream(tempDir + '/' + videoName + '.mp3'); 
+							var videoWritableStream = fs.createWriteStream(tempDir + '/' + videoName + '.ogg'); 
 							var stream = videoReadableStream.pipe(videoWritableStream);
 
 							function completeMessage() {
 								//
 								request.post('https://www.googleapis.com/urlshortener/v1/url?key='+api_google_shortener, {
 								  json: {
-									'longUrl': 'https://radio.Resist.Network/music/'+video.snippet.title+'.mp3'
+									'longUrl': 'https://radio.Resist.Network/music/'+video.snippet.title+'.ogg'
 								  }
 								}, function (error, response, body) {
 								  if(error) {
 									console.log(error)
 								  } else {
 									exec("rm /storage/listen.m3u");
-									exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
+									exec("find /storage/resist-discord-bot/assets/public/music | grep .ogg > /storage/listen.m3u");
 									msg.channel.send(":white_check_mark:  `Added request from in game player "+mentionCommandAuthor+" to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into OGG (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Download it Here -> "+body.id+"\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
 									//console.log(response.statusCode, body)
 								  }
@@ -1451,8 +1451,8 @@ const commands = {
 								//
 							}
 							msg.channel.send(playerQueryIntro, playerEmbed);
-							var tempFile = tempDir + '/' + videoName + '.mp3';
-							var mp3Path = musicDir + '/' + videoName + '.mp3';
+							var tempFile = tempDir + '/' + videoName + '.ogg';
+							var mp3Path = musicDir + '/' + videoName + '.ogg';
 							if (fs.existsSync(mp3Path)) {
 								completeMessage();
 							} else {
@@ -1460,7 +1460,7 @@ const commands = {
 								   //res.writeHead(204);
 								   //res.end();
 								   //move now that it is done...
-									ffmpeg(tempFile).audioCodec('libmp3lame').save(mp3Path).on('end', function() {
+									ffmpeg(tempFile).audioCodec('libvorbis').save(mp3Path).on('end', function() {
 										fs.unlinkSync(tempFile);
 										completeMessage();
 										//console.log('Done');
@@ -1478,7 +1478,6 @@ const commands = {
 		default:
 			break;
 	}
-	
  },'ytdl': (msg) => {
 	let searchRaw = msg.content.substr(msg.content.indexOf(' ')+1);
 	console.log(searchRaw);
