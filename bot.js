@@ -390,9 +390,8 @@ function searchPb(query, callback) {
 
 
 // radio now playing
-
 function radioNowPlaying(channel){
-	http.get("http://bot.Resist.Network:8000/status-json.xsl", function(res){
+	http.get("http://radio.Resist.Network/status-json.xsl", function(res){
 		var data = '';
 
 		res.on('data', function (chunk){
@@ -401,14 +400,14 @@ function radioNowPlaying(channel){
 
 		res.on('end',function(){
 			var obj = JSON.parse(data);
-		client.channels.get(channel).send(":arrow_forward:  `Displaying current track and stream information...`\n```css\nCurrent Track { some fuckery here... }\nNext Track { Not Yet Implemented }\nPrevious Track { Not Yet Implemented }\nPeak Listeners { "+obj.icestats.source.listener_peak+" }\nCurrent Listeners { "+obj.icestats.source.listeners+" }\nCurrent Bit Rate { "+obj.icestats.source.bitrate+" }```");
+		client.channels.get(channel).send(":arrow_forward:  `Displaying current track and stream information...`\n```css\nCurrent Track { "+obj.icestats.source.title.replace(/_/g, ' ').replace(/-/g,' ')+" }\nNext Track { Not Yet Implemented }\nPrevious Track { Not Yet Implemented }\nPeak Listeners { "+obj.icestats.source.listener_peak+" }\nCurrent Listeners { "+obj.icestats.source.listeners+" }\nCurrent Bit Rate { "+obj.icestats.source.bitrate+" }```");
 		});
 	});
 	return true;
 }
 
 function radioQueue(channel){
-	console.log("Testing radio queue...");
+//	console.log("Testing radio queue...");
 	http.get("http://bot.Resist.Network:8000/status-json.xsl", function(res){
 		var data = '';
 
@@ -1237,19 +1236,19 @@ const commands = {
 			msg.channel.send(":fast_forward:  `Skipping to the next radio track!`");		
 			
 			setTimeout(function () {
-				radioNowPlaying("422898611106480139");
+				radioNowPlaying(discord_channel_id_botspam);
 			}, 10000);			
 			
 			break;
 		case "remove":
-			radioRemove("422898611106480139");		
+			radioRemove(discord_channel_id_botspam);		
 			break;
 		case "nowplaying":
-			radioNowPlaying("422898611106480139");
+			radioNowPlaying(discord_channel_id_botspam);
 			break;
 		case "queue":
 			exec("/storage/ices-start.sh; pkill -1 ices");
-			radioQueue("422898611106480139");
+			radioQueue(discord_channel_id_botspam);
 			break;			
 		case "test":
 			let testRaw = msg.content.split(' ')[2];
@@ -1260,7 +1259,7 @@ const commands = {
 			exec("cp -rf /storage/resist-discord-bot/assets/public/music-orig/*.ogg /storage/resist-discord-bot/assets/public/music/.");
 			exec("mv /storage/listen.m3u.orig /storage/listen.m3u");
  			msg.channel.send(":wastebasket:  `Wiping radio queue...`");
-			radioQueue("422898611106480139");
+			radioQueue(discord_channel_id_botspam);
  			msg.channel.send(":white_check_mark:  `Radio queue wipe completed!`");
 			exec("pkill -10 ices && pkill -1 ices");			
 			break;			
