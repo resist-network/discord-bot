@@ -212,7 +212,7 @@ function move(oldPath, newPath, callback) {
             if (err.code === 'EXDEV') {
                 copy();
             } else {
-                callback(err);
+                console.log('Error moving file: 'err);
             }
             return;
         }
