@@ -216,7 +216,7 @@ function move(oldPath, newPath, callback) {
             }
             return;
         }
-        callback();
+        console.log('Moved the file to: '+newPath);
     });
 
     function copy() {
