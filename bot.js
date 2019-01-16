@@ -1269,7 +1269,7 @@ const commands = {
 						var videoNamePretty = video.snippet.title;				
 						video.snippet.title = video.snippet.title.replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
 						var videoDownload = video.snippet.title;
-						var playerQueryIntro = ":small_red_triangle_down: `Starting download and encoding for "+videoNamePretty+"...`";
+						var playerQueryIntro = ":small_red_triangle_down: `Starting encoding for "+videoNamePretty+", you will be mentioned when it is complete and in the queue!`";
 						var playerEmbed = {embed: {
 							color: 0x000000,
 							title: videoNamePretty,					
@@ -1292,7 +1292,7 @@ const commands = {
 							var stream = videoReadableStream.pipe(videoWritableStream);
 							exec("rm /storage/listen.m3u");
 							exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
-							msg.channel.send(playerQueryIntro, playerEmbed);							
+							msg.channel.send(playerQueryIntro);							
 							var tempFile = tempDir + '/' + videoName + '.mp3';
 							var mp3Path = musicDir + '/' + videoName + '.mp3';
 							if (fs.existsSync(mp3Path)) {
