@@ -1272,6 +1272,7 @@ const commands = {
 						video.snippet.title = video.snippet.title.replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
 						var videoDownload = video.snippet.title;
 						var playerQueryIntro = "`Starting encoding for "+videoNamePretty+"...`\n`You will be mentioned when it is complete and in the queue!`";
+						msg.channel.send(playerQueryIntro);	
 						var playerEmbed = {embed: {
 							color: 0x000000,
 							title: videoNamePretty,					
@@ -1292,7 +1293,6 @@ const commands = {
 							var videoName = info.title.replace('|','').replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
 							var videoWritableStream = fs.createWriteStream(tempDir + '/' + videoName + '.mp3'); 
 							var stream = videoReadableStream.pipe(videoWritableStream);
-							msg.channel.send(playerQueryIntro);							
 							var tempFile = tempDir + '/' + videoName + '.mp3';
 							var mp3Path = musicDir + '/' + videoName + '.mp3';
 							if (fs.existsSync(mp3Path)) {
