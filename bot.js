@@ -1236,11 +1236,11 @@ const commands = {
 				//const stream = ytdl('http://listen.radionomy.com/hotmixradio-lounge-128.m3u', { filter : 'audioonly' });
 				//const stream = ffmpeg('https://radio.Resist.Network/music/Mad_World_-_Gary_Jules.mp3');
 
-				const dispatcher = connection.playStream("http://bot.resist.network:8000/listen.mp3", streamOptions);
+				const dispatcher = connection.playStream("https://resist.network/listen.mp3", streamOptions);
 				dispatcher.on("end", end => {
 					console.log("Main Resist.Network ICECAST Server has quit broadcasting!");
-					//msg.channel.send("<:restart:526045216839303168> `Main Radio feed has quit broadcasting, check the servers!`");
-					voiceChannel.leave();
+					client.channels.get(discord_channel_id_log).send("`Main Radio feed has quit broadcasting, check the servers!`");
+					//voiceChannel.leave();
 				});
 			}).catch(err => console.log(err));
 			break;
