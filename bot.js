@@ -1196,13 +1196,11 @@ const commands = {
 	//msg.delete(1000);
 	switch(cmd) {
 		case "skip":
-			exec("pkill -10 ices && pkill -1 ices");
-			msg.channel.send("`Skipping to the next radio track!`");		
-			
-			setTimeout(function () {
+			function skipDone(){
 				radioNowPlaying(discord_channel_id_botspam);
-			}, 10000);			
-			
+			}
+			exec("pkill -10 ices && pkill -1 ices", skipDone());
+			msg.channel.send("`Skipping to the next radio track!`");		
 			break;
 		case "remove":
 			radioRemove(discord_channel_id_botspam);		
