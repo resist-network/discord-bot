@@ -579,19 +579,11 @@ const commands = {
 			var sys = require('util')
 			var exec = require('child_process').exec;
 			function puts(error, stdout, stderr) { 
-				client.channel(discord_channel_id_log).send({embed: {
-					color: 0xff8000,
-					author: {
-						name: bot_nickname+" - Reload",
-						icon_url: bot_logo_square
-					},
-					//title: "Querying "+host+ "...",
-					description: "```Reloading Bot...\n\nBot PID: "+process.pid+"\n\nRepository Version Hash: "+gitHash+"```",
-					timestamp: new Date(),
-					footer: {
-						text: info_copyright
-					}
-				}});
+				
+			}
+			if (systemOS === "win32") {
+				exec("UnSupported OS !!", puts);
+			} else {
 				msg.channel.send({embed: {
 					color: 0xff8000,
 					author: {
@@ -604,11 +596,7 @@ const commands = {
 					footer: {
 						text: info_copyright
 					}
-				}});				
-			}
-			if (systemOS === "win32") {
-				exec("UnSupported OS !!", puts);
-			} else {
+				}});
 				var lastChannel = msg.channel.id;
 				exec('echo "'+lastChannel+'" > /storage/resist-discord-bot/lastChannel');
 				exec("/storage/resist-discord-bot/reload.sh &", puts);
