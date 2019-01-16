@@ -951,7 +951,7 @@ const commands = {
 		var totalMem = prettySize(os.totalmem());
 		var milliSecUp = os.uptime() * 1000;
 		var upTime = prettyMs(milliSecUp, {verbose: true});
-		msg.channel.send("`Querying bot node statistics...`\n```Memory Usage: "+freeMem+" Free / "+totalMem+" Total \n\nBot OS/Arch: "+os.type()+" ("+os.arch()+")\n\nBot Node FQDN: "+os.hostname()+"\n\nBot Node Update: "+upTime+"```");
+		msg.channel.send("`Querying bot node statistics...`\n```css\nMemory Usage: "+freeMem+" Free / "+totalMem+" Total \nBot OS/Arch: "+os.type()+" ("+os.arch()+")\nBot Node FQDN: "+os.hostname()+"\nBot Node Update: "+upTime+"```");
 	},'help': (msg) => {
 		if(msg.member.roles.find("name", "Admin") || msg.member.roles.find("name", "GM") || msg.member.roles.find("name", "Mod")) {
 			msg.author.send("`Since you are staff, here are some extras...` ```css\n.MINECRAFT_PLAYER_FIXES\n!unstuck [playerName] { Teleports the player to spawn. }\n!reset [playerName] {Resets players account password. The will get a new pin on join. }\n\n.BOT\n!status { Get Main Computer's (BOT) node statistics. }\n\n```");
