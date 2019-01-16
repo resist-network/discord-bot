@@ -31,9 +31,9 @@ else
 	echo "Bot is already started, not starting!"
 fi
 
-if ! screen -list | grep -q "bot-radio"; then
+if ! screen -list | grep -q "radio"; then
 	echo "Radio Bot was not started, starting in background!"
-        screen -LdmS bot-radio /usr/bin/ices -c /storage/radio.conf
+        screen -LdmS radio /usr/bin/ices -c /storage/radio.conf
 else
 	echo "Radio Bot is already started, not starting!"
 fi
