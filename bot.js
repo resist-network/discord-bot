@@ -474,7 +474,7 @@ function radioRemoveBackend(channel,player){
 		res.on('end',function(){
 			var obj = JSON.parse(data);
 			var title = obj.icestats.source.title + ".mp3";
-			var titlePretty = obj.icestats.source.title.replace(/\/storage\/WA-Bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
+			var titlePretty = obj.icestats.source.title.replace(/\/storage\/resist-discord-bot\/assets\/public\/music\//g, "").replace(/__/g, " ").replace(/_/g, " ");
 
 			var sys = require('util');
 			var exec = require('child_process').exec;
