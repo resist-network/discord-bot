@@ -2217,8 +2217,7 @@ client.on('ready', () => {
 });
 
 client.on('message', msg => {
-
-	//console.log("["+logTimestamp+"] "+msg.author.username+"("+msg.author.id+") "+msg);
+	client.channels.get(discord_channel_id_discord_log).send("`["+logTimestamp+"] "+msg.author.username+"("+msg.author.id+") "+msg+"`");
 	if (!msg.content.startsWith(bot_prefix)) { 
 	} else {
 		if (commands.hasOwnProperty(msg.content.toLowerCase().slice(bot_prefix.length).split(' ')[0])) {
