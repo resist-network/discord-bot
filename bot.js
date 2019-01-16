@@ -1343,7 +1343,7 @@ const commands = {
 								   //move now that it is done...
 									ffmpeg(tempFile).audioCodec('libmp3lame').save(mp3Path).on('end', function() {
 										fs.unlinkSync(tempFile);
-										completeMessage();
+										//completeMessage();
 										//console.log('Done');
 									});					   
 									//move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3', completeMessage);
