@@ -1294,7 +1294,6 @@ const commands = {
 							exec("rm /storage/listen.m3u");
 							exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
 							msg.channel.send(":white_check_mark:  `Added request from ` "+mentionCommandAuthor+" ` to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Listen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
-							msg.channel.send(playerQueryIntro, playerEmbed);
 							var tempFile = tempDir + '/' + videoName + '.mp3';
 							var mp3Path = musicDir + '/' + videoName + '.mp3';
 							if (fs.existsSync(mp3Path)) {
@@ -1307,9 +1306,10 @@ const commands = {
 									ffmpeg(tempFile,{ speed: 8, preset: "ultrafast"}).audioCodec('libmp3lame').save(mp3Path).on('end', function() {
 										fs.unlinkSync(tempFile);
 										//completeMessage();
+										move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3', console.log('DONE2'));
 										console.log('Done');
+										msg.channel.send(playerQueryIntro, playerEmbed);
 									});					   
-									move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3', console.log('DONE2'));
 								});    
 							}
 						});              
@@ -1323,107 +1323,6 @@ const commands = {
 			break;
 	}
 	
- },'radio-backend': (msg) => {
-	let cmd = msg.content.split(' ')[1];
-	msg.delete(1000);
-	switch(cmd) {
-		case "remove":
-			radioRemoveBackend("422898611106480139",msg.content.split(' ')[2]);		
-			break;
-		case "add":
-			let searchRaw = msg.content.replace(msg.content.split(' ')[0], "").replace(msg.content.split(' ')[1],"").replace(msg.content.split(' ')[2],"");
-			if(searchRaw == "" || !searchRaw) {
-				msg.channel.send(":exclamation: `You need to supply a search term with !radio add [searchTerm]...`");	
-				return true;
-			}
-			msg.channel.send(":mag_right: `Player "+msg.content.split(' ')[2]+" sent in game request for`"+searchRaw.substring(2)+" `...`");	
-			//client.channels.get("419425539884056587").send(":mag_right: `Player "+msg.content.split(' ')[2]+" sent in game request for`"+searchRaw.substring(2)+" `...`");	
-			var YouTube = require('youtube-node');
-			var mentionCommandAuthor = msg.content.split(' ')[2];
-			var youTube = new YouTube();
-			youTube.setKey(api_youtube_data);
-			var prettySearchTerm = searchRaw;
-			var searchTerm = msg.content.replace(msg.content.split(' ')[0], "").replace(msg.content.split(' ')[1],"").replace(msg.content.split(' ')[2],"").substr(3).replace(/ /g, '+');
-			console.log("Searching for: '"+searchTerm+"'");
-
-			youTube.search(searchTerm, 1, function(error, result) {
-				if (error) {
-					console.log(error);
-				} else {
-					var result = result;
-					//console.log("Pre Parse Result: "+result['items']);
-					result['items'].forEach(function (video) {
-						var videoNamePretty = video.snippet.title;				
-						video.snippet.title = video.snippet.title.replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
-						var videoDownload = video.snippet.title;
-						var playerQueryIntro = ":small_red_triangle_down: `Starting download and encoding for "+videoNamePretty+"...`";
-						var playerEmbed = {embed: {
-							color: 0x000000,
-							title: videoNamePretty,					
-							"thumbnail": {
-								"url": video.snippet.thumbnails.default.url,
-							},
-							description: "\n https://www.youtube.com/watch?v="+video.id.videoId+"\n```dns\nYou will be notified (mentioned) when this download is complete and in the radio queue!```"
-						}};	
-
-						//download to mp3
-						var videoUrl = "https://www.youtube.com/watch?v="+video.id.videoId;   
-						var tempDir = "/storage/resist-discord-bot/assets/public/music/temp"; 
-						var musicDir = "/storage/resist-discord-bot/assets/public/music"; 
-
-						var videoReadableStream = ytdl(videoUrl, { filter: 'audioonly'});
-
-						ytdl.getInfo(videoUrl, function(err, info){
-							var videoName = info.title.replace('|','').replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
-							var videoWritableStream = fs.createWriteStream(tempDir + '/' + videoName + '.mp3'); 
-							var stream = videoReadableStream.pipe(videoWritableStream);
-
-							function completeMessage() {
-								//
-								request.post('https://www.googleapis.com/urlshortener/v1/url?key='+api_google_shortener, {
-								  json: {
-									'longUrl': 'https://radio.Resist.Network/music/'+video.snippet.title+'.mp3'
-								  }
-								}, function (error, response, body) {
-								  //if(error) {
-									//console.log(error)
-								 // } else {
-									exec("rm /storage/listen.m3u");
-									exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
-									msg.channel.send(":white_check_mark:  `Added request from in game player "+mentionCommandAuthor+" to Live Radio...` ```"+videoNamePretty+"\nDownloaded and encoded into MP3 (Audio)...\nAdded to Resist.Network Live Radio Queue...\nEnjoy!```Listen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
-									//console.log(response.statusCode, body)
-								  //}
-								})
-								//
-							}
-							msg.channel.send(playerQueryIntro, playerEmbed);
-							var tempFile = tempDir + '/' + videoName + '.mp3';
-							var mp3Path = musicDir + '/' + videoName + '.mp3';
-							if (fs.existsSync(mp3Path)) {
-								completeMessage();
-							} else {
-								stream.on('finish', function() {
-								   //res.writeHead(204);
-								   //res.end();
-								   //move now that it is done...
-									ffmpeg(tempFile,{ speed: 8, preset: "ultrafast"}).audioCodec('libmp3lame').save(mp3Path).on('end', function() {
-										fs.unlinkSync(tempFile);
-										completeMessage();
-										//console.log('Done');
-									});					   
-									//move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3', completeMessage);
-								});    
-							}
-						});              
-						//end download
-
-					});
-				}
-			});	
-			break;
-		default:
-			break;
-	}
  },'ytdl': (msg) => {
 	let searchRaw = msg.content.substr(msg.content.indexOf(' ')+1);
 	console.log(searchRaw);
