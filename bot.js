@@ -609,7 +609,7 @@ const commands = {
 			if (systemOS === "win32") {
 				//exec("ping -n 5 "+host, puts);
 			} else {
-				exec("echo Rebooting the Host...;sudo reboot;", puts);
+				exec('echo "Rebooting the host system, be right back!";sudo reboot;', puts);
 			}
 		}
 	},'purge': (msg) => {
