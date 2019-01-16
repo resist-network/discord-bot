@@ -451,7 +451,7 @@ function radioRemove(channel){
 			var sys = require('util');
 			var exec = require('child_process').exec;
 			function puts(error, stdout, stderr) { 
-				client.channels.get(channel).send(":wastebasket:  `Removed "+titlePretty+" `from the radio queue`!");
+				client.channels.get(channel).send("`Removed "+titlePretty+" from the radio queue!`");
 				return true;
 			}
 			exec("rm -rf /storage/resist-discord-bot/assets/public/music/"+title, puts);
@@ -1197,7 +1197,7 @@ const commands = {
 	switch(cmd) {
 		case "skip":
 			function skipDone(){
-				radioNowPlaying(discord_channel_id_botspam);
+				radioNowPlaying(discord_channel_id_log);
 			}
 			exec("pkill -10 ices && pkill -1 ices", skipDone());
 			msg.channel.send("`Skipping to the next radio track!`");		
