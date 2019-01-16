@@ -5,6 +5,7 @@ MYSQL_DATABASE=$(cat ~/.mysql_database)
 MYSQL_USER=$(cat ~/.mysql_user)
 MYSQL_PASSWORD=$(cat ~/.mysql_password)
 MYSQL_HOST=$(cat ~/.mysql_host)
+MCR_PASS=$(cat ~/.mcr_pass)
 YOUTUBE_KEY=$(cat ~/.youtube_key)
 GOOGLE_URL=$(cat ~/.google_url)
 MONGO=$(cat ~/.mongo)
@@ -13,6 +14,8 @@ if ! screen -list | grep -q "bot"; then
 	echo "Bot was not started, starting in background!"
 	cd /storage/resist-discord-bot/
 	rm /storage/resist-discord-bot/config.json
+	rm /storage/resist-discord-bot/tps.sh
+	sed "s#MCR_PASS#$MCR_PASS#g" /storage/resist-discord-bot/tps.sh.template > /storage/resist-discord-bot/tps.sh;
 	sed "s#DISCORD_TOKEN#$DISCORD#g" /storage/resist-discord-bot/config.json.template > /storage/resist-discord-bot/config.json;
 	sed -i "s/MYSQL_USER/$MYSQL_USER/g" /storage/resist-discord-bot/config.json;
 	sed -i "s/MYSQL_PASSWORD/$MYSQL_PASSWORD/g" /storage/resist-discord-bot/config.json;
