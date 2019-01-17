@@ -1342,7 +1342,7 @@ const commands = {
 	////msg.delete(1000);
 	youTube.search(searchTerm, 1, function(error, result) {
 		if (error) {
-			console.log(error);
+			console.log('Youtube Search Error: '+error);
 		} else {
 			var result = result[0];
 			console.log("Pre Parse Result: "+result['items']);
