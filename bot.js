@@ -735,52 +735,9 @@ const commands = {
 		}
 	}
 	exec("/bin/bash /storage/resist-discord-bot/tps.sh", puts);
-},'achievements': (msg) => {
-	//msg.delete(1000);		
-	let user = msg.content.split(' ')[1];
-	if (user == "top") {
-		var sys = require('util');
-		var exec = require('child_process').exec;
-		function puts(error, stdout, stderr) { 
-			msg.channel.send(":medal:  `Displaying top achievements for user "+user+"` ```css\n"+stdout+"```");
-		}
-		if (systemOS === "win32") {
-			//exec("ping -n 5 "+host, puts);
-		} else {
-			exec("/storage/aach.sh | iconv -f utf-8 -t utf-8 -c", puts);
-		}
-	} else if (!user) {
-		msg.channel.send(":medal: :exclamation: `Must either specify [top] or a [playerName]!`");
-	} else {
-		msg.channel.send(":medal:  `Displaying recent top achievements for all users...` ```css\nNot Yet Implemented!```");
-	}
-},'time': (msg) => {
-	//msg.delete(1000);		
-	let user = msg.content.split(' ')[1];
-	if (!user) {
-		msg.channel.send(":medal: :exclamation: `Must either specify [top] or a [playerName]!`");
-	} else {
-		var sys = require('util');
-		var exec = require('child_process').exec;
-		function puts(error, stdout, stderr) { 
-			stdout = stdout.replace(/WA.Net#  /g, "");
-			stdout = stdout.replace(/WA.Net# /g, "");
-			stdout = stdout.replace(/-- Resist.Network   OnTime    LeaderBoard--/g, "");
-			if (user == "top") {
-				msg.channel.send(":stopwatch:  `Querying time statistics for all players...` ```css\n"+stdout+"```");
-			} else {
-				msg.channel.send(":stopwatch:  `Querying "+user+"'s time statistics...` ```css\n"+stdout+"```");
-			}
-		}
-		if (systemOS === "win32") {
-			//exec("ping -n 5 "+host, puts);
-		} else {
-			exec("/storage/time.sh "+user+" | iconv -f utf-8 -t utf-8 -c", puts);
-		}
-	}
 },'download': (msg) => {
 	//msg.delete(1000);
-	msg.channel.send("`Compiling and preparing recent game download links...` ```css\nWINDOWS OS { WA-Installer.exe }\n\nUNIVERSAL OS { WorldAutomation.jar }\n\n\n\nBest for our game and mod pack. \n\nImproves textures, usability, UI, and overall player experience.\n\n\n\nREQUIREMENTS { Java 8 x64 Required }\n\nAUTHORS { Th3Fanbus, MrJoseph }\n\nSOURCE { github.com/worldautomation/WA-Bot }```**Also Available on the popular Technic Launcher:** **https://www.technicpack.net/modpack/worldautomation**\n\n", {
+	msg.channel.send("`It's available on most all paltforms, get it here...`\nhttps://resist.network/get-the-game", {
 /* 			embed: {
 			color: 0xff8000,
 			author: {
@@ -795,8 +752,8 @@ const commands = {
 			}
 		}, */
 		files: [
-			"./downloads/WA-Installer.exe",
-			"./downloads/WorldAutomation.jar",
+			//"./downloads/WA-Installer.exe",
+			//"./downloads/WorldAutomation.jar",
 			"https://Resist.Network/images/home_logo.png"
 		]
 	});
