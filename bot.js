@@ -642,7 +642,7 @@ const commands = {
 			let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
 			if(!rUser) return message.channel.send("Couldn't find user.");
 			let rreason = args.join(" ").slice(22);
-			let reportEmbed = new Discord.RichEmbed()
+			let reportEmbed = new Client.RichEmbed()
 			.setDescription("Reports")
 			.setColor("#15f153")
 			.addField("Reported User", `${rUser} with ID: ${rUser.id}`)
@@ -732,7 +732,7 @@ const commands = {
     let kReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
-    let kickEmbed = new Discord.RichEmbed()
+    let kickEmbed = new Client.RichEmbed()
     .setDescription("~Kick~")
     .setColor("#e56b00")
     .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
@@ -756,7 +756,7 @@ const commands = {
     let bReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("No can do pal!");
     if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
-    let banEmbed = new Discord.RichEmbed()
+    let banEmbed = new Client.RichEmbed()
     .setDescription("~Ban~")
     .setColor("#bc0000")
     .addField("Banned User", `${bUser} with ID ${bUser.id}`)
@@ -777,7 +777,7 @@ const commands = {
     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!rUser) return message.channel.send("Couldn't find user.");
     let rreason = args.join(" ").slice(22);
-    let reportEmbed = new Discord.RichEmbed()
+    let reportEmbed = new Client.RichEmbed()
     .setDescription("Reports")
     .setColor("#15f153")
     .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
