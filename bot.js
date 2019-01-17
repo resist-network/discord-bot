@@ -1344,7 +1344,7 @@ const commands = {
 		if (error) {
 			console.log(error);
 		} else {
-			var result = result;
+			var result = result[0];
 			console.log("Pre Parse Result: "+result['items']);
 			result['items'].forEach(function (video) {
 				var videoNamePretty = video.snippet.title;								
@@ -1354,7 +1354,7 @@ const commands = {
 				//console.log(video.snippet.thumbnails.medium.url);
 
 				//download to mp3
-				var videoUrl = video.id.videoId;   
+				var videoUrl = "https://www.youtube.com/watch?v="+video.id.videoId;   
 				var youtubeTempDir = "/storage/resist-discord-bot/assets/public/youtube/temp"; 
 				var youtubeDir = "/storage/resist-discord-bot/assets/public/youtube"; 
 
