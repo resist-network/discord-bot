@@ -785,7 +785,7 @@ const commands = {
 	}
 	return;	
 },'motd': (msg) => {
-	if(msd.author.id !== config.bot_admin_id) return;
+	if(msg.author.id !== config.bot_admin_id) return;
 	msg.delete(1000);
 	msg.channel.send("`Initializing Resist.Network...` ```prolog\nWelcome to the Resist.Network Minecraft Community! We host our own custom Minecraft modpack and server. Scifi, Futuristic, CyberPunk themed tech only survival pack. \n\nPlease check our chat channels, or visit our website at the link below for the mod list, launcher information,\nconnect information and much much more.```\n\nGet it Now!  [ https://Resist.Network ]\n\nJoin <#515836198368051203> for regular chat and to meet the community!\nUse <#525842772247314442> for general help or open a ticket.\n\n**SERVER INFORMATION**```css\nModded Minecraft Version { 1.12.2 }\nServer Stats { DEDICATED, 16GB RAM, SSD RAID, 8 CORE }\n```\n**OPEN A SUPPORT TICKET** - **!open**\n```ldif\nCreates a private channel and staff will assist you when they are available.\n\nFor immediate help, check out or other channels, or check out site for various custom tweaks, recipes, and extended help topics.```\n**DOWNLOAD GAME** - **!download**\n```ldif\nProvides the downloads for Windows, Linux and OSX players.```", {
 		files: [
