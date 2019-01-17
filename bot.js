@@ -736,27 +736,7 @@ const commands = {
 	}
 	exec("/bin/bash /storage/resist-discord-bot/tps.sh", puts);
 },'download': (msg) => {
-	//msg.delete(1000);
-	msg.channel.send("`It's available on most all paltforms, get it here...`\nhttps://resist.network/get-the-game", {
-/* 			embed: {
-			color: 0xff8000,
-			author: {
-				name: bot_nickname+" - Custom Launcher Download",
-				icon_url: bot_logo_square
-			},
-			//title: "Querying "+host+ "...",
-			description: "```WINDOWS = WA-Installer.exe\n\nLINUX / OSX = WorldAutomation.jar\n\n\n\nBest for our game and mod pack. \n\nImproves textures, usability, UI, and overall player experience.\n\n\n\nREQUIREMENTS: Java 8 x64 Required\n\nAUTHORS: Th3fanbus, MrJoseph\n\nSOURCE: github.com/worldautomation/WA-Bot```",
-			timestamp: new Date(),
-			footer: {
-				text: info_copyright
-			}
-		}, */
-		files: [
-			//"./downloads/WA-Installer.exe",
-			//"./downloads/WorldAutomation.jar",
-			"https://Resist.Network/images/home_logo.png"
-		]
-	});
+	msg.channel.send("`It's available on most all paltforms, get it here...`\nhttps://github.com/resist-network/resist-launcher-pack/releases/latest");
 },'webpage': (msg) => {
 	//msg.delete(1000);
 	let requestPage = msg.content.split(' ')[1];
