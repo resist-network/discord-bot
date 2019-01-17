@@ -639,9 +639,8 @@ const commands = {
 		case "discord":	
 			// About Server Guild
 			let message = msg;
-			let serverembed = "Server Name {"+message.guild.name+"}\nCreated On {"+ message.guild.createdAt+"}\nYou Joined On {"+message.member.joinedAt+"}\nTotal Members {"+message.guild.memberCount+"}";
-			msg.channel.send("`Querying discord monkeys...` ```css"+serverembed+"\n\n{ Want to play a game? | All Rights Reserved }```");
-			msg.channel.send(serverembed);
+			let serverembed = "Server Name { "+message.guild.name+" }\nCreated On { "+ message.guild.createdAt+" }\nYou Joined On { "+message.member.joinedAt+" }\nTotal Members { "+message.guild.memberCount+" }";
+			msg.channel.send("`Querying discord monkeys...` ```css\n"+serverembed+"\n\n{ Want to play a game? | All Rights Reserved }```");
 			break;
 		default:
 			msg.channel.send("`Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\nCustom Open Source Discord Bot built with [Node] and [Discord.js] for our Minecraft community and server.\nFor more information including current and planned features visit the link above.\nBig Brother is Watching You!\n\n{ Resist.Network | All Rights Reserved }```");
