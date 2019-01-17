@@ -12,3 +12,4 @@ assets/public/youtube/temp/*m4u
 assets/public/youtube/temp/ogg
 *.ogg
 *.mp3
+tps.sh
