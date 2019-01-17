@@ -775,7 +775,7 @@ const commands = {
     let rreason = args.join(" ").slice(22);
     let reportschannel = message.guild.channels.find(`name`, "staff");
     if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
-    message.delete().catch(O_o=>{});
+//    message.delete().catch(O_o=>{});
 	if(rreason == "" || rreason == null) { 
 		let reportEmbed = "`"+message.createdAt+":  `<@"+message.author.id+">`(ID# "+message.author.id+") reported user` "+rUser+"`(ID# "+message.author.id+") for no reason...`";
 		reportschannel.send(reportEmbed);
