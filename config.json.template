@@ -3,6 +3,7 @@
 	"bot_passes" : 1,
 	"bot_nickname" : "Resist.Network",
 	"bot_admin_id" : "196825309692035072",
+	"bot_id" : "523843480686952480",
 	"bot_token" : "DISCORD_TOKEN",
 	"bot_web_port" : 5000,
 	"bot_web_title" : "Resist.Network",
