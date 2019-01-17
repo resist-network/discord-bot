@@ -1345,7 +1345,7 @@ const commands = {
 			console.log(error);
 		} else {
 			var result = result;
-			//console.log("Pre Parse Result: "+result['items']);
+			console.log("Pre Parse Result: "+result['items']);
 			result['items'].forEach(function (video) {
 				var videoNamePretty = video.snippet.title;								
 				video.snippet.title = video.snippet.title.replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
@@ -1354,7 +1354,7 @@ const commands = {
 				//console.log(video.snippet.thumbnails.medium.url);
 
 				//download to mp3
-				var videoUrl = "https://www.youtube.com/watch?v="+video.id.videoId;   
+				var videoUrl = video.id.videoId;   
 				var youtubeTempDir = "/storage/resist-discord-bot/assets/public/youtube/temp"; 
 				var youtubeDir = "/storage/resist-discord-bot/assets/public/youtube"; 
 
