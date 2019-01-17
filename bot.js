@@ -843,19 +843,7 @@ const commands = {
 	function puts(error, stdout, stderr) { 
 		msg.channel.send("```"+stdout+"```")
 	}
-	msg.channel.send({embed: {
-		color: 0x2DD302,
-		author: {
-			name: bot_nickname+" - Grab a Web Page",
-			icon_url: bot_logo_square
-		},
-		//title: "Querying "+host+ "...",
-		description: "```Check Below for your Page!```",
-		timestamp: new Date(),
-		footer: {
-			text: info_copyright
-		}
-	}});			
+	msg.channel.send("`OK, text version coming right up!`");			
 	if (systemOS === "win32") {
 		//exec("ping -n 5 "+host, puts);
 	} else {
