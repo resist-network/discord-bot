@@ -732,14 +732,14 @@ const commands = {
     let kReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
 	if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
-    let kickChannel = message.guild.channels.find(`name`, "staff");
-    if(!kickChannel) return message.channel.send("Can't find incidents channel.");
+    let kickChannel = message.guild.channels.find(`name`, "log-discord");
+    if(!kickChannel) return message.channel.send("Can't find log channel.");
     message.guild.member(kUser).kick(kReason);
 	if(kReason == "" || kReason == null) { 
-		let kickEmbed = "`"+message.createdAt+":  `<@"+message.author.id+">`(ID# "+message.author.id+") kicked user` "+kUser+"`(ID# "+message.author.id+") for no reason...`";
+		let kickEmbed = "`"+message.author.name+"(ID# "+message.author.id+") kicked user` "+kUser+"`(ID# "+message.author.id+") for no reason...`";
 		kickChannel.send(kickEmbed);
 	} else {
-		let kickEmbed = "`"+message.createdAt+":  `<@"+message.author.id+">`(ID# "+message.author.id+") kicked user` "+kUser+"`(ID# "+message.author.id+") for "+kReason+"...`";
+		let kickEmbed = "`"+message.author.name+"(ID# "+message.author.id+") kicked user` "+kUser+"`(ID# "+message.author.id+") for "+kReason+"...`";
 		kickChannel.send(kickEmbed);
 	}		
 	return;
@@ -754,14 +754,14 @@ const commands = {
 	let bReason = args.join(" ").slice(22);
 	if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("No can do pal!");
     if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
-    let incidentchannel = message.guild.channels.find(`name`, "staff");
-    if(!incidentchannel) return message.channel.send("Can't find incidents channel.");
+    let incidentchannel = message.guild.channels.find(`name`, "log-discord");
+    if(!incidentchannel) return message.channel.send("Can't find log channel.");
     message.guild.member(bUser).ban(bReason);
 	if(bReason == "" || bReason == null) { 
-		let banEmbed = "`"+message.createdAt+":  `<@"+message.author.id+">`(ID# "+message.author.id+") banned user` "+bUser+"`(ID# "+message.author.id+") for no reason...`";
+		let banEmbed = "`"+message.author.name+"(ID# "+message.author.id+") banned user` "+bUser+"`(ID# "+message.author.id+") for no reason...`";
 		incidentchannel.send(banEmbed);
 	} else {
-		let banEmbed = "`"+message.createdAt+":  `<@"+message.author.id+">`(ID# "+message.author.id+") banned user` "+bUser+"`(ID# "+message.author.id+") for "+bReason+"...`";
+		let banEmbed = "`"+message.author.name+"(ID# "+message.author.id+") banned user` "+bUser+"`(ID# "+message.author.id+") for "+bReason+"...`";
 		incidentchannel.send(banEmbed);
 	}	
 	return;	
@@ -773,14 +773,14 @@ const commands = {
     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!rUser) return message.channel.send("Couldn't find user.");
     let rreason = args.join(" ").slice(22);
-    let reportschannel = message.guild.channels.find(`name`, "staff");
-    if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
+    let reportschannel = message.guild.channels.find(`name`, "log-discord");
+    if(!reportschannel) return message.channel.send("Couldn't find log channel.");
 //    message.delete().catch(O_o=>{});
 	if(rreason == "" || rreason == null) { 
-		let reportEmbed = "`"+message.createdAt+":  `<@"+message.author.id+">`(ID# "+message.author.id+") reported user` "+rUser+"`(ID# "+message.author.id+") for no reason...`";
+		let reportEmbed = "`"+message.author.name+"(ID# "+message.author.id+") reported user` "+rUser+"`(ID# "+message.author.id+") for no reason...`";
 		reportschannel.send(reportEmbed);
 	} else {
-		let reportEmbed = "`"+message.createdAt+":  `<@"+message.author.id+">`(ID# "+message.author.id+") reported user` "+rUser+"`(ID# "+message.author.id+") for "+rreason+"...`";
+		let reportEmbed = "`"+message.author.name+"(ID# "+message.author.id+") reported user` "+rUser+"`(ID# "+message.author.id+") for "+rreason+"...`";
 		reportschannel.send(reportEmbed);		
 	}
 	return;	
