@@ -671,7 +671,7 @@ const commands = {
 	let announcement = msg.content.split(/\s(.+)/)[1];
 	msg.delete(1000);
 	if (msg.author.id == bot_admin_id) {
-		msg.channel.send("<:wa:502866072152571924>:loudspeaker:  `Announcement for` @everyone `. See attached.`\n"+announcement).then(function (message) {
+		client.channels.get("515838337911750685").send(":loudspeaker: `Announcement for all meat suits, please see attached:`\n"+announcement).then(function (message) {
 			this.addReaction("👍", msg.author)
 			this.addReaction("👍", msg.author)
 			//message.pin()
