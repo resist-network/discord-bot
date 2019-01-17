@@ -457,14 +457,14 @@ function radioRemove(channel){
 			}
 			function puts() { 
 				client.channels.get(channel).send("`Removed "+titlePretty+" from the radio queue!`");
+				exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
+				console.log('Should have wrote a new playlist file...')
+				exec("pkill -10 ices && pkill -1 ices");
 				//rmComplete();
 				return true;
 			}
 
-			exec("rm /storage/listen.m3u;rm -rf /storage/resist-discord-bot/assets/public/music/"+title);			
-			exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
-			console.log('Should have wrote a new playlist file...')
-			exec("pkill -10 ices && pkill -1 ices");
+			exec("rm /storage/listen.m3u;rm -rf /storage/resist-discord-bot/assets/public/music/"+title+"", puts());			
 		});
 	});
 }
@@ -1309,7 +1309,10 @@ const commands = {
 										function rmComplete() {
 											exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
 										}
-										exec("rm /storage/listen.m3u", rmComplete());
+										exec("rm /storage/listen.m3u");
+										exec("find /storage/resist-discord-bot/assets/public/music | grep .mp3 > /storage/listen.m3u");
+										console.log('Should have wrote a new playlist file...')
+										exec("pkill -10 ices && pkill -1 ices");										
 										//move(tempDir + '/' + videoName + '.mp3', musicDir + '/' + videoName + '.mp3', moveComplete());
 										console.log('Done');
 										msg.channel.send(":white_check_mark: `Added request from ` "+mentionCommandAuthor+" `titled "+videoNamePretty+"!`\nListen Live in **#radio**, in Game or at -> https://Resist.Network/listen.mp3");	
