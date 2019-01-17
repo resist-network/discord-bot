@@ -24601,3 +24601,22 @@ Playing /storage/resist-discord-bot/assets/public/music/Money-Pink_Floyd_HD__Stu
 Playing /storage/resist-discord-bot/assets/public/music/Rage_Against_the_Machine-Guerrilla_Radio.mp3
 Playing /storage/resist-discord-bot/assets/public/music/Primus-My_Name_Is_Mud.mp3
 Ices Exiting...
+
+
+
+
+Resist.Network is ready for you!
+---------------------------
+[Resist.Network | 16/1/2019 @ 23:48:7] GitHub(526014978701000734) 
+Repository Hash: b5241b50
+---------------------------
+
+Starting Resist.Network Live Radio Stream....
+Logfile opened
+Playing /storage/resist-discord-bot/assets/public/music/Imagine_Dragons-Radioactive.mp3
+Mounted on http://localhost:8000/listen.mp3
+[Resist.Network | 16/1/2019 @ 23:48:7] sys__op(196825309692035072) !radio queue
+Current Track { Imagine Dragons-Radioactive }
+[Resist.Network | 16/1/2019 @ 23:48:7] sys__op(196825309692035072) !radio add green day american idiot
+Searching YouTube for green day american idiot...
+[Resist.Network | 16/1/2019 @ 23:48:7] sys__op(196825309692035072) !help
