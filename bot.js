@@ -636,24 +636,12 @@ const commands = {
 		case "bot":
 			msg.channel.send("`Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\nCustom Open Source Discord Bot built with [Node] and [Discord.js] for our Minecraft community and server.\nFor more information including current and planned features visit the link above.\nBig Brother is Watching You!\n\n{ Resist.Network | All Rights Reserved }```");
 			break;
-		case "bot":	
+		case "discord":	
 			// About Server Guild
 			let message = msg;
-			let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-			if(!rUser) return message.channel.send("Couldn't find user.");
-			let rreason = args.join(" ").slice(22);
-			let reportEmbed = new Client.RichEmbed()
-			.setDescription("Reports")
-			.setColor("#15f153")
-			.addField("Reported User", `${rUser} with ID: ${rUser.id}`)
-			.addField("Reported By", `${message.author} with ID: ${message.author.id}`)
-			.addField("Channel", message.channel)
-			.addField("Time", message.createdAt)
-			.addField("Reason", rreason);
-			let reportschannel = message.guild.channels.find(`name`, "reports");
-			if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
-			message.delete().catch(O_o=>{});
-			reportschannel.send(reportEmbed);
+			let serverembed = "Server Name {"+message.guild.name+"}\nCreated On {"+ message.guild.createdAt+"}\nYou Joined On {"+message.member.joinedAt+"}\nTotal Members {"+message.guild.memberCount+"}";
+			msg.channel.send("`Querying discord monkeys...` ```css"+serverembed+"\n\n{ Want to play a game? | All Rights Reserved }```");
+			msg.channel.send(serverembed);
 			break;
 		default:
 			msg.channel.send("`Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\nCustom Open Source Discord Bot built with [Node] and [Discord.js] for our Minecraft community and server.\nFor more information including current and planned features visit the link above.\nBig Brother is Watching You!\n\n{ Resist.Network | All Rights Reserved }```");
