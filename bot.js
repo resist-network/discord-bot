@@ -731,8 +731,9 @@ const commands = {
     if(!kUser) return message.channel.send("Can't find user!");
     let kReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
-    if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
-	let kickEmbed = "`"+message.createdAt+" `<@"+message.author.id+">`(ID# "+message.author.id+") kicked user` "+kUser+"`(ID# "+message.author.id+") for "+kReason+"...`";
+	if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
+	if(kReason == "" || kReason == null) { kReason == "no reason";}
+	let kickEmbed = "`"+message.createdAt+": `<@"+message.author.id+">`(ID# "+message.author.id+") kicked user` "+kUser+"`(ID# "+message.author.id+") for "+kReason+"...`";
     let kickChannel = message.guild.channels.find(`name`, "staff");
     if(!kickChannel) return message.channel.send("Can't find incidents channel.");
     message.guild.member(kUser).kick(kReason);
@@ -747,9 +748,10 @@ const commands = {
     let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!bUser) return message.channel.send("Can't find user!");
 	let bReason = args.join(" ").slice(22);
-    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("No can do pal!");
+	if(bReason == "" || bReason == null) { bReason == "no reason";}
+	if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("No can do pal!");
     if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
-	let banEmbed = "`"+message.createdAt+" `<@"+message.author.id+">`(ID# "+message.author.id+") banned user` "+bUser+"`(ID# "+message.author.id+") for "+bReason+"...`";
+	let banEmbed = "`"+message.createdAt+": `<@"+message.author.id+">`(ID# "+message.author.id+") banned user` "+bUser+"`(ID# "+message.author.id+") for "+bReason+"...`";
     let incidentchannel = message.guild.channels.find(`name`, "staff");
     if(!incidentchannel) return message.channel.send("Can't find incidents channel.");
     message.guild.member(bUser).ban(bReason);
@@ -763,7 +765,8 @@ const commands = {
     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!rUser) return message.channel.send("Couldn't find user.");
     let rreason = args.join(" ").slice(22);
-	let reportEmbed = "`"+message.createdAt+" `<@"+message.author.id+">`(ID# "+message.author.id+") reported user` "+rUser+"`(ID# "+message.author.id+") for "+rreason+"...`";
+	if(rreason == "" || rreason == null) { rreason == "no reason";}	
+	let reportEmbed = "`"+message.createdAt+": `<@"+message.author.id+">`(ID# "+message.author.id+") reported user` "+rUser+"`(ID# "+message.author.id+") for "+rreason+"...`";
     let reportschannel = message.guild.channels.find(`name`, "staff");
     if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
     message.delete().catch(O_o=>{});
