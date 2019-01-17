@@ -1,1 +1,3 @@
-mcrcon  -p MCR_PASS -H play.resist.network -P 25567 tps
+#!/bin/bash
+cd "$(dirname "$0")"
+mcrcon -p MCR_PASS -H play.resist.network -P 25567 -c tps
