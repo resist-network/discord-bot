@@ -627,7 +627,7 @@ const commands = {
 		msg.channel.send(descriptionAbout);
 	}
 },'about': (msg) => {
-	msg.channel.send("`Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\nCustom Open Source Discord Bot built with [Node] and [Discord.js] for our Minecraft community and server.\n\nFor more information including current and planned features visit the link above.\n\nBig Brother is Watching You!\n\n{ Resist.Network | All Rights Reserved }```");
+	msg.channel.send("`Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\nCustom Open Source Discord Bot built with [Node] and [Discord.js] for our Minecraft community and server.\nFor more information including current and planned features visit the link above.\nBig Brother is Watching You!\n\n{ Resist.Network | All Rights Reserved }```");
 },'sendnudes': (msg) => {
 		msg.channel.send("`Well, I suppose its ok since I know you...`\nhttps://i.dailymail.co.uk/i/pix/2015/07/15/15/2A8D0D2000000578-0-image-a-34_1436968980848.jpg");
 },'auth-register': (msg) => {
