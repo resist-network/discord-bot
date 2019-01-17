@@ -669,9 +669,9 @@ const commands = {
 	let announcement = msg.content.split(/\s(.+)/)[1];
 	msg.delete(1000);
 	if (msg.author.id == bot_admin_id) {
-		client.channels.get("515838337911750685").send(":loudspeaker: `Announcement for all meat suits, please see attached:`\n"+announcement).then(function (message) {
-			this.addReaction("👍", msg.author)
-			this.addReaction("👍", msg.author)
+		client.channels.get("515838337911750685").send(":loudspeaker: `"+announcement+"`").then(function (message) {
+			//this.addReaction("👍", msg.author)
+			//this.addReaction("👍", msg.author)
 			//message.pin()
 			//message.delete()
 		}).catch(function() {
