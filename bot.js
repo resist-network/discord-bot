@@ -627,7 +627,40 @@ const commands = {
 		msg.channel.send(descriptionAbout);
 	}
 },'about': (msg) => {
-	msg.channel.send("`Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\nCustom Open Source Discord Bot built with [Node] and [Discord.js] for our Minecraft community and server.\nFor more information including current and planned features visit the link above.\nBig Brother is Watching You!\n\n{ Resist.Network | All Rights Reserved }```");
+	var cmd;
+	if(msg.content.split(' ')[1] == null) {
+		cmd = "bot";
+	} else {
+		cmd = msg.content.split(' ')[1];
+	}
+	if(cmd == null) { let cmd == "bot" }
+	switch(cmd) {
+		case "bot":
+			msg.channel.send("`Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\nCustom Open Source Discord Bot built with [Node] and [Discord.js] for our Minecraft community and server.\nFor more information including current and planned features visit the link above.\nBig Brother is Watching You!\n\n{ Resist.Network | All Rights Reserved }```");
+			break;
+		case "bot":	
+			// About Server Guild
+			let message = msg;
+			let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+			if(!rUser) return message.channel.send("Couldn't find user.");
+			let rreason = args.join(" ").slice(22);
+			let reportEmbed = new Discord.RichEmbed()
+			.setDescription("Reports")
+			.setColor("#15f153")
+			.addField("Reported User", `${rUser} with ID: ${rUser.id}`)
+			.addField("Reported By", `${message.author} with ID: ${message.author.id}`)
+			.addField("Channel", message.channel)
+			.addField("Time", message.createdAt)
+			.addField("Reason", rreason);
+			let reportschannel = message.guild.channels.find(`name`, "reports");
+			if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
+			message.delete().catch(O_o=>{});
+			reportschannel.send(reportEmbed);
+			break;
+		default:
+			msg.channel.send("`Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\nCustom Open Source Discord Bot built with [Node] and [Discord.js] for our Minecraft community and server.\nFor more information including current and planned features visit the link above.\nBig Brother is Watching You!\n\n{ Resist.Network | All Rights Reserved }```");
+			break;
+	}
 },'sendnudes': (msg) => {
 		msg.channel.send("`Well, I suppose its ok since I know you...`\nhttps://i.dailymail.co.uk/i/pix/2015/07/15/15/2A8D0D2000000578-0-image-a-34_1436968980848.jpg");
 },'auth-register': (msg) => {
@@ -693,6 +726,64 @@ const commands = {
 		"https://resist.network/wp-content/uploads/2019/01/textcrop.png"
 	]
 	});
+},'kick': (msg) => {
+	let message = msg;
+    let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!kUser) return message.channel.send("Can't find user!");
+    let kReason = args.join(" ").slice(22);
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
+    if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
+    let kickEmbed = new Discord.RichEmbed()
+    .setDescription("~Kick~")
+    .setColor("#e56b00")
+    .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
+    .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("Kicked In", message.channel)
+    .addField("Tiime", message.createdAt)
+    .addField("Reason", kReason);
+    let kickChannel = message.guild.channels.find(`name`, "staff");
+    if(!kickChannel) return message.channel.send("Can't find incidents channel.");
+    message.guild.member(kUser).kick(kReason);
+	kickChannel.send(kickEmbed);
+	return;
+},'ban': (msg) => {
+	let message = msg;
+    let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!bUser) return message.channel.send("Can't find user!");
+    let bReason = args.join(" ").slice(22);
+    if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("No can do pal!");
+    if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
+    let banEmbed = new Discord.RichEmbed()
+    .setDescription("~Ban~")
+    .setColor("#bc0000")
+    .addField("Banned User", `${bUser} with ID ${bUser.id}`)
+    .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
+    .addField("Banned In", message.channel)
+    .addField("Time", message.createdAt)
+    .addField("Reason", bReason);
+    let incidentchannel = message.guild.channels.find(`name`, "incidents");
+    if(!incidentchannel) return message.channel.send("Can't find incidents channel.");
+    message.guild.member(bUser).ban(bReason);
+    incidentchannel.send(banEmbed);
+	return;	
+},'report': (msg) => {
+	let message = msg;
+    let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!rUser) return message.channel.send("Couldn't find user.");
+    let rreason = args.join(" ").slice(22);
+    let reportEmbed = new Discord.RichEmbed()
+    .setDescription("Reports")
+    .setColor("#15f153")
+    .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
+    .addField("Reported By", `${message.author} with ID: ${message.author.id}`)
+    .addField("Channel", message.channel)
+    .addField("Time", message.createdAt)
+    .addField("Reason", rreason);
+    let reportschannel = message.guild.channels.find(`name`, "reports");
+    if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
+    message.delete().catch(O_o=>{});
+    reportschannel.send(reportEmbed);
+	return;	
 },'motd': (msg) => {
 	msg.delete(1000);
 	msg.channel.send("`Initializing Resist.Network...` ```prolog\nWelcome to the Resist.Network Minecraft Community! We host our own custom Minecraft modpack and server. Scifi, Futuristic, CyberPunk themed tech only survival pack. \n\nPlease check our chat channels, or visit our website at the link below for the mod list, launcher information,\nconnect information and much much more.```\n\nGet it Now!  [ https://Resist.Network ]\n\nJoin <#515836198368051203> for regular chat and to meet the community!\nUse <#525842772247314442> for general help or open a ticket.\n\n**SERVER INFORMATION**```css\nModded Minecraft Version { 1.12.2 }\nServer Stats { DEDICATED, 16GB RAM, SSD RAID, 8 CORE }\n```\n**OPEN A SUPPORT TICKET** - **!open**\n```ldif\nCreates a private channel and staff will assist you when they are available.\n\nFor immediate help, check out or other channels, or check out site for various custom tweaks, recipes, and extended help topics.```\n**DOWNLOAD GAME** - **!download**\n```ldif\nProvides the downloads for Windows, Linux and OSX players.```", {
