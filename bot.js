@@ -732,14 +732,7 @@ const commands = {
     let kReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("No can do pal!");
     if(kUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
-    let kickEmbed = new Client.RichEmbed()
-    .setDescription("~Kick~")
-    .setColor("#e56b00")
-    .addField("Kicked User", `${kUser} with ID ${kUser.id}`)
-    .addField("Kicked By", `<@${message.author.id}> with ID ${message.author.id}`)
-    .addField("Kicked In", message.channel)
-    .addField("Tiime", message.createdAt)
-    .addField("Reason", kReason);
+	let kickEmbed = "`Uh, oh... at "+message.createdAt+" <@"+message.author.id+"> with ID "+message.author.id+" kicked user "+kUser+" with ID "+message.author.id+" for: "+kReason+"`";
     let kickChannel = message.guild.channels.find(`name`, "staff");
     if(!kickChannel) return message.channel.send("Can't find incidents channel.");
     message.guild.member(kUser).kick(kReason);
@@ -756,14 +749,7 @@ const commands = {
     let bReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("No can do pal!");
     if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
-    let banEmbed = new Client.RichEmbed()
-    .setDescription("~Ban~")
-    .setColor("#bc0000")
-    .addField("Banned User", `${bUser} with ID ${bUser.id}`)
-    .addField("Banned By", `<@${message.author.id}> with ID ${message.author.id}`)
-    .addField("Banned In", message.channel)
-    .addField("Time", message.createdAt)
-    .addField("Reason", bReason);
+	let banEmbed = "`Oh shit, at "+message.createdAt+" <@"+message.author.id+"> with ID "+message.author.id+" banned user "+kUser+" with ID "+message.author.id+" for: "+bReason+"`";
     let incidentchannel = message.guild.channels.find(`name`, "staff");
     if(!incidentchannel) return message.channel.send("Can't find incidents channel.");
     message.guild.member(bUser).ban(bReason);
@@ -777,14 +763,8 @@ const commands = {
     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!rUser) return message.channel.send("Couldn't find user.");
     let rreason = args.join(" ").slice(22);
-    let reportEmbed = new Client.RichEmbed()
-    .setDescription("Reports")
-    .setColor("#15f153")
-    .addField("Reported User", `${rUser} with ID: ${rUser.id}`)
-    .addField("Reported By", `${message.author} with ID: ${message.author.id}`)
-    .addField("Channel", message.channel)
-    .addField("Time", message.createdAt)
-    .addField("Reason", rreason);
+	let reportEmbed = "`Uh, oh... at "+message.createdAt+" <@"+message.author.id+"> with ID "+message.author.id+" reported user "+kUser+" with ID "+message.author.id+" for: "+rReason+"`";
+
     let reportschannel = message.guild.channels.find(`name`, "staff");
     if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
     message.delete().catch(O_o=>{});
