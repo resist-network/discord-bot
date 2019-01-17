@@ -1330,7 +1330,7 @@ const commands = {
 			break;
 	}
 	
- },'ytdl': (msg) => {
+},'ytdl': (msg) => {
 	let searchRaw = msg.content.substr(msg.content.indexOf(' ')+1);
 	console.log(searchRaw);
 	var YouTube = require('youtube-node');
@@ -1342,15 +1342,15 @@ const commands = {
 	////msg.delete(1000);
 	youTube.search(searchTerm, 1, function(error, result) {
 		if (error) {
-			console.log('Youtube Search Error: '+error);
+			console.log(error);
 		} else {
-			var result = result[0];
+			var result = result;
 			//console.log("Pre Parse Result: "+result['items']);
 			result['items'].forEach(function (video) {
 				var videoNamePretty = video.snippet.title;								
 				video.snippet.title = video.snippet.title.replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
 				var videoDownload = video.snippet.title;
-				var playerQueryIntro = "<:ytdl:526045628304719891> `Starting YouTube download for "+videoNamePretty+"...`";
+				var playerQueryIntro = "`Starting YouTube download for "+videoNamePretty+"...`";
 				//console.log(video.snippet.thumbnails.medium.url);
 
 				//download to mp3
@@ -1392,7 +1392,7 @@ const commands = {
 						  //if(error) {
 							console.log(error)
 						  //} else {
-							msg.channel.send("<:ytdl:526045628304719891> `Added YouTube download request from ` "+mentionCommandAuthor+" ` to the server...`",playerEmbed);	
+							msg.channel.send(" `Added YouTube download request from ` "+mentionCommandAuthor+" ` to the server...`",playerEmbed);	
 							//console.log(response.statusCode, body)
 						  //}
 						//})
