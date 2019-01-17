@@ -749,7 +749,7 @@ const commands = {
     let bReason = args.join(" ").slice(22);
     if(!message.member.hasPermission("MANAGE_MEMBERS")) return message.channel.send("No can do pal!");
     if(bUser.hasPermission("MANAGE_MESSAGES")) return message.channel.send("That person can't be kicked!");
-	let banEmbed = "`Oh shit, at "+message.createdAt+" <@"+message.author.id+"> with ID "+message.author.id+" banned user "+kUser+" with ID "+message.author.id+" for: "+bReason+"`";
+	let banEmbed = "`Oh shit, at "+message.createdAt+" <@"+message.author.id+"> with ID "+message.author.id+" banned user "+bUser+" with ID "+message.author.id+" for: "+bReason+"`";
     let incidentchannel = message.guild.channels.find(`name`, "staff");
     if(!incidentchannel) return message.channel.send("Can't find incidents channel.");
     message.guild.member(bUser).ban(bReason);
@@ -763,7 +763,7 @@ const commands = {
     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!rUser) return message.channel.send("Couldn't find user.");
     let rreason = args.join(" ").slice(22);
-	let reportEmbed = "`Uh, oh... at "+message.createdAt+" <@"+message.author.id+"> with ID "+message.author.id+" reported user "+kUser+" with ID "+message.author.id+" for: "+rReason+"`";
+	let reportEmbed = "`Uh, oh... at "+message.createdAt+" <@"+message.author.id+"> with ID "+message.author.id+" reported user "+rUser+" with ID "+message.author.id+" for: "+rreason+"`";
     let reportschannel = message.guild.channels.find(`name`, "staff");
     if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
     message.delete().catch(O_o=>{});
