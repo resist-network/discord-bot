@@ -796,7 +796,7 @@ const commands = {
 			msg.channel.send("`Querying game server overall health and ticks per second...` ```pre\n"+stdout+"```");
 		}
 	}
-	exec("/bin/bash /storage/resist-discord-bot/tps.sh | iconv -f utf-8 -t utf-8 -c | sed 's/[0m//g'", puts);
+	exec("/bin/bash /storage/resist-discord-bot/tps.sh | iconv -f utf-8 -t utf-8 -c | sed `s/[0m//g`'", puts);
 },'download': (msg) => {
 	msg.channel.send("`It's available on all platforms, get it here...`\nhttps://github.com/resist-network/resist-launcher-pack/releases/latest");
 },'webpage': (msg) => {
