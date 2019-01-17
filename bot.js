@@ -1345,7 +1345,7 @@ const commands = {
 			console.log('Youtube Search Error: '+error);
 		} else {
 			var result = result[0];
-			console.log("Pre Parse Result: "+result['items']);
+			//console.log("Pre Parse Result: "+result['items']);
 			result['items'].forEach(function (video) {
 				var videoNamePretty = video.snippet.title;								
 				video.snippet.title = video.snippet.title.replace(/[^a-zA-Z0-9-_]/g, '_').replace("_-_", "-").replace("__-__","-");
