@@ -736,10 +736,10 @@ const commands = {
     if(!kickChannel) return message.channel.send("Can't find log channel.");
     message.guild.member(kUser).kick(kReason);
 	if(kReason == "" || kReason == null) { 
-		let kickEmbed = "`"+message.author.name+"(ID# "+message.author.id+") kicked user` "+kUser+"`(ID# "+message.author.id+") for no reason...`";
+		let kickEmbed = "<@"+message.author.id+">`(ID# "+message.author.id+") kicked user` "+kUser+"`(ID# "+message.author.id+") for no reason...`";
 		kickChannel.send(kickEmbed);
 	} else {
-		let kickEmbed = "`"+message.author.name+"(ID# "+message.author.id+") kicked user` "+kUser+"`(ID# "+message.author.id+") for "+kReason+"...`";
+		let kickEmbed = "<@"+message.author.id+">`(ID# "+message.author.id+") kicked user` "+kUser+"`(ID# "+message.author.id+") for "+kReason+"...`";
 		kickChannel.send(kickEmbed);
 	}		
 	return;
@@ -758,10 +758,10 @@ const commands = {
     if(!incidentchannel) return message.channel.send("Can't find log channel.");
     message.guild.member(bUser).ban(bReason);
 	if(bReason == "" || bReason == null) { 
-		let banEmbed = "`"+message.author.name+"(ID# "+message.author.id+") banned user` "+bUser+"`(ID# "+message.author.id+") for no reason...`";
+		let banEmbed = "<@"+message.author.id+">`(ID# "+message.author.id+") banned user` "+bUser+"`(ID# "+message.author.id+") for no reason...`";
 		incidentchannel.send(banEmbed);
 	} else {
-		let banEmbed = "`"+message.author.name+"(ID# "+message.author.id+") banned user` "+bUser+"`(ID# "+message.author.id+") for "+bReason+"...`";
+		let banEmbed = "<@"+message.author.id+">`(ID# "+message.author.id+") banned user` "+bUser+"`(ID# "+message.author.id+") for "+bReason+"...`";
 		incidentchannel.send(banEmbed);
 	}	
 	return;	
@@ -777,10 +777,10 @@ const commands = {
     if(!reportschannel) return message.channel.send("Couldn't find log channel.");
 //    message.delete().catch(O_o=>{});
 	if(rreason == "" || rreason == null) { 
-		let reportEmbed = "`"+message.author.name+"(ID# "+message.author.id+") reported user` "+rUser+"`(ID# "+message.author.id+") for no reason...`";
+		let reportEmbed = "<@"+message.author.id+">`(ID# "+message.author.id+") reported user` "+rUser+"`(ID# "+message.author.id+") for no reason...`";
 		reportschannel.send(reportEmbed);
 	} else {
-		let reportEmbed = "`"+message.author.name+"(ID# "+message.author.id+") reported user` "+rUser+"`(ID# "+message.author.id+") for "+rreason+"...`";
+		let reportEmbed = "<@"+message.author.id+">`(ID# "+message.author.id+") reported user` "+rUser+"`(ID# "+message.author.id+") for "+rreason+"...`";
 		reportschannel.send(reportEmbed);		
 	}
 	return;	
