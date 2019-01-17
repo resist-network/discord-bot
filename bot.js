@@ -633,7 +633,6 @@ const commands = {
 	} else {
 		cmd = msg.content.split(' ')[1];
 	}
-	if(cmd == null) { let cmd == "bot" }
 	switch(cmd) {
 		case "bot":
 			msg.channel.send("`Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\nCustom Open Source Discord Bot built with [Node] and [Discord.js] for our Minecraft community and server.\nFor more information including current and planned features visit the link above.\nBig Brother is Watching You!\n\n{ Resist.Network | All Rights Reserved }```");
