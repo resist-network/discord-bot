@@ -24630,3 +24630,80 @@ Repository Hash: f11b723a
 ---------------------------
 
 Starting Resist.Network Live Radio Stream....
+
+
+
+
+Resist.Network is ready for you!
+---------------------------
+Repository Hash: b959b262
+---------------------------
+
+Starting Resist.Network Live Radio Stream....
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !status
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !tps
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !tps
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio queue
+Current Track { Imagine Dragons-Radioactive }
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio skip
+Playing /storage/resist-discord-bot/assets/public/music/The_Lumineers-Ho_Hey__Official_Video_.mp3
+Playing /storage/resist-discord-bot/assets/public/music/Modestep-Sunlight__Official_Video_.mp3
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio queue
+Current Track { The Lumineers-Ho Hey Official Video  }
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio skip
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio queue
+Current Track { Modestep-Sunlight Official Video  }
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio add lost hightway eye smashing pumpkins
+Searching YouTube for lost hightway eye smashing pumpkins...
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio add rob dougan furious angels(instrumental)
+Searching YouTube for rob dougan furious angels(instrumental)...
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio Intro The xx - Xx
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio add Intro The xx - Xx
+Searching YouTube for Intro The xx - Xx...
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio add The Warning (Stefan Goodchild Remix)
+Searching YouTube for The Warning (Stefan Goodchild Remix)...
+Error opening /storage/resist-discord-bot/assets/public/music/temp/Green_Day-American_Idiot__OFFICIAL_VIDEO_.mp3: Couldn't find synch
+Error opening /storage/resist-discord-bot/assets/public/music/temp/Furious_Angels__Instrumental_.mp3: Couldn't find synch
+Playing /storage/resist-discord-bot/assets/public/music/Imagine_Dragons-Radioactive.mp3
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio add fortune days
+Searching YouTube for fortune days...
+Should have wrote a new playlist file...
+Done
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio add cleaning apartment clint mansell kronos quartet
+Searching YouTube for cleaning apartment clint mansell kronos quartet...
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio queue
+Current Track { Imagine Dragons-Radioactive }
+Should have wrote a new playlist file...
+Done
+Playing /storage/resist-discord-bot/assets/public/music/Cleaning_Apartment.mp3
+Should have wrote a new playlist file...
+Done
+Playing /storage/resist-discord-bot/assets/public/music/Cleaning_Apartment.mp3
+Should have wrote a new playlist file...
+Done
+Playing /storage/resist-discord-bot/assets/public/music/The_Lumineers-Ho_Hey__Official_Video_.mp3
+Playing /storage/resist-discord-bot/assets/public/music/AWOLNATION-Sail__Official_Music_Video_.mp3
+Should have wrote a new playlist file...
+Done
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio queue
+Current Track { AWOLNATION-Sail Official Music Video  }
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio queue
+Current Track { AWOLNATION-Sail Official Music Video  }
+Playing /storage/resist-discord-bot/assets/public/music/Rage_Against_the_Machine-Guerrilla_Radio.mp3
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio skip
+Playing /storage/resist-discord-bot/assets/public/music/Primus-My_Name_Is_Mud.mp3
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio queue
+Current Track { Rage Against the Machine-Guerrilla Radio }
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio skip
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio queue
+Current Track { Primus-My Name Is Mud }
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) 1radio skip
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio queue
+Current Track { Primus-My Name Is Mud }
+Should have wrote a new playlist file...
+Done
+Playing /storage/resist-discord-bot/assets/public/music/Rage_Against_the_Machine-Guerrilla_Radio.mp3
+Playing /storage/resist-discord-bot/assets/public/music/Primus-My_Name_Is_Mud.mp3
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio skip
+[Resist.Network | 17/1/2019 @ 3:12:55] sys__op(196825309692035072) !radio queue
+Current Track { Primus-My Name Is Mud }
