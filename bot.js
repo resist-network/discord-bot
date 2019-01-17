@@ -764,7 +764,6 @@ const commands = {
     if(!rUser) return message.channel.send("Couldn't find user.");
     let rreason = args.join(" ").slice(22);
 	let reportEmbed = "`Uh, oh... at "+message.createdAt+" <@"+message.author.id+"> with ID "+message.author.id+" reported user "+kUser+" with ID "+message.author.id+" for: "+rReason+"`";
-
     let reportschannel = message.guild.channels.find(`name`, "staff");
     if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
     message.delete().catch(O_o=>{});
