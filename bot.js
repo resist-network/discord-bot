@@ -571,6 +571,7 @@ function botReboot() {
 }
 const commands = {
 'reload': (msg) => {
+	if(message.author.id !== config.bot_admin_id) return;
 	msg.channel.send("`Reloading and updating Bot PID: "+process.pid+", be right back!`");
 	var gitHash;
 	fs.readFile('.git/refs/heads/master', function(err, data) {
@@ -622,10 +623,8 @@ const commands = {
 		message.channel.bulkDelete(amount).then(message.channel.send("`Purged "+amount1+" message(s) from channel <#"+msg.channel.id+">!` ```css\nMessages Purged { "+amount1+" }\nChannel Purged { #"+msg.channel.name+" }\nUser { "+msg.author.username+"/"+msg.author.id+" }\n\nThis message will self destruct in 5 seconds...```").then(msg => msg.delete(5000)).catch(err => console.log(err)));
 	}
 },'brag': (msg) => {
-	if (msg.author.id == bot_admin_id) {
-		var descriptionAbout = "Our bots do things yours can't. Haha.";
-		msg.channel.send(descriptionAbout);
-	}
+	var descriptionAbout = "`Our bots do things yours can't. Haha!`";
+	msg.channel.send(descriptionAbout);
 },'about': (msg) => {
 	var cmd;
 	if(msg.content.split(' ')[1] == null) {
@@ -662,11 +661,8 @@ const commands = {
 	}
 },'sendnudes': (msg) => {
 		msg.channel.send("`Well, I suppose its ok since I know you...`\nhttps://i.dailymail.co.uk/i/pix/2015/07/15/15/2A8D0D2000000578-0-image-a-34_1436968980848.jpg");
-},'auth-register': (msg) => {
-	let player = msg.content.split(' ')[1];
-	msg.delete(1000);
-	msg.channel.send("<:thumbprint:420873257370124290> `Created a new authentication bit for "+player+" successfully, updating protocols and assigning system access...` ```css\nSystem Username: { username }\nSystem Password: { ********** }\nUser Home: { /home/username }\nSecure Shell Access: { ssh.Resist.Network }\n\nSystem user provisioned successfully in matrix!\n\nMay the odds ever be in your favor!```");
 },'clear': (msg) => {
+	if(message.author.id !== config.bot_admin_id) return;
 	msg.delete(1000);
 	var authToken = bot_token;
 	
@@ -719,6 +715,7 @@ const commands = {
 		msg.channel.send("`Performing maintenance on internal systems, expected ETA is "+maintenance+"!`");
 	}
 },'rules': (msg) => {
+	if(message.author.id !== config.bot_admin_id) return;
 	msg.delete(1000);
 	msg.channel.send("`Initializing Resist.Network rules database provided by Derakel :P ...`\n\n<:logo:525883770281132064> __**Resist.Network RULES**__ <:logo:525883770281132064>\n\n**Member Rules\n===========================**\n```css\n#1 Respect the Decisions of the Staff. Do not undermine their authority.\n\n#2 We are an English speaking Community mostly. Support cannot be guaranteed, but we will try.\n\n#3 DO NOT act in a Childish Behavior, CAUSE DRAMA or TROLL other Members.\n\n#4 DO NOT Spam/Harass Channels with either Text, Microphone or Bots.\n\n#5 DO NOT excessively use capslock. (LOL or ROFL is fine)\n\n#6 DO NOT Advertise other Discords, Servers and/or Communities without staff permission.\n\n#7 DO NOT bring conversations into the wrong Channels.\n\n#8 If you have a Complaint, Question or Issue; use https://resist.network/community to submit a topic.```\n**Staff Rules\n===========================**\n```css\n#1 Do not change Discord Settings without Administrative Authorization.\n\n#2 Do not assume that you are above anyone or any Rules that Members must follow.\n\n#3 Just because you 'can' do something, doesn't mean you should.```", {
 		files: [
@@ -749,6 +746,7 @@ const commands = {
 	kickChannel.send(kickEmbed);
 	return;
 },'ban': (msg) => {
+	if(message.author.id !== config.bot_admin_id) return;
 	let message = msg;
 	let messageArray = message.content.split(" ");
 	let cmd = messageArray[0];
@@ -793,6 +791,7 @@ const commands = {
     reportschannel.send(reportEmbed);
 	return;	
 },'motd': (msg) => {
+	if(message.author.id !== config.bot_admin_id) return;
 	msg.delete(1000);
 	msg.channel.send("`Initializing Resist.Network...` ```prolog\nWelcome to the Resist.Network Minecraft Community! We host our own custom Minecraft modpack and server. Scifi, Futuristic, CyberPunk themed tech only survival pack. \n\nPlease check our chat channels, or visit our website at the link below for the mod list, launcher information,\nconnect information and much much more.```\n\nGet it Now!  [ https://Resist.Network ]\n\nJoin <#515836198368051203> for regular chat and to meet the community!\nUse <#525842772247314442> for general help or open a ticket.\n\n**SERVER INFORMATION**```css\nModded Minecraft Version { 1.12.2 }\nServer Stats { DEDICATED, 16GB RAM, SSD RAID, 8 CORE }\n```\n**OPEN A SUPPORT TICKET** - **!open**\n```ldif\nCreates a private channel and staff will assist you when they are available.\n\nFor immediate help, check out or other channels, or check out site for various custom tweaks, recipes, and extended help topics.```\n**DOWNLOAD GAME** - **!download**\n```ldif\nProvides the downloads for Windows, Linux and OSX players.```", {
 		files: [
@@ -874,6 +873,7 @@ const commands = {
 	}
 	exec("/storage/resist-discord-bot/speedtest.sh", puts);
 },'update': (msg) => {
+	if(message.author.id !== config.bot_admin_id) return;
 	msg.channel.send("`Starting update, please wait...`"); 
 	//msg.delete(1000);
 	let host = msg.content.split(' ')[1];
@@ -915,6 +915,7 @@ const commands = {
 	}
 	exec("dig "+host, puts);
  },'gitdiff': (msg) => {
+	if(message.author.id !== config.bot_admin_id) return;
 	let which = msg.content.split(' ')[1];
 	var sys = require('util');
 	var exec = require('child_process').exec;
@@ -956,6 +957,7 @@ const commands = {
 			msg.channel.send('Search String: '+testRaw);
 			break;
 		case "wipe":
+			if(message.author.id !== config.bot_admin_id) return;
 			exec("rm -rf /storage/resist-discord-bot/assets/public/music/*.mp3");
 			exec("cp -rf /storage/resist-discord-bot/assets/public/music-orig/*.mp3 /storage/resist-discord-bot/assets/public/music/.");
 			exec("mv /storage/listen.m3u.orig /storage/listen.m3u");
