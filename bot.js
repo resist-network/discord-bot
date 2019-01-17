@@ -1411,7 +1411,7 @@ client.on('message', msg => {
 	//Main ALL Logging, needs this bot disabled before worth anything!
 	if(msg.author.id !== config.bot_id) {
 		console.log("["+logTimestamp+"] "+msg.author.username+"("+msg.author.id+") "+msg);
-		client.channels.get(discord_channel_id_radio).send("`"+msg.author.username+"("+msg.author.id+") "+msg+"`")
+		client.channels.get(discord_channel_id_log).send("`"+msg.author.username+"("+msg.author.id+") "+msg+"`")
 	}
 	if (!msg.content.startsWith(bot_prefix)) { 
 		//AI sequence here
