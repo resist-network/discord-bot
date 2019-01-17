@@ -763,7 +763,7 @@ const commands = {
     let rUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!rUser) return message.channel.send("Couldn't find user.");
     let rreason = args.join(" ").slice(22);
-	let reportEmbed = "`"+message.createdAt+" `<@"+message.author.id+">`(ID# "+message.author.id+") reported user` "+rUser+"`(ID# "+message.author.id+") for "+kreason+"...`";
+	let reportEmbed = "`"+message.createdAt+" `<@"+message.author.id+">`(ID# "+message.author.id+") reported user` "+rUser+"`(ID# "+message.author.id+") for "+rreason+"...`";
     let reportschannel = message.guild.channels.find(`name`, "staff");
     if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
     message.delete().catch(O_o=>{});
