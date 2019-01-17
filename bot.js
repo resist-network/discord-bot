@@ -793,7 +793,7 @@ const commands = {
 		if(stdout == "") {
 			msg.channel.send("`Querying game server overall health and ticks per second...` ```Well, I may be artificial, but I am far from perfect. Error!```");			
 		} else {
-			msg.channel.send("`Querying game server overall health and ticks per second...` ```css\n"+stdout+"```");
+			msg.channel.send("`Querying game server overall health and ticks per second...` ```pre\n"+stdout+"```");
 		}
 	}
 	exec("/bin/bash /storage/resist-discord-bot/tps.sh", puts);
