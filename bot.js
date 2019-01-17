@@ -626,26 +626,9 @@ const commands = {
 	var descriptionAbout = "`Our bots do things yours can't. Haha!`";
 	msg.channel.send(descriptionAbout);
 },'about': (msg) => {
-	var cmd;
-	if(msg.content.split(' ')[1] == null) {
-		cmd = "bot";
-	} else {
-		cmd = msg.content.split(' ')[1];
-	}
-	switch(cmd) {
-		case "bot":
-			msg.channel.send("`Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\nCustom Open Source Discord Bot built with [Node] and [Discord.js] for our Minecraft community and server.\nFor more information including current and planned features visit the link above.\nBig Brother is Watching You!\n\n{ Resist.Network | All Rights Reserved }```");
-			break;
-		case "discord":	
-			// About Server Guild
-			let message = msg;
-			let serverembed = "Server Name { "+message.guild.name+" }\nCreated On { "+ message.guild.createdAt+" }\nYou Joined On { "+message.member.joinedAt+" }\nTotal Members { "+message.guild.memberCount+" }";
-			msg.channel.send("`Querying discord monkeys...` ```css\n"+serverembed+"\n\n{ Want to play a game? | All Rights Reserved }```");
-			break;
-		default:
-			msg.channel.send("`Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\nCustom Open Source Discord Bot built with [Node] and [Discord.js] for our Minecraft community and server.\nFor more information including current and planned features visit the link above.\nBig Brother is Watching You!\n\n{ Resist.Network | All Rights Reserved }```");
-			break;
-	}
+	let message = msg;
+	let serverembed = "Server Name { "+message.guild.name+" }\nCreated On { "+ message.guild.createdAt+" }\nYou Joined On { "+message.member.joinedAt+" }\nTotal Members { "+message.guild.memberCount+" }";
+	msg.channel.send("`Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\n"+serverembed+"\n\nAbout the Bot { Custom Open Source Discord Bot built with [Node] and [Discord.js] for our Minecraft community and server.\nFor more information including current and planned features visit the link above.\nBig Brother is Watching You! }```");
 },'sendnudes': (msg) => {
 		msg.channel.send("`Well, I suppose its ok since I know you...`\nhttps://i.dailymail.co.uk/i/pix/2015/07/15/15/2A8D0D2000000578-0-image-a-34_1436968980848.jpg");
 },'clear': (msg) => {
