@@ -760,7 +760,7 @@ const commands = {
     .addField("Banned In", message.channel)
     .addField("Time", message.createdAt)
     .addField("Reason", bReason);
-    let incidentchannel = message.guild.channels.find(`name`, "incidents");
+    let incidentchannel = message.guild.channels.find(`name`, "staff");
     if(!incidentchannel) return message.channel.send("Can't find incidents channel.");
     message.guild.member(bUser).ban(bReason);
     incidentchannel.send(banEmbed);
@@ -778,7 +778,7 @@ const commands = {
     .addField("Channel", message.channel)
     .addField("Time", message.createdAt)
     .addField("Reason", rreason);
-    let reportschannel = message.guild.channels.find(`name`, "reports");
+    let reportschannel = message.guild.channels.find(`name`, "staff");
     if(!reportschannel) return message.channel.send("Couldn't find reports channel.");
     message.delete().catch(O_o=>{});
     reportschannel.send(reportEmbed);
