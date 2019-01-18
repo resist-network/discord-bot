@@ -1055,7 +1055,7 @@ const commands = {
         var xp_exp_lvl = rows[0].exp_lvl
         var bal = rows[0].credit_balance  
         var uuid = rows[0].uuid
-        var joinDate = rows[0].JOIN_DATE
+        var joinDate = rows[0].JOIN_DATE.replace('00:00:00 GMT-0500 (GMT-05:00)','')
         var timePlayed = rows[0].TIME_PLAYED
         var uuidSecure = uuid.substr(uuid.length - 6)
         var rank = ""
@@ -1086,7 +1086,7 @@ const commands = {
           },
           description: "`Player Name` "+mcUser+"\n`Rank` "+rank+
             "\n`Identification Number` "+uuidSecure+
-            "\n\n:date: `Join Date` "+joinDate.replace('00:00:00 GMT-0500 (GMT-05:00)','')+
+            "\n\n:date: `Join Date` "+joinDate+
             "\n:clock1: `Time Played` "+timePlayed+
             "\n<:Heart:532686774108160007> `Current Health` NA"+
             "\n<:credit:532687325101293579> `Credit Balance` "+bal,
