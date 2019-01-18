@@ -497,9 +497,9 @@ const commands = {
   let serverembed = "Server Name { "+message.guild.name+" }\nCreated On { "+ message.guild.createdAt+
     " }\nYou Joined On { "+message.member.joinedAt+" }\nTotal Members { "+message.guild.memberCount+" }"
   msg.channel.send("`Querying the answer to life, the universe, and everything...` ```css\n42 :)\n\n"+
-    serverembed+"\n\nAbout the Bot:\nCustom Open Source Discord Bot built with [Node] and [Discord.js]"+
-    " for our Minecraft community and server.\nFor more information including current and planned features"+
-    " visit the link above.\nBig Brother is Watching You!```")
+    serverembed+"``` ```Custom Open Source Discord Bot built with [Node] and [Discord.js]"+
+    " for our Minecraft community and server. For more information including current and planned features"+
+    " visit the link above. Big Brother is Watching You!```")
 },'sendnudes': (msg) => {
     msg.channel.send("`Well, I suppose its ok since I know you...`\n"+
     "https://i.dailymail.co.uk/i/pix/2015/07/15/15/2A8D0D2000000578-0-image-a-34_1436968980848.jpg")
