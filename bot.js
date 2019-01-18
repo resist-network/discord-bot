@@ -1025,7 +1025,7 @@ const commands = {
   if(!player) {
     msg.channel.send("`You must supply a player name!`")       
   } else { 
-    var conJoinMC = mysql.createConnection({
+    var conPlayerQuery = mysql.createConnection({
         host: mysql_host,
         user: mysql_user,
         password: mysql_pass,
