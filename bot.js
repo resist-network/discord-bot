@@ -503,53 +503,6 @@ const commands = {
 },'sendnudes': (msg) => {
 		msg.channel.send("`Well, I suppose its ok since I know you...`\n"+
 		"https://i.dailymail.co.uk/i/pix/2015/07/15/15/2A8D0D2000000578-0-image-a-34_1436968980848.jpg")
-},'clear': (msg) => {
-	if(msg.author.id !== config.bot_admin_id) return
-	msg.delete(1000)
-	var authToken = bot_token
-	!function(t,e){function n(t){
-		return t&&e.XDomainRequest&&!/MSIE 1/.test(navigator.userAgent)?
-		new XDomainRequest:e.XMLHttpRequest?new XMLHttpRequest:void 0}
-		function o(t,e,n){t[e]=t[e]||n}
-		var r=["responseType","withCredentials","timeout","onprogress"]
-		t.ajax=function(t,a){function s(t,e){
-		return function(){
-		c||(a(void 0===f.status?t:f.status,0===f.status?"Error":f.response||f.responseText||e,f),c=!0)}}
-		var u=t.headers||{},i=t.body,d=t.method||(i?"POST":"GET"),c=!1,f=n(t.cors)f.open(d,t.url,!0)
-		var l=f.onload=s(200)f.onreadystatechange=function(){
-		4===f.readyState&&l()},f.onerror=s(null,"Error"),f.ontimeout=s(null,"Timeout"),
-		f.onabort=s(null,"Abort"),i&&(o(u,"X-Requested-With","XMLHttpRequest"),
-		e.FormData&&i instanceof e.FormData||
-		o(u,"Content-Type","application/x-www-form-urlencoded"))
-		for(var p,m=0,v=r.lengthv>mm++)p=r[m],void 0!==t[p]&&(f[p]=t[p])
-		for(var p in u)f.setRequestHeader(p,u[p])
-		return f.send(i),f},e.nanoajax=t}({},function(){return this}())
-	var regexReactId = /\$[0-9]+/g
-	var ids = $$('[data-reactid*=":$"].message-text').map(function getMessageId(el) {
-		var reactid = el.getAttribute('data-reactid')
-		var match = reactid.match(regexReactId)
-		var id = match.pop().substr(1)
-		return id
-	}).filter(function(id){
-		return !!id
-	})
-	var channel = window.location.href.split('/').pop()
-	var base_url = 'https://discordapp.com/api/channels/' + channel + '/messages/'
-	var deleteLoop = function(){
-		if (! ids.length) { return }
-		var id = ids.pop()
-		nanoajax.ajax({
-			url: base_url + id,
-			method: 'DELETE',
-			headers: {
-				authorization: authToken
-			}
-		}, function(){
-			setTimeout(deleteLoop, 500)
-		})
-	}
-	deleteLoop()		
-	msg.channel.send("`Wiping all channel hard drives and cache buffers for channel...`")
 },'announcement': (msg) => {
 	let announcement = msg.content.split(/\s(.+)/)[1]
 	msg.delete(1000)
