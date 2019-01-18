@@ -1084,10 +1084,10 @@ const commands = {
             "thumbnail": {
               "url": "https://visage.surgeplay.com/full/128/"+uuid,
             },
-            description: "`Player Name` "+mcUser+"\n`Rank` "+rank+"+
+            description: "`Player Name` "+mcUser+"\n`Rank` "+rank+
               "\n`Identification Number` "+uuidSecure+
               "\n\n<:Heart:532686774108160007> `Join Date` "+joinDate+
-              "\n\n<:Heart:532686774108160007> `Time Played` "+timePlayed
+              "\n\n<:Heart:532686774108160007> `Time Played` "+timePlayed+
               "\n\n<:Heart:532686774108160007> `Current Health` NA"+
               "\n<:credit:532687325101293579> `Credit Balance` "+bal+
               "\n`Claims` NA\n"+cleanOut,       
