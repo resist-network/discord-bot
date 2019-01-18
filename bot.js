@@ -1035,11 +1035,13 @@ const commands = {
       var now = moment()
       var formattedNow = now.format('YYYY-MM-DD HH:mm:ss Z')
       console.log("["+formattedNow+"]["+msg.author.username+"/"+msg.author.id+"] Queried "+player+"...\n")
-      conPlayerQuery.query("SELECT * FROM `site_users`, `accounts`, `luckperms_players`,"+
-        " `rankup_player_stats` WHERE"+
-        " site_users.user_login = '"+player+"' AND luckperms_players.username = '"+player+
-        "' AND accounts.uid = luckperms_players.uuid AND"+
-        " rankup_player_stats.uuid = accounts.uid", function(err,rows) { 
+      var playerQuery = "SELECT * FROM `site_users`, `accounts`, `luckperms_players`,"+
+      " `rankup_player_stats` WHERE"+
+      " site_users.user_login = '"+player+"' AND luckperms_players.username = '"+player+
+      "' AND accounts.uid = luckperms_players.uuid AND"+
+      " rankup_player_stats.uuid = accounts.uid";
+      console.log(playerQuery)
+      conPlayerQuery.query(playerQuery, function(err,rows) { 
         if(err) { console.log("MySQL Error: "+err) } 
         if (!rows[0]) {
           msg.channel.send("Player does not exist or I can't find enough data on them yet. Please"+
