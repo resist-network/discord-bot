@@ -1073,7 +1073,6 @@ const commands = {
         }         
         var sys = require('util')
         var exec = require('child_process').exec
-        var cleanOut = stdout.replace(/Resist.Network#  /g, "`Time Info` ")
         var playerQueryIntro = "`Displaying credentials for "+mcUser+"...`"
         var playerEmbed = {embed: {
           color: 0xff8000,
@@ -1091,7 +1090,7 @@ const commands = {
             "\n\n<:Heart:532686774108160007> `Time Played` "+timePlayed+
             "\n\n<:Heart:532686774108160007> `Current Health` NA"+
             "\n<:credit:532687325101293579> `Credit Balance` "+bal+
-            "\n`Claims` NA\n"+cleanOut,       
+            "\n`Claims` NA\n",       
         }}    
         msg.channel.send(playerQueryIntro, playerEmbed)
         conPlayerQuery.end()
