@@ -635,7 +635,7 @@ const commands = {
   msg.channel.send("`RTFM eh? Go right ahead...` ```css\n.BOT_PLAYER\n!player [playerName] { Get the"+
   " information card for a player. }\n!time top { Get top playtimes for the server. }\n!time [playerName]"+
   " { Get a players time statistics. }\n!tps { Get current server TPS. }\n!open { Opens a support ticket with"+
-  " staff. }\n\n.BOT_RADIO \n!radio add [searchTerm] { Get and grab first result as a new radio track. }\n"+
+  " staff. }\n\n.BOT_RADIO \n!radio add [searchTerm] { Get first result as a new radio track. }\n"+
   "!radio skip { Skip to the next track in the queue. }\n!radio remove { Removes currently playing track from "+
   "the queue. }\n!radio nowplaying { Shows currently playing live track information. }\n!radio queue { Shows"+
   " the current live radio queue and lineup. }\n\n.BOT_GOOGLE\n!google [searchTerm] { Search Google and return"+
