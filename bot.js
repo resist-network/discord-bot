@@ -1023,18 +1023,7 @@ const commands = {
   var message = msg
   let player = msg.content.split(' ')[1]
   if(!player) {
-    msg.channel.send({embed: {
-      color: 0xff8000,
-      author: {
-        name: bot_nickname+" - Player Info",
-        icon_url: bot_logo_square
-      },
-      description: "You must supply a player name!",        
-      timestamp: new Date(),
-      footer: {
-        text: info_copyright
-      }
-    }})       
+    msg.channel.send("`You must supply a player name!`")       
   } else { 
     var conJoinMC = mysql.createConnection({
         host: mysql_host,
@@ -1042,29 +1031,19 @@ const commands = {
         password: mysql_pass,
         database: mysql_database
     })
-    conJoinMC.connect(err => {
+    conPlayerQuery.connect(err => {
       var now = moment()
       var formattedNow = now.format('YYYY-MM-DD HH:mm:ss Z')
       console.log("["+formattedNow+"]["+msg.author.username+"/"+msg.author.id+"] Queried "+player+"...\n")
-      conJoinMC.query("SELECT * FROM `site_users`, `accounts`, `luckperms_players` WHERE"+
+      conPlayerQuery.query("SELECT * FROM `site_users`, `accounts`, `luckperms_players`,"+
+        " `rankup_player_stats` WHERE"+
         " site_users.user_login = '"+player+"' AND luckperms_players.username = '"+player+
-        "'", function(err,rows) { 
+        "' AND accounts.uid = luckperms_players.uuid AND"+
+        " rankup_player_stats.uuid = accounts.uid", function(err,rows) { 
         if(err) { console.log("MySQL Error: "+err) } 
         if (!rows[0]) {
-          msg.channel.send({embed: {
-            color: 0xff8000,
-            author: {
-              name: bot_nickname+" - Player Info",
-              icon_url: bot_logo_square
-            },
-            description: "Player does not exist or I can't find enough data on them yet. Wait"+
-              " a half day or so. We will find something! Perhaps they haven't authenticated"+
-              " with the system!",        
-            timestamp: new Date(),
-            footer: {
-              text: info_copyright
-            }
-          }}) 
+          msg.channel.send("Player does not exist or I can't find enough data on them yet. Please"+
+              " try again later.")
           return true
         }
         var mcUser = rows[0].user_login
@@ -1074,6 +1053,8 @@ const commands = {
         var xp_exp_lvl = rows[0].exp_lvl
         var bal = rows[0].credit_balance  
         var uuid = rows[0].uuid
+        var joinDate = rows[0].JOIN_DATE
+        var timePlayed = rows[0].TIME_PLAYED
         var uuidSecure = uuid.substr(uuid.length - 6)
         var rank = ""
         if(rows[0].primary_group == "default") {
@@ -1103,18 +1084,17 @@ const commands = {
             "thumbnail": {
               "url": "https://visage.surgeplay.com/full/128/"+uuid,
             },
-            description: "`Player Name` "+mcUser+"\n`Rank` "+rank+"\n`Identification Number` "+
-              uuidSecure+"\n\n<:Heart:532686774108160007> `Current Health` "+
-              "NA\n<:credit:532687325101293579> `Credit Balance` "+bal+
-              "\n\n`Claims` NA\n\n"+cleanOut,       
+            description: "`Player Name` "+mcUser+"\n`Rank` "+rank+"+
+              "\n`Identification Number` "+uuidSecure+
+              "\n\n<:Heart:532686774108160007> `Join Date` "+joinDate+
+              "\n\n<:Heart:532686774108160007> `Time Played` "+timePlayed
+              "\n\n<:Heart:532686774108160007> `Current Health` NA"+
+              "\n<:credit:532687325101293579> `Credit Balance` "+bal+
+              "\n`Claims` NA\n"+cleanOut,       
           }}    
           msg.channel.send(playerQueryIntro, playerEmbed)
-        }
-        if (systemOS === "win32") {
-        } else {
-          exec("/storage/time.sh "+mcUser+" | iconv -f utf-8 -t utf-8 -c", puts)
-        }         
-        conJoinMC.end()
+        }     
+        conPlayerQuery.end()
       })
     })
   }
