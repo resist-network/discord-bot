@@ -644,8 +644,8 @@ const commands = {
   "!nslookup [hostName] { Get domain name server information on a host/IP. }\n!dig [hostName] { Get"+
   " network dig information from a host/IP. }\n!traceroute [hostName] { Expose the network route of a"+
   " host/IP. }\n\n.BOT_MISCELLANEOUS\n!about { About this bot. }\n\n.BOT_ADMIN\n!motd { Posts an MOTD in"+
-  " the channel assigned in config. }\n!announcement { Post an announcement in the News channel assigned in"+
-  " config.\n!update { Perform full NPM and GitHub update. }\n!reboot { Reboots the host system. }\n!reload"+
+  " the channel assigned in config. }\n!announcement { Post an announcement in the News channel"+
+  " \n!update { Perform full NPM and GitHub update. }\n!reboot { Reboots the host system. }\n!reload"+
   " { Updates GitHub and restarts the bot. }\n!eval { Evaluate bot functions and code. }```") 
 },'ping': (msg) => {
   let host = msg.content.split(' ')[1]
