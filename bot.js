@@ -1056,7 +1056,7 @@ const commands = {
         var bal = rows[0].credit_balance  
         var uuid = rows[0].uuid
         var joinDate = rows[0].JOIN_DATE.toString().replace('00:00:00 GMT-0500 (GMT-05:00)','')
-        var timePlayed = rows[0].TIME_PLAYED
+        var timePlayed = rows[0].TIME_PLAYED / 60
         var uuidSecure = uuid.substr(uuid.length - 6)
         var rank = ""
         if(rows[0].primary_group == "default") {
