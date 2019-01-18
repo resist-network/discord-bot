@@ -1085,7 +1085,7 @@ const commands = {
             "url": "https://visage.surgeplay.com/full/128/"+uuid,
           },
           description: "`Player Name` "+mcUser+"\n`Rank` "+rank+
-            "\n`Identification Number` "+uuidSecure+
+            "\n`Secured UID` XX-"+uuidSecure+
             "\n\n:date: `Join Date` "+joinDate+
             "\n:clock1: `Time Played` "+timePlayed+
             "\n<:Heart:532686774108160007> `Current Health` NA"+
