@@ -1086,11 +1086,10 @@ const commands = {
           },
           description: "`Player Name` "+mcUser+"\n`Rank` "+rank+
             "\n`Identification Number` "+uuidSecure+
-            "\n\n<:Heart:532686774108160007> `Join Date` "+joinDate+
-            "\n\n<:Heart:532686774108160007> `Time Played` "+timePlayed+
-            "\n\n<:Heart:532686774108160007> `Current Health` NA"+
-            "\n<:credit:532687325101293579> `Credit Balance` "+bal+
-            "\n`Claims` NA\n",       
+            "\n\n:date: `Join Date` "+joinDate+
+            "\n<:clock1:> `Time Played` "+timePlayed+
+            "\n<:Heart:532686774108160007> `Current Health` NA"+
+            "\n<:credit:532687325101293579> `Credit Balance` "+bal,
         }}    
         msg.channel.send(playerQueryIntro, playerEmbed)
         conPlayerQuery.end()
