@@ -1073,29 +1073,27 @@ const commands = {
         }         
         var sys = require('util')
         var exec = require('child_process').exec
-        function puts(error, stdout, stderr) { 
-          var cleanOut = stdout.replace(/Resist.Network#  /g, "`Time Info` ")
-          var playerQueryIntro = "`Displaying credentials for "+mcUser+"...`"
-          var playerEmbed = {embed: {
-            color: 0xff8000,
-            author: {
-              name: "Resist.Network - Identification Card",
-              icon_url: "https://www.top5reviewed.com/wp-content/uploads/2016/07/"+
-                "Fingerprint-Door-Lock-220x220.png"
-            },
-            "thumbnail": {
-              "url": "https://visage.surgeplay.com/full/128/"+uuid,
-            },
-            description: "`Player Name` "+mcUser+"\n`Rank` "+rank+
-              "\n`Identification Number` "+uuidSecure+
-              "\n\n<:Heart:532686774108160007> `Join Date` "+joinDate+
-              "\n\n<:Heart:532686774108160007> `Time Played` "+timePlayed+
-              "\n\n<:Heart:532686774108160007> `Current Health` NA"+
-              "\n<:credit:532687325101293579> `Credit Balance` "+bal+
-              "\n`Claims` NA\n"+cleanOut,       
-          }}    
-          msg.channel.send(playerQueryIntro, playerEmbed)
-        }     
+        var cleanOut = stdout.replace(/Resist.Network#  /g, "`Time Info` ")
+        var playerQueryIntro = "`Displaying credentials for "+mcUser+"...`"
+        var playerEmbed = {embed: {
+          color: 0xff8000,
+          author: {
+            name: "Resist.Network - Identification Card",
+            icon_url: "https://www.top5reviewed.com/wp-content/uploads/2016/07/"+
+              "Fingerprint-Door-Lock-220x220.png"
+          },
+          "thumbnail": {
+            "url": "https://visage.surgeplay.com/full/128/"+uuid,
+          },
+          description: "`Player Name` "+mcUser+"\n`Rank` "+rank+
+            "\n`Identification Number` "+uuidSecure+
+            "\n\n<:Heart:532686774108160007> `Join Date` "+joinDate+
+            "\n\n<:Heart:532686774108160007> `Time Played` "+timePlayed+
+            "\n\n<:Heart:532686774108160007> `Current Health` NA"+
+            "\n<:credit:532687325101293579> `Credit Balance` "+bal+
+            "\n`Claims` NA\n"+cleanOut,       
+        }}    
+        msg.channel.send(playerQueryIntro, playerEmbed)
         conPlayerQuery.end()
       })
     })
