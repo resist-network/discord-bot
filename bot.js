@@ -1093,7 +1093,7 @@ const commands = {
           description: "`Player Name` "+mcUser+"\n`Rank` "+rank+
             "\n`Secured UID` XX-"+uuidSecure+
             "\n\n:balloon: `Join Date` "+joinDate+
-            "\n:timer: `Time Played` "+timePlayed+
+            "\n:alarm_clock: `Time Played` "+timePlayed+
             "\n<:Heart:532686774108160007> `Current Health` NA"+
             "\n<:credit:532687325101293579> `Credit Balance` "+bal,
         }}    
