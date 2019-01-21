@@ -267,7 +267,7 @@ function searchPb(query, callback) {
   })
 }
 function radioNowPlaying(channel){
-  http.get("http://bot.Resist.Network:8000/status-json.xsl", function(res){
+  http.get("http://t1000.Resist.Network:8000/status-json.xsl", function(res){
     var data = ''
 
     res.on('data', function (chunk){
@@ -285,7 +285,7 @@ function radioNowPlaying(channel){
   return true
 }
 function radioQueue(channel){
-  http.get("http://bot.Resist.Network:8000/status-json.xsl", function(res){
+  http.get("http://t1000.Resist.Network:8000/status-json.xsl", function(res){
     var data = ''
     res.on('data', function (chunk){
       data += chunk
@@ -313,7 +313,7 @@ function radioQueue(channel){
 }
 function radioRemove(channel){
   console.log("Starting radio remove...")
-  http.get("http://bot.Resist.Network:8000/status-json.xsl", function(res){
+  http.get("http://t1000.Resist.Network:8000/status-json.xsl", function(res){
     var data = ''
     res.on('data', function (chunk){
       data += chunk
@@ -343,7 +343,7 @@ function radioRemove(channel){
 }
 function radioRemoveBackend(channel,player){
   console.log("Starting radio remove...")
-  http.get("https://bot.Resist.Network/status-json.xsl", function(res){
+  http.get("https://t1000.Resist.Network/status-json.xsl", function(res){
     var data = ''
     res.on('data', function (chunk){
       data += chunk

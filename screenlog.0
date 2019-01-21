@@ -24746,3 +24746,25 @@ Repository Hash: 3ff377f1
 ---------------------------
 
 Starting Resist.Network Live Radio Stream....
+
+
+
+
+Resist.Network is ready for you!
+---------------------------
+Repository Hash: 2e43bb56
+---------------------------
+
+Starting Resist.Network Live Radio Stream....
+events.js:167
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: connect ECONNREFUSED 178.128.194.80:8000
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1113:14)
+Emitted 'error' event at:
+    at Socket.socketErrorListener (_http_client.js:391:9)
+    at Socket.emit (events.js:182:13)
+    at emitErrorNT (internal/streams/destroy.js:82:8)
+    at emitErrorAndCloseNT (internal/streams/destroy.js:50:3)
+    at process._tickCallback (internal/process/next_tick.js:63:19)
