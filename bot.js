@@ -1038,7 +1038,7 @@ const commands = {
       var playerQuery = "SELECT * FROM `site_users`, `accounts`, `luckperms_players`,"+
       " `rankup_player_stats` WHERE"+
       " site_users.user_login = '"+player+"' AND luckperms_players.username = '"+player+
-      "' AND accounts.uid = luckperms_players.uuid AND"+
+      "' AND BINARY accounts.uid = luckperms_players.uuid AND BINARY"+
       " rankup_player_stats.uuid = accounts.uid";
       console.log(playerQuery)
       conPlayerQuery.query(playerQuery, function(err,rows) { 
